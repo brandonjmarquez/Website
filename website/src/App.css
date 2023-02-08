@@ -1,0 +1,155 @@
+.App {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(var(--main-color), white 200%);
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  min-height: 50vh;
+  display: flex;
+  padding: 15vh 15vh 15vh 15vh;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-size: 2vmin;
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+.right-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  height: 60vh; 
+  width: 50vw;
+}
+
+.left-header {
+  display: flex;
+  height: 60vh; 
+  width: 35vw;
+}
+
+.recruit-container {
+  float: left;
+}
+
+.recruitment-status {
+  display: block;
+  color: white;
+  font-size: 2vmin;
+  text-align: left;
+}
+
+.header-text {
+  font-size: 3vmin;
+  margin-bottom: .5em;
+}
+
+.recruitment-light {
+  font-size: 3vmin;
+  margin: 0 1vmin 1vmin 0;
+  vertical-align: middle;
+  animation: light-flash 1s ease 1s infinite;
+  color: var(--light-color-dim-l);
+  /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+}
+
+@keyframes light-flash {
+  0%{color: var(--light-color-l); box-shadow: 0 0 .5em, var(--light-color-dim-l);}
+  50%{color: var(--light-color-l); box-shadow: 0 0 .5em, var(--light-color-dim-l);}
+  100%{color: var(--light-color-dim-l);}
+}
+
+#piano {
+  overflow: scroll;
+  overflow-x: hidden;
+  border: 2px solid black;
+  border-radius: 5px;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+#piano::-webkit-scrollbar {
+  display: none;
+}
+
+.navbar {
+  /* margin-top: 20vh; */
+  display: flex;
+  height: 10vmin;
+  width: 100vw;
+  min-height: 100px;
+  background-color: white;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1000px;
+  position: absolute;
+}
+
+.nav-item {
+  display: flex;
+  padding: 1.5vmin 3vmin 1.5vmin 3vmin;
+  margin: 2px;
+  background-color: #e48ec9;
+  color: white;
+  border-radius: 50px;
+  font-size: 1.5vmin;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  min-width: 125px;
+}
+
+#about-me {
+  background: radial-gradient(var(--main-color), #8ee4bd 175%);
+  background-color: #8ee4bd;
+  padding: 5vh 0 5vh 0;
+}
+
+.about-me-containter {
+  display: flex;
+  height: 50vh;
+  width: 100vw;
+}
+
+@media only screen and (max-width: 1000px) {
+  .App-header {
+    flex-direction: column;
+    padding: 5vh 5vh 10vh 5vh;
+  }
+
+  .right-header {
+    height: 40vh; 
+    width: 70vw;
+  }
+  
+  .left-header {
+    display: flex;
+    height: 30vh; 
+    width: 70vw;
+  }
+
+  .nav-item {
+    font-size: 14px;
+    min-height: 40px;
+    min-width: 80px;
+  }
+}

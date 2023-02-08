@@ -1,0 +1,44 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  font: 1vmin Inconsolata, monospace;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--main-color);
+  overflow-x: hidden;
+}
+
+button {
+  font: 2vmin Inconsolata, monospace;
+}
+
+input {
+  font: 2vmin Inconsolata, monospace;
+}
+
+select {
+  font: 1vmin Inconsolata, monospace;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+:root {
+  --main-color: cornflowerblue;
+  --light-color-l: rgb(37, 207, 37);
+  --light-color-dim-l: rgb(51, 133, 51);
+  --light-color-nl: rgb(232, 25, 25);
+  --light-color-dim-nl: rgb(149, 41, 41);
+}
