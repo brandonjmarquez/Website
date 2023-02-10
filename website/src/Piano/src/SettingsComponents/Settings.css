@@ -198,7 +198,22 @@ button.info {
 
 @media only screen and (max-width: 1000px) {
   .playback-button {
+    font-size: calc(5px + 1.5vmin);
+    padding: 1vmin;
+    min-height: 23px;
+    min-width: 23px;
+  }
+
+  .settings {
     font-size: 1.5vmin;
     padding: 1vmin;
+    height: 1vh;
+    min-height: 23px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .settings {
+    /* height: 1vh; */
   }
 }

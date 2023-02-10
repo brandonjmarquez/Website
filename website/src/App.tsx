@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import './App.css';
-import { FaCircle } from 'react-icons/fa'
+import { FaCircle, FaInfoCircle } from 'react-icons/fa'
 import Piano from './Piano/src/Piano';
 
 function App() {
@@ -50,9 +50,10 @@ function App() {
         <header ref={headerCb} className="App-header container">
           <div className='left-header'>
             <div>
-              <h1 className='title'>Hi! My name is Brandon Marquez</h1>
+              <h1 className='title'>Hi! My name is Brandon</h1>
               {"\n"}
               <h4 className='subtitle'>I am a full stack developer, but I have a personal love for the front end.</h4>
+              <h5 className='subtitle'>If you want to know more about the piano you can click the "<FaInfoCircle />" in the top left corner.</h5>
             </div>
           </div>
           <div className='right-header'>

@@ -241,7 +241,7 @@ function Piano(props: PianoProps) {
         </style>
         {infoModal}
         <div ref={selectorsRef} id='selectors'>
-          <button className='info' onClick={() => info()}><FaInfoCircle /></button>
+          <button className='info' onClick={() => info()}><FaInfoCircle style={{color: 'white', margin: '2px 2px'}} /></button>
           <br></br>
           <div className='settings-buttons'>
             {(menuShown === 'PianoSettings') ? <><button className='settings-button left' onClick={() => setMenuShown('')}>X</button><SoundSettings soundDetails={soundDetails} sound={soundState.sound} octave={soundState.octave} volume={soundState.volume} pianoDispatch={soundDispatch} /></> : <button className='settings-button left' onClick={() => setMenuShown('PianoSettings')}>Piano Settings</button>}
