@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useState, useReducer, useEffect, useRef, useMemo, useCallback } from 'react'
+import { useState, useReducer, useEffect, useRef, useMemo, ReactPortal} from 'react'
 import { Reducer, SoundState, SoundAction, MidiState, MidiAction, KeysPressed, ControlsState, ControlsAction, MidiRecorded, KeyPressed, MidiNoteInfo } from './Tools/Interfaces';
 import SoundSettings from './SettingsComponents/SoundSettings'
 import MidiSettings from './SettingsComponents/MidiSettings'
@@ -15,6 +15,7 @@ import { ErrorBoundary } from './Tools/ErrorBoundary';
 import axios from 'axios';
 import './Piano.css';
 import { FaInfoCircle } from 'react-icons/fa';
+import { createPortal } from 'react-dom';
 
 function soundReducer(state: SoundState, action: any) {
   switch(action.type) {
@@ -57,14 +58,24 @@ function controlsReducer(state: ControlsState, action: any) {
   }
 }
 
-function Piano() {
+interface PianoProps {
+  pianoRef: React.RefObject<HTMLDivElement>;
+}
+
+function Piano(props: PianoProps) {
   const [soundDetails, setSoundDetails] = useState({});
   const [soundState, soundDispatch] = useReducer<Reducer<SoundState, SoundAction>>(soundReducer, {octave: 3, sound: 'GrandPiano', volume: '2mf'});
   const [midiState, midiDispatch] = useReducer<Reducer<MidiState, MidiAction>>(midiReducer, {bpm: 120, metronome: 'off', mode: 'keyboard', numMeasures: 4, ppq: 96,  subdiv: 4});
   const [controlsState, controlsDispatch] = useReducer<Reducer<ControlsState, ControlsAction>>(controlsReducer, {export: false, undo: false});
   const [octaveMinMax, setOctaveMinMax] = useState([0, 0]);
   const [controlsPressed, setControlsPressed] = useState<(string | boolean)[]>(['', false]);
-  const midiLength = useMemo<number>(() => midiState.numMeasures * 4 / (midiState.bpm / 60 / 1000), [midiState.bpm]); // number of beats / bpm in ms
+  const midiLength = useMemo<number>(() => {
+    if(midiState.bpm === 0) {
+      return 1;
+    } else {
+      return midiState.numMeasures * 4 / (midiState.bpm / 60 / 1000)
+    }
+  }, [midiState.bpm]); // number of beats / bpm in ms
   const pulseRate = useMemo<number>(() => midiState.ppq * (midiState.bpm / 60 / 1000), [midiState.bpm, midiState.ppq]); // ppq * bpm in ms
   const [time, setTime] = useState(0); // 24 * 120 /60/1000 * 16 /(120/60/1000)
   const [pulseNum, setPulseNum] = useState(0);
@@ -76,6 +87,7 @@ function Piano() {
   const [focus, setFocus] = useState(false);
   const [midiNoteInfo, setMidiNoteInfo] = useState<MidiNoteInfo[]>([]);
   const [menuShown, setMenuShown] = useState('')
+  const [infoModal, setInfoModal] = useState<ReactPortal | null>()
   const selectorsRef = useRef<HTMLDivElement>(null);
   const noteTracksRef = useRef<HTMLDivElement>(null);
   const timerRef = useRef<HTMLDivElement>(null);
@@ -180,6 +192,35 @@ function Piano() {
   function clearControls() {
     setControlsPressed(['', false]);
   }
+
+  function info() {
+    var picked = 'none';
+
+    closeInfo()
+    function closeInfo() {
+      if(picked === 'none' && props.pianoRef.current) {
+        setInfoModal(createPortal(
+          <>
+          <div id='popup-bg'></div>
+          <div id='popup-select' className='popup select' style={{zIndex: 6}}>
+            <button type='button' className='popup-button settings button'
+              onClick={() => {
+                picked = 'new'; 
+                document.getElementById('popup-bg')!.classList.toggle('lift-out');
+                document.getElementById('popup-select')!.classList.toggle('lift-out');
+              }}
+            >Start New Track</button>
+            <button type='button' className='popup-button settings button' 
+              onClick={() => {
+                picked = 'dont'; 
+                document.getElementById('popup-bg')!.classList.toggle('lift-out');
+                document.getElementById('popup-select')!.classList.toggle('lift-out');
+              }}
+            >Keep Track</button>
+          </div></>, props.pianoRef.current))
+      }
+    }
+  }
   
   const bgSizeTrack = 100 / midiState.numMeasures;
   // {console.log(selectorsRef.current)}
@@ -187,37 +228,28 @@ function Piano() {
       <>
         <style>
           {`
-            #midi {
-              width: ${100}%;
-            }
-
             #midi-note-labels {
-              max-width: ${(document.body.offsetWidth <= noteTracksRef.current?.offsetWidth! + labelsRef.current?.offsetWidth!) ? '8vmax' : '8%'};
-              min-width: min-content;
-             
-            }
-            #midi-track {  
-              width: 100%;
-              height: 100%;
+              grid-template-rows: repeat(${getOctaveArray().length}, ${(100) / getOctaveArray().length}%);
             }
 
-            .note-label {
-              // height: ${(100) / 12}%;
+            @media only screen and (min-width: 1000px) {
+              #midi-note-labels {
+                grid-template-rows: repeat(${getOctaveArray().length}, ${(100) / getOctaveArray().length}%);
+              }
             }
-
           `}
         </style>
-        
+        {infoModal}
         <div ref={selectorsRef} id='selectors'>
-          <button className='info'><FaInfoCircle /></button>
+          <button className='info' onClick={() => info()}><FaInfoCircle /></button>
           <br></br>
           <div className='settings-buttons'>
-            {(menuShown === 'PianoSettings') ? <><button className='settings-button left' onClick={() => setMenuShown('')}>Piano Settings</button><SoundSettings soundDetails={soundDetails} sound={soundState.sound} octave={soundState.octave} volume={soundState.volume} pianoDispatch={soundDispatch} /></> : <button className='settings-button left' onClick={() => setMenuShown('PianoSettings')}>Piano Settings</button>}
-            {(menuShown === 'MidiSettings') ? <><MidiSettings bpm={midiState.bpm} midiNoteInfoLength={midiNoteInfo.length} mode={midiState.mode} numMeasures={midiState.numMeasures} selectorsRef={selectorsRef} soundDetails={soundDetails} subdiv={midiState.subdiv} controlsDispatch={controlsDispatch} midiDispatch={midiDispatch} setMidiNoteInfo={setMidiNoteInfo} /><button className='settings-button right' onClick={() => setMenuShown('')}>Midi Settings</button></> : <button className='settings-button right' onClick={() => setMenuShown('MidiSettings')}>Midi Settings</button>}
+            {(menuShown === 'PianoSettings') ? <><button className='settings-button left' onClick={() => setMenuShown('')}>X</button><SoundSettings soundDetails={soundDetails} sound={soundState.sound} octave={soundState.octave} volume={soundState.volume} pianoDispatch={soundDispatch} /></> : <button className='settings-button left' onClick={() => setMenuShown('PianoSettings')}>Piano Settings</button>}
+            {(menuShown === 'MidiSettings') ? <><MidiSettings bpm={midiState.bpm} midiNoteInfoLength={midiNoteInfo.length} mode={midiState.mode} numMeasures={midiState.numMeasures} selectorsRef={selectorsRef} soundDetails={soundDetails} subdiv={midiState.subdiv} controlsDispatch={controlsDispatch} midiDispatch={midiDispatch} setMidiNoteInfo={setMidiNoteInfo} /><button className='settings-button right' onClick={() => setMenuShown('')}>X</button></> : <button className='settings-button right' onClick={() => setMenuShown('MidiSettings')}>Midi Settings</button>}
           </div>
             <div ref={timerRef} id='timer-buttons'>
               <TimerButtons metPlay={metPlay} metronome={midiState.metronome} mode={midiState.mode} pulseNum={pulseNum} midiDispatch={midiDispatch} />
-              <input readOnly={true} id='time' className='settings input' value={(pulseNum / pulseRate/1000).toFixed(2)}></input>
+              <input readOnly={true} id='time' className='settings input' value={(pulseRate !== 0) ? (pulseNum / pulseRate/1000).toFixed(2) : (0).toFixed(2)}></input>
               <KbFunctions controlsPressed={controlsPressed} metronome={midiState.metronome} mode={midiState.mode} octave={soundState.octave} octaveMinMax={octaveMinMax} selectorsRef={selectorsRef} clearControls={clearControls} controlsDispatch={controlsDispatch} midiDispatch={midiDispatch} soundDispatch={soundDispatch} />
             </div>
         </div>
@@ -232,7 +264,7 @@ function Piano() {
         </div>
           <KeyNoteInput focus={focus} octave={soundState.octave} pianoRollKey={pianoRollKeyRef.current} pulseNum={pulseNum} onControlsPressed={setControlsPressed} onNotePlayed={setKeysPressed} setKeysPressed={setKeysPressed} setKeysUnpressed={setKeysUnpressed} />
           <MidiRecorder controlsState={controlsState} gridSize={gridSize} keysPressed={keysPressed} keysUnpressed={keysUnpressed} midiLength={midiLength} midiNoteInfo={midiNoteInfo} midiState={midiState} noteTracksRef={noteTracksRef} pulseNum={pulseNum} pulseRate={pulseRate} controlsDispatch={controlsDispatch} setKeysUnpressed={setKeysUnpressed} setMidiNoteInfo={setMidiNoteInfo} setPlayback={setPlayback} />
-          <Timer bpm={midiState.bpm} metronome={midiState.metronome} midiLength={midiLength} time={time} timerRef={timerRef} mode={midiState.mode} ppq={midiState.ppq} pulseNum={pulseNum} pulseRate={pulseRate} handleMetPlay={metPlayed} handleSetTime={setTime} handleSetPulseNum={setPulseNum} />
+          <Timer metronome={midiState.metronome} midiLength={midiLength} time={time} timerRef={timerRef} mode={midiState.mode} ppq={midiState.ppq} pulseNum={pulseNum} pulseRate={pulseRate} handleMetPlay={metPlayed} handleSetTime={setTime} handleSetPulseNum={setPulseNum} />
           <PianoInstrument pulseNum={pulseNum} soundDetails={soundDetails} sound={soundState.sound} octave={soundState.octave} octaveMinMax={octaveMinMax} volume={soundState.volume} mode={midiState.mode} keysPressed={keysPressed} keysUnpressed={keysUnpressed} playback={playback} labelsRef={labelsRef} setKeysUnpressed={setKeysUnpressed} />
       </>
   );

@@ -1,5 +1,6 @@
 .App {
   display: flex;
+  position: sticky;
   flex-direction: column;
   text-align: center;
   justify-content: center;
@@ -20,13 +21,19 @@
 
 .App-header {
   min-height: 50vh;
+  width: 100vw;
   display: flex;
-  padding: 15vh 15vh 15vh 15vh;
+  padding-top: 15vh;
   flex-direction: row;
   align-items: center;
   justify-content: center;
   font-size: 2vmin;
   color: white;
+}
+
+.container {
+  margin: 0 auto;
+
 }
 
 .App-link {
@@ -37,8 +44,9 @@
   display: flex;
   flex-direction: column;
   justify-content: left;
-  height: 60vh; 
+  height: 50vh; 
   width: 50vw;
+  margin-left: 2vw;
 }
 
 .left-header {
@@ -47,8 +55,14 @@
   width: 35vw;
 }
 
+h1.title {
+  font-size: 48px;
+  margin: 0;
+}
+
 .recruit-container {
   float: left;
+  text-align: center;
 }
 
 .recruitment-status {
@@ -59,30 +73,40 @@
 }
 
 .header-text {
+  display: inline-flex;
   font-size: 3vmin;
   margin-bottom: .5em;
 }
 
 .recruitment-light {
-  font-size: 3vmin;
+  /* display: flex; */
+  font-size: 2vmin;
   margin: 0 1vmin 1vmin 0;
-  vertical-align: middle;
+  vertical-align:text-bottom;
   animation: light-flash 1s ease 1s infinite;
+  -webkit-animation: light-flash 1s ease 1s infinite;
   color: var(--light-color-dim-l);
   /* animation: name duration timing-function delay iteration-count direction fill-mode; */
 }
 
 @keyframes light-flash {
-  0%{color: var(--light-color-l); box-shadow: 0 0 .5em, var(--light-color-dim-l);}
-  50%{color: var(--light-color-l); box-shadow: 0 0 .5em, var(--light-color-dim-l);}
+  0%{color: var(--light-color-l);}
+  50%{color: var(--light-color-l);}
+  100%{color: var(--light-color-dim-l);}
+}
+
+@-webkit-keyframes light-flash {
+  0%{color: var(--light-color-l);}
+  50%{color: var(--light-color-l);}
   100%{color: var(--light-color-dim-l);}
 }
 
 #piano {
+  box-shadow: 0 0.5em 1em 1em rgba(255, 255, 255, 0.5);
   overflow: scroll;
   overflow-x: hidden;
-  border: 2px solid black;
-  border-radius: 5px;
+  border: 2px solid white;
+  border-radius: 10px;
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
@@ -132,24 +156,102 @@
 
 @media only screen and (max-width: 1000px) {
   .App-header {
-    flex-direction: column;
-    padding: 5vh 5vh 10vh 5vh;
+    flex-direction: row;
+    padding-top: 5vh;
+  }
+
+  .recruitment-status {
+    display: block;
+    color: white;
+    font-size: 2vmin;
+    text-align: left;
+  }
+  
+  .header-text {
+    font-size: 3vmin;
+    margin-bottom: .5em;
+  }
+  
+  .recruitment-light {
+    font-size: 3vmin;
+    margin: 0 1vmin 1vmin 0;
   }
 
   .right-header {
-    height: 40vh; 
-    width: 70vw;
+    height: 40vmax; 
+    width: 40vmax;
   }
   
   .left-header {
     display: flex;
     height: 30vh; 
-    width: 70vw;
+    width: 40vw;
   }
 
   .nav-item {
     font-size: 14px;
     min-height: 40px;
     min-width: 80px;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .App-header {
+    flex-direction: column;
+  }
+
+  .right-header {
+    height: 40vh; 
+    width: 80%;
+  }
+  
+  .left-header {
+    display: flex;
+    height: 20vh; 
+    width: 70vw;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .App-header {
+    flex-direction: column;
+  }
+
+  .recruitment-status {
+    display: block;
+    color: white;
+    font-size: 3.5vmin;
+    text-align: left;
+  }
+  
+  .header-text {
+    font-size: 5vmin;
+    margin-bottom: .5em;
+  }
+  
+  .recruitment-light {
+    font-size: 5vmin;
+    margin: 0 1vmin 1vmin 0;
+  }
+
+  .right-header {
+    height: 40vh; 
+    width: 80%;
+  }
+  
+  .left-header {
+    display: flex;
+    height: 20vh; 
+    width: 70vw;
+  }
+
+  .navbar {
+    min-height: 75px;
+  }
+
+  .nav-item {
+    font-size: 4vmin;
+    min-height: 25px;
+    min-width: 10vmin;
   }
 }

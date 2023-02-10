@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import { FaStop, FaCircle, FaRegCircle, FaPlay, FaPause } from 'react-icons/fa'
+import { useEffect } from 'react';
+import { FaStop, FaCircle, FaRegCircle, FaPlay } from 'react-icons/fa'
 
 
 interface TimerButtonProps {

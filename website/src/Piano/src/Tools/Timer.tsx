@@ -1,11 +1,10 @@
 import React, {useState, useEffect} from 'react';
 import { TimerProps, MetronomeProps } from './Interfaces';
-const {Howl, Howler} = require('howler');
+const {Howl} = require('howler');
 // import { createPortal } from 'react-dom';
 
 function Metronome(props: MetronomeProps) {
   const [metronome, setMetronome] = useState<typeof Howl>()
-  const [metPlayed, setMetPlayed] = useState(false);
 
   useEffect(() => {
     // if(props.pulseNum % 48 === 0) {
@@ -31,7 +30,7 @@ function Metronome(props: MetronomeProps) {
     if(props.pulseNum >= props.midiLength * props.pulseRate) {
       return;
     }
-    if(metronome && props.mode != 'keyboard' && props.mode != 'stop' && props.metronome === 'on' ) {
+    if(metronome && props.mode !== 'keyboard' && props.mode !== 'stop' && props.metronome === 'on' ) {
       if(props.pulseNum % (props.ppq * 2) === 0) { 
         // setMetPlayed(metPlayed);
         props.handleMetPlay(true)
@@ -45,6 +44,7 @@ function Metronome(props: MetronomeProps) {
         metronome.play('beat');
       }
     }
+    // eslint-disable-next-line
   }, [props.pulseNum, props.mode, props.metronome])
 
   return null;
@@ -82,6 +82,7 @@ function Timer(props: TimerProps) {
         return;
       }
     }
+    // eslint-disable-next-line
   }, [props.mode])
 
   function metPlay(dut: boolean) {

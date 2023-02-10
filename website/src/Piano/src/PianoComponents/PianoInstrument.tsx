@@ -47,7 +47,7 @@ function PianoInstrument(props: PianoProps) {
         Object.keys(prevNotes).forEach((noteOct) => {
           if(prevNotes[noteOct] > 0) {
             let octave = noteOct.replace(/\D/g, '');
-            fetchedSounds[octave][props.volume].play(prevNotes[noteOct]); 
+            fetchedSounds[octave][props.volume].play(prevNotes[noteOct]);
           }
         })
       }
@@ -99,7 +99,7 @@ function PianoInstrument(props: PianoProps) {
                 labelElem.classList.toggle('active');
                 Object.keys(prevNotes).some((playedNote) => {
                   if(playedNote === noteName) {
-                    fetchedSounds[octave][props.volume].fade(1, 0, 500, prevNotes[noteName]);
+                    fetchedSounds[octave][props.volume].fade(.5, 0, 500, prevNotes[noteName]);
                   }
                 });
                 prevNotesTemp[noteName] = 0;
@@ -149,17 +149,17 @@ function PianoInstrument(props: PianoProps) {
         src: [url + '.webm'],
         sprite: {
           C: [0, 4999],
-          'C#': [5000, 4999],
-          D: [10000, 4999],
-          Eb: [15000, 4999],
-          E: [20000, 4999],
-          F: [25000, 4999],
-          'F#': [30000, 4999],
-          G: [35000, 4999],
-          'G#': [40000, 4999],
-          A: [45000, 4999],
-          Bb: [50000, 4999],
-          B: [55000, 5000],
+          'C#': [5000, 4900],
+          D: [10000, 4900],
+          Eb: [15000, 4900],
+          E: [20000, 4900],
+          F: [25000, 4900],
+          'F#': [30000, 4900],
+          G: [35000, 4900],
+          'G#': [40000, 4900],
+          A: [45000, 4900],
+          Bb: [50000, 4900],
+          B: [55000, 4900],
         },
         volume: .5,
         html5: true

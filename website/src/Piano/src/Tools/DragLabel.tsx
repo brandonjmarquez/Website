@@ -18,6 +18,7 @@ function DragLabel(props: DragLabelProps) {
     console.log(e.clientY);
     (props.plane === 'y') ? setStartVal(e.clientY) : setStartVal(e.clientX);
     setOrigVal(props.value);
+    // eslint-disable-next-line
   }, [props.value])
 
   useEffect(() => {
@@ -41,6 +42,7 @@ function DragLabel(props: DragLabelProps) {
       document.removeEventListener('mousemove', onUpdate);
       document.removeEventListener('mouseup', onEnd);
     }
+    // eslint-disable-next-line
   }, [origVal, props.setValue, startVal]);
   return (
     <button

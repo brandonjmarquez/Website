@@ -133,7 +133,6 @@ export interface MetronomeProps {
 }
 
 export interface TimerProps {
-  bpm: number;
   mode: string;
   metronome: string;
   midiLength: number;

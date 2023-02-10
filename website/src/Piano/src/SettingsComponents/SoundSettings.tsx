@@ -1,5 +1,5 @@
-import React, {useState, useEffect, useRef} from 'react';
-import {SoundSettingsProps, IOctavesObj} from '../Tools/Interfaces';
+import React, { useEffect } from 'react';
+import { SoundSettingsProps, IOctavesObj } from '../Tools/Interfaces';
 // import  {DraggableNumber} from './libs/draggable-number'
 import './Settings.css';
 
@@ -21,7 +21,6 @@ import './Settings.css';
 // }
 
 function Settings(props: SoundSettingsProps) {
-
   useEffect(() => {
     const selectors: HTMLElement = document.getElementById('selectors')!;
     const keyNoteInput: HTMLElement = document.getElementById('key-note-input')!;
@@ -72,11 +71,9 @@ function Settings(props: SoundSettingsProps) {
   function renderVolumes(): JSX.Element[] {
     let volumes: JSX.Element[] = [];
     let octavesObj: IOctavesObj;
-    let volumesArr: string[] = []
     if(Object.keys(props.soundDetails).length > 0) {
       octavesObj = props.soundDetails[props.sound];
       // console.log(octavesObj)
-      volumesArr = octavesObj[props.octave as keyof typeof octavesObj];
       octavesObj[props.octave as keyof typeof octavesObj].forEach((volume: string) => {
         volumes.push(<option key={volume} value={volume}>{volume.replace(/[0-9]/g, '')}</option>);
       });

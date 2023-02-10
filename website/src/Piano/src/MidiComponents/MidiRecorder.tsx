@@ -63,6 +63,44 @@ function MidiRecorder(props: MidiRecorderProps) {
     }
   }, [props.noteTracksRef.current, props.midiNoteInfo, props.midiState.mode])
 
+  // Add or remove note upon clicking a note track or a note for touch screen
+  useEffect(() => {
+    function addRemNote(e: TouchEvent) {
+      // e.preventDefault();
+      var elem: HTMLElement;
+      if(e.target){
+        elem = e.target as HTMLElement;
+        console.log(props.midiState.mode)
+        if(elem.tagName == "DIV") {
+          setClickCoords([e.touches[0].clientX, e.touches[0].clientY]);
+        } else if(elem.tagName == "SPAN" && props.midiState.mode === 'keyboard') {
+          console.log('double')
+          let key = elem.id.substring(0, elem.id.indexOf('-'));
+          let remIndex = 0;
+          for(var i = 0; i < props.midiNoteInfo.length; i++) {
+            if(Object.keys(props.midiNoteInfo[i])[0] === key) remIndex = i;
+          }
+          // console.log(remIndex, key, props.midiNoteInfo[remIndex])
+          // let remProp = 
+          setNotesRemoved((notesRemoved) => [ ...notesRemoved, {[remIndex]: {[key]: props.midiNoteInfo[remIndex][key]}}]);
+          props.setMidiNoteInfo((midiNoteInfo: MidiNoteInfo[]) => {
+            let state = [...midiNoteInfo];
+            state.splice(remIndex, 1)
+            return state;
+          });
+        }
+      }
+    }
+
+    if(props.noteTracksRef.current) {
+      props.noteTracksRef.current.addEventListener('touchstart', addRemNote)
+    }
+
+    return () => {
+      if(props.noteTracksRef.current) props.noteTracksRef.current.removeEventListener('touchstart', addRemNote);
+    }
+  }, [props.noteTracksRef.current, props.midiNoteInfo, props.midiState.mode])
+
   useEffect(() => {
     if(props.midiNoteInfo.length > 0 && props.midiState.mode === 'keyboard') {
       let mniTemp: MidiNoteInfo[] = [...props.midiNoteInfo];
@@ -76,7 +114,6 @@ function MidiRecorder(props: MidiRecorderProps) {
           }
         }
       });
-      // console.log(mniTemp)
       props.setMidiNoteInfo(mniTemp);
     }
   }, [props.midiState.mode]);

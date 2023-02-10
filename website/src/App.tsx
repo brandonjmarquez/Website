@@ -16,7 +16,8 @@ function App() {
     if(node !== null) {
       setHeaderRect(node.getBoundingClientRect())
     }
-  }, [dimensions]);
+  }, [dimensions, navRect]);
+  const pianoRef = useRef<HTMLDivElement>(null)
   const looking = true;
 
   useEffect(() => {
@@ -26,6 +27,7 @@ function App() {
         width: window.innerWidth
       })
     }
+    document.body.scrollTop = document.documentElement.scrollTop = 0;
 
     window.addEventListener('resize', handleResize)
     return () => window.removeEventListener('resize', handleResize);
@@ -33,28 +35,36 @@ function App() {
 
   return (
     <>
-      {(navRect && headerRect) ? <style>
+      {(navRect && headerRect) && <style>
         {`
           .navbar {
-            top: ${headerRect.height - navRect.height / 2}px
+            top: ${headerRect.height - navRect.height / 2}px;
+          }
+
+          .right-header {
+            margin-bottom: ${navRect.height}px;
           }
         `}
-      </style> : null}
-      <div className="App">
-        <header ref={headerCb} className="App-header">
+      </style>}
+      <div ref={pianoRef} className='App'>
+        <header ref={headerCb} className="App-header container">
           <div className='left-header'>
-
+            <div>
+              <h1 className='title'>Hi! My name is Brandon Marquez</h1>
+              {"\n"}
+              <h4 className='subtitle'>I am a full stack developer, but I have a personal love for the front end.</h4>
+            </div>
           </div>
           <div className='right-header'>
             <div className='recruitment'>
               <div className='recruit-container'>
                 <span className='recruitment-status'><strong>Recruitment Status:</strong></span>
-                <FaCircle className='recruitment-light' />
-                <span className='header-text'>{(looking) ? 'Looking for work' : 'Not looking for work'}</span>
+                <span className='recruitment-light'>●</span>
+                <span className='header-text'>{/*<FaCircle className='recruitment-light' />*/}{(looking) ? 'Looking for work' : 'Not looking for work'}</span>
               </div>
             </div>
             <div id='piano'>
-              <Piano />
+              <Piano pianoRef={pianoRef}/>
             </div>
           </div>
         </header>

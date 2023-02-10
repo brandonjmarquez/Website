@@ -1,5 +1,5 @@
 import React, { useLayoutEffect } from 'react';
-const kbControls = require('./keyboard-controls');
+// const kbControls = require('./keyboard-controls');
 
 interface KbFunctionsProps {
   controlsPressed: (string | boolean)[]; 
@@ -27,6 +27,7 @@ function KbFunctions(props: KbFunctionsProps) {
     } else {
       if(props.controlsPressed[0] === 'z') undo();
     }
+    // eslint-disable-next-line
   }, [props.controlsPressed])
 
   function play() {

@@ -1,4 +1,4 @@
-import {useState, useEffect, useRef} from 'react';
+import {useState, useEffect} from 'react';
 import { KeyNoteInputProps, KeyPressed } from './Interfaces';
 const qwertyNote = require('../Tools/note-to-qwerty-key-obj');
 const kbControls = require('../Tools/keyboard-controls');
@@ -66,7 +66,7 @@ function KeyNoteInput(props: KeyNoteInputProps) {
       if(keysPressed.size > 0 && keysPressed.get(noteOct)) {
         setKeysUnpressed((keysUnpressed) => {
           let state = new Map(keysUnpressed)
-          console.log(keysPressed.get(note + octave));
+          // console.log(keysPressed.get(note + octave));
           state.set(noteOct, {start: keysPressed.get(noteOct)!.start, key: e.key.toLowerCase(), pressed: false, end: props.pulseNum})
           return state
         })
@@ -92,6 +92,7 @@ function KeyNoteInput(props: KeyNoteInputProps) {
       document.removeEventListener('keydown', onKeyDown);
       document.removeEventListener('keyup', onKeyUp);
     }
+    // eslint-disable-next-line
   }, [props.octave, props.pulseNum, props.focus, keysPressed, keysUnpressed]);
 
   useEffect(() => {

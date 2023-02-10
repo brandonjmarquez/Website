@@ -33,11 +33,14 @@
     left: 0;
     width: 100%;
     z-index: 3;
+    max-width: 8%;
+    min-width: min-content;
   }
 
     .note-label {
       border: none;
-      outline: black inset 2px;
+      border-radius: 10px;
+      outline: none;
       padding: 6px 6px;
       display: block;
       text-align: start;
@@ -70,6 +73,9 @@
     background-color: rgb(161, 161, 161);
     /* width: 100%; */
     margin-right: auto;
+    width: 100%;
+    height: 100%;
+    
   } 
     #subdivs {
       display: grid;
@@ -106,4 +112,30 @@ input[type='range']::-webkit-slider-thumb {
   height: 1rem;
   width:1rem;
   border-radius: 100%;
+}
+
+@media only screen and (max-width: 1000px) {
+  #midi {
+    width: 150%;
+  }
+
+  #midi-note-labels {
+    height: 150%;
+  }
+
+  #midi-track {  
+    width: 150%;
+    height: 150%;
+  }
+}
+
+@media only screen and (max-width: 384px) {
+  #midi {
+    width: 100%;
+  }
+
+  #midi-track {  
+    width: 150%;
+    height: 150%;
+  }
 }
