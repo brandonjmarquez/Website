@@ -3,8 +3,8 @@
     "module": "CommonJS",
     "allowJs": true,
     "jsx": "react-jsx",
-    "rootDir": "./src",
-    "outDir": "./dist",
+    "rootDir": "./",
+    "outDir": "../dist/client",
     "target": "esnext",
     "watch": true,
     "lib": [

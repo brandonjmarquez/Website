@@ -1,8 +1,10 @@
 FROM node
 
-WORKDIR /build/client
-COPY client/package.json /build/client
+WORKDIR /build/server
+COPY server/package.json /build/server
 RUN npm i
-COPY ./client /build/client
+COPY ./server /build/server
 
-CMD ["npm", "start"]
+EXPOSE 3003
+
+CMD ["npm", "run", "dev"]

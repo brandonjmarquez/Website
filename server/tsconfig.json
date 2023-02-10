@@ -4,7 +4,7 @@
     "allowJs": true,
     "jsx": "react-jsx",
     "rootDir": "./",
-    "outDir": "./dist",
+    "outDir": "../dist/server",
     "target": "esnext",
     "watch": true,
     "lib": [
