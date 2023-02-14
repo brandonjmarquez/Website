@@ -1,0 +1,13 @@
+services:
+  # A Docker web service
+  - type: web
+    name: node
+    env: node
+    envVars:
+      - key: PORT
+        value: 3003
+  # A private Minio instance
+  - type: web
+    name: react
+    env: static
+    dockerfilePath: ./sub/combined.dockerfile
