@@ -99,7 +99,7 @@ function PianoInstrument(props: PianoProps) {
                 labelElem.classList.toggle('active');
                 Object.keys(prevNotes).some((playedNote) => {
                   if(playedNote === noteName) {
-                    fetchedSounds[octave][props.volume].fade(.5, 0, 500, prevNotes[noteName]);
+                    fetchedSounds[octave][props.volume].fade(.5, 0, 300, prevNotes[noteName]);
                   }
                 });
                 prevNotesTemp[noteName] = 0;

@@ -11,7 +11,6 @@ import MidiRecorder from './MidiComponents/MidiRecorder';
 import PianoInstrument from './PianoComponents/PianoInstrument';
 import PianoRoll from './PianoComponents/PianoRoll';
 import Grid from './MidiComponents/Grid';
-import { ErrorBoundary } from './Tools/ErrorBoundary';
 import axios from 'axios';
 import './Piano.css';
 import { FaInfoCircle } from 'react-icons/fa';
@@ -84,7 +83,6 @@ function Piano(props: PianoProps) {
   const [playback, setPlayback] = useState<Map<string, KeyPressed>[]>([]);
   const [metPlay, setMetPlay] = useState(false);
   const [gridSize, setGridSize] = useState<number[]>([]);
-  const [focus, setFocus] = useState(false);
   const [midiNoteInfo, setMidiNoteInfo] = useState<MidiNoteInfo[]>([]);
   const [menuShown, setMenuShown] = useState('')
   const [infoModal, setInfoModal] = useState<ReactPortal | null>()
@@ -262,7 +260,7 @@ function Piano(props: PianoProps) {
             </div>
           </div>
         </div>
-          <KeyNoteInput focus={focus} octave={soundState.octave} pianoRollKey={pianoRollKeyRef.current} pulseNum={pulseNum} onControlsPressed={setControlsPressed} onNotePlayed={setKeysPressed} setKeysPressed={setKeysPressed} setKeysUnpressed={setKeysUnpressed} />
+          <KeyNoteInput octave={soundState.octave} pianoRollKey={pianoRollKeyRef.current} pulseNum={pulseNum} onControlsPressed={setControlsPressed} onNotePlayed={setKeysPressed} setKeysPressed={setKeysPressed} setKeysUnpressed={setKeysUnpressed} />
           <MidiRecorder controlsState={controlsState} gridSize={gridSize} keysPressed={keysPressed} keysUnpressed={keysUnpressed} midiLength={midiLength} midiNoteInfo={midiNoteInfo} midiState={midiState} noteTracksRef={noteTracksRef} pulseNum={pulseNum} pulseRate={pulseRate} controlsDispatch={controlsDispatch} setKeysUnpressed={setKeysUnpressed} setMidiNoteInfo={setMidiNoteInfo} setPlayback={setPlayback} />
           <Timer metronome={midiState.metronome} midiLength={midiLength} time={time} timerRef={timerRef} mode={midiState.mode} ppq={midiState.ppq} pulseNum={pulseNum} pulseRate={pulseRate} handleMetPlay={metPlayed} handleSetTime={setTime} handleSetPulseNum={setPulseNum} />
           <PianoInstrument pulseNum={pulseNum} soundDetails={soundDetails} sound={soundState.sound} octave={soundState.octave} octaveMinMax={octaveMinMax} volume={soundState.volume} mode={midiState.mode} keysPressed={keysPressed} keysUnpressed={keysUnpressed} playback={playback} labelsRef={labelsRef} setKeysUnpressed={setKeysUnpressed} />

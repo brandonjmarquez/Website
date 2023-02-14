@@ -9,7 +9,7 @@
 }
 
 .App-logo {
-  height: 40vmin;
+  /* height: 40vmin; */
   pointer-events: none;
 }
 
@@ -20,20 +20,22 @@
 }
 
 .App-header {
-  min-height: 50vh;
+  min-height: 55vh;
+  /* height: fit-content; */
+  padding-bottom: 3em;
   width: 100vw;
   display: flex;
-  padding-top: 15vh;
+  position: relative;
+  padding-top: 100px;
   flex-direction: row;
-  align-items: center;
+  align-items: start;
   justify-content: center;
-  font-size: 2vmin;
+  font-size: 2vw;
   color: white;
 }
 
 .container {
   margin: 0 auto;
-
 }
 
 .App-link {
@@ -41,37 +43,38 @@
 }
 
 .right-header {
-  display: flex;
-  flex-direction: column;
-  justify-content: left;
-  height: max-content;
+  display: inline-block;
+  /* flex-direction: column; */
+  /* height: max-content; */
   width: 50vw;
-  max-height: 500px;
+  /* height: 50vw; */
   margin-left: 2vw;
 }
 
 .left-header {
-  display: flex;
+  display: inline-block;
   align-items: center;
   height: max-content;
+  /* height: 40vw; */
   width: 35vw;
 }
 
 h1.title {
-  font-size: 48px;
+  font-size: 3em;
   margin: 0;
 }
 h4.subtitle {
-  font-size: 16px;
+  font-size: .75em;
   margin: 0;
 }
 
 h5.subtitle {
-  font-size: 14px;
+  font-size: .75em;
   margin: 14px 0;
 }
 
 .recruit-container {
+  display: block;
   float: left;
   text-align: center;
 }
@@ -79,19 +82,19 @@ h5.subtitle {
 .recruitment-status {
   display: block;
   color: white;
-  font-size: 2vmin;
+  font-size: 1em;
   text-align: left;
 }
 
-.header-text {
+.recruitment-text {
   display: inline-flex;
-  font-size: 3vmin;
+  font-size: 2vw;
   margin-bottom: .5em;
 }
 
 .recruitment-light {
   /* display: flex; */
-  font-size: 2vmin;
+  font-size: 2vw;
   margin: 0 1vmin 1vmin 0;
   vertical-align:text-bottom;
   animation: light-flash 1s ease 1s infinite;
@@ -113,6 +116,8 @@ h5.subtitle {
 }
 
 #piano {
+  min-height: max-content;
+  display: block;
   box-shadow: 0 0.5em 1em 1em rgba(255, 255, 255, 0.5);
   overflow: scroll;
   overflow-x: hidden;
@@ -120,53 +125,68 @@ h5.subtitle {
   border-radius: 10px;
   -ms-overflow-style: none;
   scrollbar-width: none;
+  max-height: 300px;
+}
+
+#recruitment {
+  display: block;
 }
 
 #piano::-webkit-scrollbar {
   display: none;
 }
 
-.navbar {
-  /* margin-top: 20vh; */
-  display: flex;
-  height: 10vmin;
-  width: 100vw;
-  min-height: 100px;
-  background-color: white;
-  justify-content: center;
-  align-items: center;
-  border-radius: 1000px;
+#nav-container {
+  bottom: -2em;
   position: absolute;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: row;
+}
+
+.navbar {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  align-items: center;
+  padding: 1em;
+  width: 100vw;
+  background: white;
+  border-radius: 10em;
+  z-index: 30;
+  justify-content: center;
+  /* min-height: 3.25rem; */
 }
 
 .nav-item {
   display: flex;
-  padding: 1.5vmin 3vmin 1.5vmin 3vmin;
-  margin: 2px;
+  /* padding: 1.5vmin 3vmin 1.5vmin 3vmin; */
+  padding: 1em;
+  margin: 0 1em;
   background-color: #e48ec9;
   color: white;
   border-radius: 50px;
   font-size: 1.5vmin;
   align-items: center;
   justify-content: center;
-  min-height: 40px;
-  min-width: 125px;
+  /* min-height: 40px; */
+  /* min-width: 125px; */
 }
 
 #about-me {
-  background: radial-gradient(var(--main-color), #8ee4bd 175%);
-  background-color: #8ee4bd;
-  padding: 5vh 0 5vh 0;
+  /* padding: 5vh 0 5vh 0; */
 }
 
-.about-me-containter {
+.about-me-container {
+  background: radial-gradient(var(--main-color), #8ee4bd 175%);
   display: flex;
   height: 50vh;
   width: 100vw;
 }
 
 @media only screen and (max-width: 1000px) {
-  .App-header {
+  /* .App-header {
     flex-direction: row;
     padding-top: 5vh;
   }
@@ -195,37 +215,53 @@ h5.subtitle {
   
   .left-header {
     display: flex;
+    margin-right: 2vw;
     height: 30vh; 
     width: 40vw;
   }
 
   .nav-item {
     font-size: 14px;
-    min-height: 40px;
-    min-width: 80px;
-  }
+    max-height: 40px;
+    max-width: 80px;
+  } */
 }
 
 @media only screen and (max-width: 800px) {
   .App-header {
+    height: 40vh;
+    min-height: 0;
     flex-direction: column;
+    align-items: center;
   }
 
   .right-header {
-    height: 30vh; 
+    height: 40vh; 
     width: 80%;
   }
   
   .left-header {
     display: flex;
-    height: 50vh; 
+    height: max-content; 
     width: 70vw;
+  }
+
+  #piano {
+    /* max-height: 20vh; */
+    display: none;
+  }
+
+  .piano-text {
+    display: none;
   }
 }
 
 @media only screen and (max-width: 400px) {
   .App-header {
+    height: 60vh;
+    min-height: 0;
     flex-direction: column;
+    justify-content: flex-start;
   }
 
   .recruitment-status {
@@ -235,13 +271,17 @@ h5.subtitle {
     text-align: left;
   }
   
-  .header-text {
+  .recruitment-text {
     font-size: 5vmin;
     margin-bottom: .5em;
   }
 
+  h1.title {
+    font-size: 3em;
+  }
+
   .subtitle {
-    font-size: 14px;
+    font-size: 1em;
     margin: 0;
   }
   
@@ -251,24 +291,29 @@ h5.subtitle {
   }
 
   .right-header {
-    height: 40vh; 
+    display: block;
+    height: 30vh; 
     width: 80%;
     max-height: 250px;
   }
+
+  #piano {
+    max-height: 175px;
+  }
   
   .left-header {
-    display: flex;
-    height: 40vh; 
+    display: block;
+    height: max-content; 
     width: 70vw;
   }
 
   .navbar {
-    min-height: 75px;
+    /* min-height: 75px; */
   }
 
   .nav-item {
-    font-size: 4vmin;
+    /* font-size: 4vmin;
     min-height: 25px;
-    min-width: 10vmin;
+    min-width: 10vmin; */
   }
 }

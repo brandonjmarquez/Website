@@ -81,19 +81,14 @@ function KeyNoteInput(props: KeyNoteInputProps) {
       }
     }
 
-    if(document && !props.focus) {
-      document.addEventListener('keydown', onKeyDown);
-      document.addEventListener('keyup', onKeyUp);
-      return () => {
-        document.removeEventListener('keydown', onKeyDown);
-        document.removeEventListener('keyup', onKeyUp);
-      };
-    } else {
+    document.addEventListener('keydown', onKeyDown);
+    document.addEventListener('keyup', onKeyUp);
+    return () => {
       document.removeEventListener('keydown', onKeyDown);
       document.removeEventListener('keyup', onKeyUp);
-    }
+    };
     // eslint-disable-next-line
-  }, [props.octave, props.pulseNum, props.focus, keysPressed, keysUnpressed]);
+  }, [props.octave, props.pulseNum, keysPressed, keysUnpressed]);
 
   useEffect(() => {
     props.setKeysPressed(keysPressed);

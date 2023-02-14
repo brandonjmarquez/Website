@@ -11,15 +11,15 @@ body {
 }
 
 button {
-  font: 2vmin Inconsolata, monospace;
+  font: 2vw Inconsolata, monospace;
 }
 
 input {
-  font: 2vmin Inconsolata, monospace;
+  font: 2vw Inconsolata, monospace;
 }
 
 select {
-  font: 2vmin Inconsolata, monospace;
+  font: 2vw Inconsolata, monospace;
 }
 
 a {

@@ -111,7 +111,6 @@ export interface MidiSettingsProps {
 
 //Key-Note-Input.tsx interfaces (1)
 export interface KeyNoteInputProps {
-  focus: boolean
   octave: number;
   pianoRollKey: any[] | null;
   pulseNum: number;
