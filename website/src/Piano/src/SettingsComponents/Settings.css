@@ -180,6 +180,7 @@
 }
 
 #time {
+  height: 1em;
   width: 2.5em;
   margin: 1px;
   padding: 1em;
@@ -199,17 +200,18 @@ button.info {
 
 @media only screen and (max-width: 1000px) {
   .playback-button {
-    font-size: calc(5px + 1.5vmin);
-    padding: 1vmin;
+    /* font-size: calc(5px + 1.5vmin); */
+    /* padding: 1vmin; */
     min-height: 23px;
     min-width: 23px;
   }
 
   #time {
-    font-size: calc(5px + 1.5vmin);
-    padding: 1vmin;
-    max-height: 23px;
+    /* font-size: calc(5px + 1.5vmin); */
+    /* padding: 1vmin; */
+    /* min-height: 23px; */
     /* min-width: 23px; */
+    padding: 0 1em;
   }
 
   .settings {

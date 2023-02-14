@@ -23,14 +23,7 @@ function App() {
     window.scroll({top: 0})
     return (navRect && headerRect) && <style>
         {`
-          .navbar {
-            // top: ${headerRect.height - navRect.height / 2}px;
-            // bottom: -${navRect.height / 2}px
-          }
-
-          .right-header {
-            // margin-bottom: ${navRect.height}px;
-          }
+          
         `}
       </style> 
   }, [navRect, headerRect, dimensions])
@@ -55,7 +48,7 @@ function App() {
   return (
     <>
       <div ref={pianoRef} className='App'>
-        <header ref={headerCb} className="App-header">
+        <header ref={headerCb} className='App-header section'>
           <div className='left-header'>
             <div>
               <h1 className='title'>Hi! My name is Brandon</h1>
@@ -78,14 +71,12 @@ function App() {
           <div id='nav-container'>
             <nav ref={navCb} className='navbar'>
               <a className='nav-item' href='#about-me'>About Me</a>
-              <a className='nav-item' href='#projects'>Projects</a>
-              <a className='nav-item' href='#contact'>Contact</a>
-            </nav>
+              <a className='nav-item' href='#projects'>Projects</a>            </nav>
           </div>
         </header>
-        <section id='about-me'>
-          <div className='about-me-container'>
-
+        <section id='about-me' className='section'>
+          <div className='container'>
+            
           </div>
         </section>
         
