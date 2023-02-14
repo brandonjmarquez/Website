@@ -20,13 +20,13 @@
 }
 
 .App-header {
-  min-height: 55vh;
+  min-height: 60%;
   /* height: fit-content; */
   padding-bottom: 3em;
   width: 100vw;
   display: flex;
   position: relative;
-  padding-top: 100px;
+  padding-top: 10vh;
   flex-direction: row;
   align-items: start;
   justify-content: center;
@@ -125,7 +125,7 @@ h5.subtitle {
   border-radius: 10px;
   -ms-overflow-style: none;
   scrollbar-width: none;
-  max-height: 300px;
+  max-height: 400px;
 }
 
 #recruitment {
@@ -154,7 +154,7 @@ h5.subtitle {
   width: 100vw;
   background: white;
   border-radius: 10em;
-  z-index: 30;
+  z-index: 4;
   justify-content: center;
   /* min-height: 3.25rem; */
 }
@@ -225,18 +225,22 @@ h5.subtitle {
     max-height: 40px;
     max-width: 80px;
   } */
+
+  #piano {
+    max-height: 300px;
+  }
 }
 
 @media only screen and (max-width: 800px) {
   .App-header {
-    height: 40vh;
+    /* height: 20%; */
     min-height: 0;
     flex-direction: column;
     align-items: center;
   }
 
   .right-header {
-    height: 40vh; 
+    /* height: 40vh;  */
     width: 80%;
   }
   
@@ -244,6 +248,36 @@ h5.subtitle {
     display: flex;
     height: max-content; 
     width: 70vw;
+  }
+
+  h4.subtitle {
+    font-size: 1em;
+  }
+
+  .recruitment-status {
+    display: block;
+    color: white;
+    font-size: 3.5vmin;
+    text-align: left;
+  }
+  
+  .recruitment-text {
+    font-size: 5vmin;
+    margin-bottom: .5em;
+  }
+
+  h1.title {
+    font-size: 3em;
+  }
+
+  .subtitle {
+    font-size: 1em;
+    margin: 0;
+  }
+  
+  .recruitment-light {
+    font-size: 5vmin;
+    margin: 0 1vmin 1vmin 0;
   }
 
   #piano {
@@ -258,7 +292,7 @@ h5.subtitle {
 
 @media only screen and (max-width: 400px) {
   .App-header {
-    height: 60vh;
+    /* height: 60vh; */
     min-height: 0;
     flex-direction: column;
     justify-content: flex-start;
@@ -292,7 +326,7 @@ h5.subtitle {
 
   .right-header {
     display: block;
-    height: 30vh; 
+    /* height: 30vh;  */
     width: 80%;
     max-height: 250px;
   }
@@ -303,7 +337,7 @@ h5.subtitle {
   
   .left-header {
     display: block;
-    height: max-content; 
+    /* height: max-content;  */
     width: 70vw;
   }
 

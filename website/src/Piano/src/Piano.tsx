@@ -200,7 +200,7 @@ function Piano(props: PianoProps) {
         setInfoModal(createPortal(
           <>
           <div id='popup-bg'></div>
-          <div id='popup-select' className='popup select' style={{zIndex: 6}}>
+          <div id='popup-select' className='popup select' style={{zIndex: 11}}>
             <button type='button' className='popup-button settings button'
               onClick={() => {
                 picked = 'new'; 

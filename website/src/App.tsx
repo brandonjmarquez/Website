@@ -54,7 +54,6 @@ function App() {
 
   return (
     <>
-      {navStyles}
       <div ref={pianoRef} className='App'>
         <header ref={headerCb} className="App-header">
           <div className='left-header'>

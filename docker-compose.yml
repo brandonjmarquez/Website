@@ -3,7 +3,7 @@ services:
   react-piano:
     build:
       context: .
-      dockerfile: react.dockerfile
+      # dockerfile: react.dockerfile
     volumes:
       - reactVolume:/website
       - ./website:/build/website:ro
@@ -17,7 +17,8 @@ services:
   node-resume:
     build:
       context: .
-      dockerfile: Dockerfile
+      # dockerfile: Dockerfile
+      dockerfile: combined.dockerfile
     ports:
       - 3003:3003
     volumes:

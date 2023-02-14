@@ -141,7 +141,7 @@
   padding: .5% .5%;
   text-align: center;
   text-decoration: none;
-  /* font-size: 16px; */
+  font-size: 16px;
   outline: 4px;
   cursor: pointer;
   border-radius: 50px;
@@ -179,10 +179,11 @@
   /* border-radius: 4px; */
 }
 
-#time.settings.input {
+#time {
   width: 2.5em;
   margin: 1px;
-  font-size: 14px;
+  padding: 1em;
+  font-size: 1ex;
   vertical-align: middle;
   cursor: default;
   border: none;
@@ -202,6 +203,13 @@ button.info {
     padding: 1vmin;
     min-height: 23px;
     min-width: 23px;
+  }
+
+  #time {
+    font-size: calc(5px + 1.5vmin);
+    padding: 1vmin;
+    max-height: 23px;
+    /* min-width: 23px; */
   }
 
   .settings {
