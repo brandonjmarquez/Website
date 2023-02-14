@@ -5,10 +5,10 @@ COPY server/package.json /build/server
 RUN npm i
 COPY ./server /build/server
 
-WORKDIR /build/client
-COPY client/package.json /build/client
+WORKDIR /build/website
+COPY website/package.json /build/website/
 RUN npm i
-COPY ./client /build/client
+COPY ./website /build/website
 
 EXPOSE 3001
 
