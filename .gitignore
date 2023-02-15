@@ -12,6 +12,7 @@ node_modules
 /build
 
 # misc
+build
 dist
 .DS_Store
 .env.local
