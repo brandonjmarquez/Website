@@ -89,9 +89,6 @@ function Settings(props: SoundSettingsProps) {
       <select name='octave' id='octave-selector' className='settings' value={props.octave} onChange={(e) => {props.pianoDispatch({type: 'octave', octave: parseInt(e.target.value)})}}>
         {renderOctaves()}
       </select>
-      <select name='volume' id='volume-selector' className='settings' value={props.volume} onChange={(e) => {props.pianoDispatch({type: 'volume', volume: e.target.value})}}>
-        {renderVolumes()}
-      </select>
     </>
     )
 }

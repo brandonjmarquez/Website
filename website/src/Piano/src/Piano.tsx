@@ -13,7 +13,7 @@ import PianoRoll from './PianoComponents/PianoRoll';
 import Grid from './MidiComponents/Grid';
 import axios from 'axios';
 import './Piano.css';
-import { FaInfoCircle } from 'react-icons/fa';
+import { FaCircle, FaInfoCircle, FaPlay, FaRegCircle, FaStop } from 'react-icons/fa';
 import { createPortal } from 'react-dom';
 
 function soundReducer(state: SoundState, action: any) {
@@ -62,7 +62,7 @@ interface PianoProps {
 }
 
 function Piano(props: PianoProps) {
-  const [soundDetails, setSoundDetails] = useState({});
+  const [soundDetails, setSoundDetails] = useState({ GrandPiano: { '3': [ '2mf' ], '4': [ '2mf' ] } });
   const [soundState, soundDispatch] = useReducer<Reducer<SoundState, SoundAction>>(soundReducer, {octave: 3, sound: 'GrandPiano', volume: '2mf'});
   const [midiState, midiDispatch] = useReducer<Reducer<MidiState, MidiAction>>(midiReducer, {bpm: 120, metronome: 'off', mode: 'keyboard', numMeasures: 4, ppq: 96,  subdiv: 4});
   const [controlsState, controlsDispatch] = useReducer<Reducer<ControlsState, ControlsAction>>(controlsReducer, {export: false, undo: false});
@@ -94,27 +94,27 @@ function Piano(props: PianoProps) {
   const labelsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    async function getSoundDetails() {
-      const url = `${process.env.REACT_APP_API}/sounds/Instruments`;
-      const options = {
-        method: 'GET',
-        mode: 'cors',
-        headers: {
-          'Content-Type': 'application/json',
-          'Access-Control-Allow-Origin': true,
-        },
-      }
-      var soundDetails: Object = {};
-      const soundDeets = await axios.get(url, options)
-      .then(res => {
-        soundDetails = res.data;
-        console.log(soundDetails)
-        return res.data;
-      }).catch(err => console.error(err));
-      setSoundDetails(soundDetails);
-      return soundDeets;
-    }
-    getSoundDetails();
+    // async function getSoundDetails() {
+    //   const url = `${process.env.REACT_APP_API}/sounds/Instruments`;
+    //   const options = {
+    //     method: 'GET',
+    //     mode: 'cors',
+    //     headers: {
+    //       'Content-Type': 'application/json',
+    //       'Access-Control-Allow-Origin': true,
+    //     },
+    //   }
+    //   var soundDetails: Object = {};
+    //   const soundDeets = await axios.get(url, options)
+    //   .then(res => {
+    //     soundDetails = res.data;
+    //     console.log(soundDetails)
+    //     return res.data;
+    //   }).catch(err => console.error(err));
+    //   setSoundDetails(soundDetails);
+    //   return soundDeets;
+    // }
+    // getSoundDetails();
   }, []);
 
   useEffect(() => {
@@ -200,21 +200,41 @@ function Piano(props: PianoProps) {
         setInfoModal(createPortal(
           <>
           <div id='popup-bg'></div>
-          <div id='popup-select' className='popup select' style={{zIndex: 11}}>
-            <button type='button' className='popup-button settings button'
-              onClick={() => {
-                picked = 'new'; 
-                document.getElementById('popup-bg')!.classList.toggle('lift-out');
-                document.getElementById('popup-select')!.classList.toggle('lift-out');
-              }}
-            >Start New Track</button>
-            <button type='button' className='popup-button settings button' 
-              onClick={() => {
-                picked = 'dont'; 
-                document.getElementById('popup-bg')!.classList.toggle('lift-out');
-                document.getElementById('popup-select')!.classList.toggle('lift-out');
-              }}
-            >Keep Track</button>
+          <div id='popup-info' className='info'>
+            {/* <div id='popup-info' className='' style={{zIndex: 11}}> */}
+              <button type='button' className='popup-button info'
+                onClick={() => {
+                  picked = 'new';
+                  document.getElementById('popup-bg')!.classList.toggle('lift-out');
+                  document.getElementById('popup-info')!.classList.toggle('lift-out');
+                  setTimeout(() => setInfoModal(null), 500);
+                }}
+              >X</button>
+              <span className='info-text'>Click <FaCircle style={{verticalAlign: 'middle'}} /> to record what you play using the keys below. Click <FaPlay style={{verticalAlign: 'middle'}} /> to play it. Click <FaStop style={{verticalAlign: 'middle'}} /> to return the timer to 0.00s. Click <FaRegCircle style={{verticalAlign: 'middle'}} /><FaCircle style={{verticalAlign: 'middle'}} /> to turn on the metronome. Click any box in the grid to add a note.</span>
+              <div className='keyboard'>
+                <div className='top-row'>
+                  <span className='key'>Key:w<br></br><br></br>Note:C#</span>
+                  <span className='key'>Key:e<br></br><br></br>Note:Eb</span>
+                  <span className='key hidden'></span>
+                  <span className='key'>Key:t<br></br><br></br>Note:F#</span>
+                  <span className='key'>Key:y<br></br><br></br>Note:G#</span>
+                  <span className='key'>Key:u<br></br><br></br>Note:Bb</span>
+                  <span className='key hidden'></span>
+                  <span className='key'>Key:o<br></br><br></br>Note:C#</span>
+                </div>
+                <div className='bottom-row'>
+                  <span className='key'>Key:a<br></br><br></br>Note:C</span>
+                  <span className='key'>Key:s<br></br><br></br>Note:D</span>
+                  <span className='key'>Key:d<br></br><br></br>Note:E</span>
+                  <span className='key'>Key:f<br></br><br></br>Note:F</span>
+                  <span className='key'>Key:g<br></br><br></br>Note:G</span>
+                  <span className='key'>Key:h<br></br><br></br>Note:A</span>
+                  <span className='key'>Key:j<br></br><br></br>Note:B</span>
+                  <span className='key'>Key:k<br></br><br></br>Note:C</span>
+                  <span className='key'>Key:l<br></br><br></br>Note:D</span>
+                </div>
+              </div>
+            {/* </div> */}
           </div></>, props.pianoRef.current))
       }
     }

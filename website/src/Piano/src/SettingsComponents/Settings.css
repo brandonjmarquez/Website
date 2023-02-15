@@ -8,7 +8,7 @@
   /* width: 100vw; */
   transform-style: preserve-3d;
   z-index: 4;
-  border-radius: 10px 10px 0 0;
+  border-radius: 5px 10px 0 0;
 }
 
 .settings {
@@ -193,6 +193,7 @@
 
 button.info {
   position: absolute;
+  top: 0;
   left: 0;
   border: none;
   background: none;

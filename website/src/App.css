@@ -24,7 +24,7 @@
 }
 
 .App-header {
-  min-height: 60%;
+  /* min-height: 60%; */
   /* height: fit-content; */
   padding-bottom: 3em;
   width: 100vw;
@@ -188,6 +188,68 @@ h5.subtitle {
   
 }
 
+#popup-info {
+  display: flex;
+  position: absolute;
+  flex-direction: column;
+  top: 25vh;
+  height: 50vh;
+  width: 75vw;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--main-color);
+  z-index: 11;
+  border-radius: 20px;
+  animation-name: drop-in-info;
+  animation-duration: 500ms;
+  animation-fill-mode: forwards;
+}
+
+.info-text {
+  display: block;
+  font-size: medium;
+  margin: 0 3em 3em 3em;
+}
+
+.keyboard {
+  display: flex;
+  flex-direction: column;
+}
+
+.keyboard .top-row {
+  display: inherit;
+  justify-content: center;
+}
+
+.keyboard .bottom-row {
+  display: inherit;
+}
+
+.info .keyboard .key {
+  display: inline-flex;
+  height: 5em;
+  width: 5em;
+  background: white;
+  border-radius: 10px;
+  font-size: 1.5em;
+  align-items: center;
+  justify-content: center;
+}
+
+.info .keyboard .key.hidden {
+  visibility: hidden;
+}
+
+.popup .exit-button {
+  justify-content: left;
+  float: left;
+} 
+
+@keyframes drop-in-info{
+  0% {top: -100%; position: absolute;}
+  100% {top: 25vh; position: fixed;}
+}
+
 @media only screen and (max-width: 1000px) {
   /* .App-header {
     flex-direction: row;
@@ -237,7 +299,7 @@ h5.subtitle {
 @media only screen and (max-width: 800px) {
   .App-header {
     /* height: 20%; */
-    min-height: 0;
+    /* min-height: 0; */
     flex-direction: column;
     align-items: center;
   }

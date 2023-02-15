@@ -143,10 +143,10 @@ function PianoInstrument(props: PianoProps) {
     }
   }, [props.mode, props.pulseNum, props.keysPressed, props.keysUnpressed, props.playback])
 
-  function loadSound(url: string) {
+  function loadSound(octave: string) {
     let octaveSound: any;
       octaveSound = new Howl({
-        src: [url + '.webm'],
+        src: [`/assets/${octave}.webm`],
         sprite: {
           C: [0, 4999],
           'C#': [5000, 4900],
@@ -174,18 +174,18 @@ function PianoInstrument(props: PianoProps) {
 
   function setView(toFetch: string[]) {
     let notFetched: string[] = [];
-    console.log(toFetch);
+    // console.log(toFetch);
     if(props.octaveMinMax[0] !== props.octaveMinMax[1])
     for(let i = 0; i < toFetch.length; i++) {
-      let url = `${process.env.REACT_APP_SERVER}/sounds/Instruments/${props.sound}/${toFetch[i]}/${props.volume}`;
+      let octave = toFetch[i];
       if(!(toFetch[i] in fetchedSounds)) {
         notFetched.push(toFetch[i]);
       } else if(!(props.volume in fetchedSounds[toFetch[i]])) {
         notFetched.push(toFetch[i]);
       }
-      console.log(notFetched);
+      // console.log(notFetched);
       if(notFetched.length > 0) {
-        setFetchedSounds((fetchedSounds) => ({...fetchedSounds, [toFetch[i]]: {[props.volume]: loadSound(url)}}));
+        setFetchedSounds((fetchedSounds) => ({...fetchedSounds, [toFetch[i]]: {[props.volume]: loadSound(octave)}}));
       }
     }
   }

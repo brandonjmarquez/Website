@@ -85,14 +85,6 @@ function MidiSettings(props: MidiSettingsProps) {
     <>
       {modal}
       <BpmInput bpm={props.bpm} midiDispatch={props.midiDispatch} />
-      <select name='subdiv' id='subdiv-selector' className='settings' value={props.subdiv} onChange={(e) => {props.midiDispatch({type: 'subdiv', subdiv: parseInt(e.target.value)})}}>
-        <option value='1'>1</option>
-        <option value='2'>1/2</option>
-        <option value='4'>1/4</option>
-        <option value='8'>1/8</option>
-        <option value='16'>1/16</option>
-        <option value='32'>1/32</option>
-      </select>
       <button type='button' className='settings button' 
       onClick={() => {
         if(props.midiNoteInfoLength > 0) newTrack()
