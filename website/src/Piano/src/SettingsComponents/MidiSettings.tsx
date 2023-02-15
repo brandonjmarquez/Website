@@ -11,7 +11,6 @@ interface BpmInputProps {
 }
 
 function BpmInput(props: BpmInputProps) {
-  const [value, setValue] = useState(0);
   const ref = useRef(null);
 
   useEffect(() => {
@@ -49,7 +48,6 @@ function MidiSettings(props: MidiSettingsProps) {
           <div id='popup-bg'></div>
           <div id='popup-select' className='popup select' style={{
             marginTop: `${props.selectorsRef.current.offsetHeight / 4}px`,
-            // left: `${props.selectorsRef.current.offsetWidth / 8}%`,
             zIndex: 6
           }}>
             <button type='button' className='popup-button settings button' 

@@ -8,10 +8,7 @@ const qwertyNote = require('../Tools/note-to-qwerty-key-obj');
 function PianoInstrument(props: PianoProps) {
   const [fetchedSounds, setFetchedSounds] = useState<FetchedSounds>({});
   const [prevNotes, setPrevNotes] = useState<PrevNotes>({});
-  const [keysRecorded, setKeysRecorded] = useState<string[]>([])
   const [playbackOff, setPlaybackOff] = useState<KeysPressed>({})
-  const [playbackOn, setPlaybackOn] = useState<KeysPressed>({})
-  const [startPulse, setStartPulse] = useState(0)
 
   useEffect(() => {
     setPlaybackOff((playbackOff) => {
@@ -74,7 +71,6 @@ function PianoInstrument(props: PianoProps) {
 
   useEffect(() => {
     function playNote(output: KeysPressed) {
-      let qwertyOctave: number;
       let noteName: string;
       let prevNotesTemp: PrevNotes = prevNotes;
 
@@ -118,7 +114,6 @@ function PianoInstrument(props: PianoProps) {
       }
       if(props.playback.length > 0 && props.playback[props.pulseNum]) {
           playNote(pb);
-        // }
       }
       if(props.keysPressed.size > 0 && pb) {
         playNote({...pb, ...Object.fromEntries(props.keysPressed)})
@@ -130,14 +125,11 @@ function PianoInstrument(props: PianoProps) {
       }
     }
     if(props.mode === 'keyboard') {
-      setStartPulse(props.pulseNum)
       playNote(Object.fromEntries(props.keysPressed));
       playNote(Object.fromEntries(props.keysUnpressed));
     }
     if(props.mode === 'keyboard') {
-      setStartPulse(props.pulseNum)
     } else if(props.mode === 'stop') {
-      setStartPulse(0);
       playNote(playbackOff);
       setPlaybackOff({})
     }
@@ -162,7 +154,6 @@ function PianoInstrument(props: PianoProps) {
           B: [55000, 4900],
         },
         volume: .5,
-        // html5: true
       });
       return octaveSound;
   }
@@ -174,7 +165,7 @@ function PianoInstrument(props: PianoProps) {
 
   function setView(toFetch: string[]) {
     let notFetched: string[] = [];
-    // console.log(toFetch);
+
     if(props.octaveMinMax[0] !== props.octaveMinMax[1])
     for(let i = 0; i < toFetch.length; i++) {
       let octave = toFetch[i];
@@ -183,7 +174,6 @@ function PianoInstrument(props: PianoProps) {
       } else if(!(props.volume in fetchedSounds[toFetch[i]])) {
         notFetched.push(toFetch[i]);
       }
-      // console.log(notFetched);
       if(notFetched.length > 0) {
         setFetchedSounds((fetchedSounds) => ({...fetchedSounds, [toFetch[i]]: {[props.volume]: loadSound(octave)}}));
       }
