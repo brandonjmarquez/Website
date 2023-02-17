@@ -20,7 +20,6 @@ function App() {
   const pianoRef = useRef<HTMLDivElement>(null)
   const looking = true;
   const navStyles = useMemo(() => {
-    window.scroll({top: 0})
     return (navRect && headerRect) && <style>
         {`
           
@@ -39,8 +38,6 @@ function App() {
         width: window.innerWidth
       })
     }
-    document.body.scrollTop = document.documentElement.scrollTop = 0;
-
     window.addEventListener('resize', handleResize)
     return () => window.removeEventListener('resize', handleResize);
   }, [])

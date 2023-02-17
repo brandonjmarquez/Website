@@ -191,6 +191,7 @@ h4.resume-title {
   flex-direction: column;
   align-items: flex-start;
   margin: 0 10vw;
+  font-size: 40px;
 }
 
 .resume-container {
@@ -267,11 +268,6 @@ li.resume-text {
     max-height: 40px;
     max-width: 80px;
   } */
-
-  #piano {
-    max-height: 300px;
-    min-height: 500px;
-  }
 }
 
 @media only screen and (max-width: 800px) {
@@ -280,6 +276,7 @@ li.resume-text {
     /* min-height: 0; */
     flex-direction: column;
     align-items: center;
+    font-size: 3vw;
   }
 
   .right-header {
@@ -294,7 +291,7 @@ li.resume-text {
     width: 70vw;
   }
 
-  h4.subtitle {
+  h3.subtitle {
     font-size: 1em;
   }
 
@@ -324,14 +321,9 @@ li.resume-text {
     margin: 0 1vmin 1vmin 0;
   }
 
-  /* #piano {
-    max-height: 20vh;
-    display: none;
+  #resume .container {
+    font-size: 32px;
   }
-
-  .piano-text {
-    display: none;
-  } */
 }
 
 @media only screen and (max-width: 400px) {
@@ -340,6 +332,7 @@ li.resume-text {
     min-height: 0;
     flex-direction: column;
     justify-content: flex-start;
+    font-size: 5vw;
   }
 
   .recruitment-status {
@@ -374,15 +367,15 @@ li.resume-text {
     width: 80%;
     max-height: 250px;
   }
-
-  #piano {
-    max-height: 175px;
-  }
   
   .left-header {
     display: block;
     /* height: max-content;  */
     width: 70vw;
+  }
+
+  #resume .container {
+    font-size: 6vw;
   }
 
   /* .navbar {
