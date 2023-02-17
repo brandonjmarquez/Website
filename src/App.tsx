@@ -62,7 +62,7 @@ function App() {
               
             </div>
             <div id='piano'>
-              <Piano pianoRef={pianoRef}/>
+              <Piano pianoRef={pianoRef} dimensions={dimensions} />
             </div>
           </div>
           <div id='nav-container'>

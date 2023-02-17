@@ -1,24 +1,7 @@
-import React, { useState, useEffect, createElement, useLayoutEffect, ReactPortal, ReactElement, DetailedReactHTMLElement, HTMLAttributes} from 'react';
-import { createPortal, unmountComponentAtNode } from 'react-dom';
-import { ControlsState, KeysPressed, MidiNoteInfo, MidiRecorded, MidiState, NotesRemoved, NoteTrackChilds, QwertyNoteObj, Widths } from '../Tools/Interfaces';
+import React, { useState, useEffect, createElement, useLayoutEffect, ReactPortal } from 'react';
+import { createPortal } from 'react-dom';
+import { MidiNotesProps, NoteTrackChilds, Widths } from '../Tools/Interfaces';
 import './MidiNotes.css';
-import { createRoot } from 'react-dom/client';
-// const myWorker = new Worker('./ToolComponents/midiNoteWorker')
-const qwertyNote = require('../Tools/note-to-qwerty-key-obj');
-
-interface MidiNotesProps {
-    controlsState: ControlsState;
-    gridSize: number[];
-    midiLength: number;
-    midiNoteInfo: MidiNoteInfo[];
-    midiState: MidiState;
-    notesRemoved: NotesRemoved[];
-    pulseNum: number;
-    pulseRate: number;
-    noteTracksRef: React.RefObject<HTMLDivElement>;
-    subdiv: number;
-    controlsDispatch: React.Dispatch<any>;
-  }
 
 function MidiNotes(props: MidiNotesProps) {
   const [widths, setWidths] = useState<Widths>({});
@@ -36,25 +19,18 @@ function MidiNotes(props: MidiNotesProps) {
     setWidths((widths) => {
       let state: Widths = {}
 
-      // Object.keys(state).forEach((key) => {
-      //   if(!props.midiNoteInfo.find((exists) => Object.keys(exists)[0] === key)) {
-      //     delete state[key];
-      //   }
-      // });
-
       props.midiNoteInfo.forEach((midiNote) => {
         let noteStart = Object.keys(midiNote)[0];
         let start = midiNote[noteStart].keyPressed!.start!;
         let end = midiNote[noteStart].keyPressed!.end!;
+
         if(midiNote[noteStart].keyPressed!.start >= 0) {
-          // console.log({start: start, end: end})
           state[noteStart] = {start: start, end: end};
-          // console.log(noteStart, state[noteStart])
         }
       })
       return state;
     })
-  }, [props.pulseNum, props.midiNoteInfo, props.gridSize])
+  }, [props.pulseNum, props.midiNoteInfo, props.dimensions])
 
   useLayoutEffect(() => {
     setMidiNotes([])

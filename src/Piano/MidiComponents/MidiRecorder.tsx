@@ -371,7 +371,7 @@ function MidiRecorder(props: MidiRecorderProps) {
   }, [props.midiState.mode, midiRecorded]);
   
   return (
-      <MidiNotes gridSize={props.gridSize} midiNoteInfo={props.midiNoteInfo} notesRemoved={notesRemoved} controlsState={props.controlsState} midiLength={props.midiLength} midiState={props.midiState} pulseNum={props.pulseNum} pulseRate={props.pulseRate} noteTracksRef={props.noteTracksRef} subdiv={props.midiState.subdiv} controlsDispatch={props.controlsDispatch}/>
+      <MidiNotes controlsState={props.controlsState} dimensions={props.dimensions} gridSize={props.gridSize} midiNoteInfo={props.midiNoteInfo} midiLength={props.midiLength} midiState={props.midiState} notesRemoved={notesRemoved} pulseNum={props.pulseNum} pulseRate={props.pulseRate} noteTracksRef={props.noteTracksRef} subdiv={props.midiState.subdiv} controlsDispatch={props.controlsDispatch}/>
   )
 }
 // 1000 / (120 / 60) * 4 * 4

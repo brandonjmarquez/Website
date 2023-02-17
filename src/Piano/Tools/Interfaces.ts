@@ -152,6 +152,7 @@ export interface MidiRecorded {
 
 export interface MidiRecorderProps {
   controlsState: ControlsState;
+  dimensions: {height: number, width: number};
   gridSize: number[];
   keysPressed: Map<string, KeyPressed>;
   keysUnpressed: Map<string, KeyPressed>;
@@ -279,20 +280,20 @@ export interface MidiNoteInfo {
   };
 }
 
-// export interface MidiNotesProps {
-//   controlsState: ControlsState;
-//   keysPressed: KeysPressed;
-//   midiLength: number;
-//   midiRecord: MidiRecord;
-//   midiState: MidiState;
-//   pulseNum: number;
-//   pulseRate: number;
-//   noteTracksRef: React.RefObject<HTMLDivElement>;
-//   subdiv: number;
-//   controlsDispatch: React.Dispatch<any>;
-//   onNoteClicked: Function;
-//   onNoteRemoved: Function;
-// }
+export interface MidiNotesProps {
+  controlsState: ControlsState;
+  dimensions: {height: number, width: number};
+  gridSize: number[];
+  midiLength: number;
+  midiNoteInfo: MidiNoteInfo[];
+  midiState: MidiState;
+  notesRemoved: NotesRemoved[];
+  pulseNum: number;
+  pulseRate: number;
+  noteTracksRef: React.RefObject<HTMLDivElement>;
+  subdiv: number;
+  controlsDispatch: React.Dispatch<any>;
+}
 
 export interface MidiNotes {
   [id: string]: ReactElement;
