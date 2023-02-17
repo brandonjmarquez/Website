@@ -138,7 +138,7 @@ function PianoInstrument(props: PianoProps) {
   function loadSound(octave: string) {
     let octaveSound: any;
       octaveSound = new Howl({
-        src: [`Website/assets/${octave}.webm`],
+        src: [`assets/${octave}.webm`],
         sprite: {
           C: [0, 4999],
           'C#': [5000, 4900],
