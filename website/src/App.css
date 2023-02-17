@@ -20,7 +20,7 @@
 }
 
 .section {
-  padding-top: 10vh;
+  padding-top: 5em;
 }
 
 .App-header {
@@ -31,14 +31,16 @@
   display: flex;
   position: relative;
   flex-direction: row;
-  align-items: start;
+  align-items: center;
   justify-content: center;
   font-size: 2vw;
   color: white;
 }
 
 .container {
+  color: white;
   margin: 0 auto;
+  font-size: 2vw;
 }
 
 .App-link {
@@ -63,17 +65,22 @@
 }
 
 h1.title {
-  font-size: 3em;
+  font-size: 1.5em;
   margin: 0;
 }
-h4.subtitle {
+
+h3.subtitle {
   font-size: .75em;
-  margin: 0;
+  margin: 14px 0;
 }
 
 h5.subtitle {
   font-size: .75em;
-  margin: 14px 0;
+  margin: 0;
+}
+
+#recruitment {
+  display: block;
 }
 
 .recruit-container {
@@ -118,27 +125,6 @@ h5.subtitle {
   100%{color: var(--light-color-dim-l);}
 }
 
-#piano {
-  min-height: max-content;
-  display: block;
-  box-shadow: 0 0.5em 1em 1em rgba(255, 255, 255, 0.5);
-  overflow: scroll;
-  overflow-x: hidden;
-  border: 2px solid white;
-  border-radius: 10px;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-  max-height: 400px;
-}
-
-#recruitment {
-  display: block;
-}
-
-#piano::-webkit-scrollbar {
-  display: none;
-}
-
 #nav-container {
   bottom: -2em;
   position: absolute;
@@ -170,7 +156,7 @@ h5.subtitle {
   background-color: #e48ec9;
   color: white;
   border-radius: 50px;
-  font-size: 1.5vmin;
+  font-size: .65em;
   align-items: center;
   justify-content: center;
   /* min-height: 40px; */
@@ -184,66 +170,57 @@ h5.subtitle {
   width: 100vw;
 }
 
-.about-me-container {
-  
-}
-
-#popup-info {
+#resume {
+  /* background:
+    linear-gradient(60deg, #8ee4bd, transparent 60%),
+    linear-gradient(300deg, #8ee4bd 0, transparent 60%),
+    radial-gradient(var(--main-color), transparent 175%); */
   display: flex;
-  position: absolute;
-  flex-direction: column;
-  top: 25vh;
-  height: 50vh;
-  width: 75vw;
-  justify-content: center;
-  align-items: center;
-  background-color: var(--main-color);
-  z-index: 11;
-  border-radius: 20px;
-  animation-name: drop-in-info;
-  animation-duration: 500ms;
-  animation-fill-mode: forwards;
+  height: max-content;
+  width: 100vw;
+  padding-bottom: 5em;
 }
 
-.info-text {
-  display: block;
-  font-size: medium;
-  margin: 0 3em 3em 3em;
+h4.resume-title {
+  font-size: .5em;
+  margin: 14px 0;
 }
 
-.keyboard {
+#resume .container {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
+  margin: 0 10vw;
 }
 
-.keyboard .top-row {
-  display: inherit;
-  justify-content: center;
+.resume-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
-.keyboard .bottom-row {
-  display: inherit;
+.resume-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
-.info .keyboard .key {
-  display: inline-flex;
-  height: 5em;
-  width: 5em;
-  background: white;
-  border-radius: 10px;
-  font-size: 1.5em;
-  align-items: center;
-  justify-content: center;
+.resume-text {
+  color: white;
+  text-align: start;
 }
 
-.info .keyboard .key.hidden {
-  visibility: hidden;
+p.resume-text {
+  color: white;
+  font-size: .5em;
+  line-height: 1em;
+  margin: 0 2em;
 }
 
-.popup .exit-button {
-  justify-content: left;
-  float: left;
-} 
+li.resume-text {
+  font-size: .5em;
+  margin: 0 2em
+}
 
 @keyframes drop-in-info{
   0% {top: -100%; position: absolute;}
@@ -293,6 +270,7 @@ h5.subtitle {
 
   #piano {
     max-height: 300px;
+    min-height: 500px;
   }
 }
 
@@ -311,6 +289,7 @@ h5.subtitle {
   
   .left-header {
     display: flex;
+    flex-direction: column;
     height: max-content; 
     width: 70vw;
   }
@@ -345,14 +324,14 @@ h5.subtitle {
     margin: 0 1vmin 1vmin 0;
   }
 
-  #piano {
-    /* max-height: 20vh; */
+  /* #piano {
+    max-height: 20vh;
     display: none;
   }
 
   .piano-text {
     display: none;
-  }
+  } */
 }
 
 @media only screen and (max-width: 400px) {
@@ -406,13 +385,13 @@ h5.subtitle {
     width: 70vw;
   }
 
-  .navbar {
-    /* min-height: 75px; */
+  /* .navbar {
+    min-height: 75px;
   }
 
   .nav-item {
-    /* font-size: 4vmin;
+    font-size: 4vmin;
     min-height: 25px;
-    min-width: 10vmin; */
-  }
+    min-width: 10vmin;
+  } */
 }

@@ -1,0 +1,131 @@
+.midi-piano {
+  text-align: center;
+  background-color: var(--main-color);
+  height: max-content;
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
+  margin: auto;
+}
+
+#piano {
+  min-height: 500px;
+  display: block;
+  box-shadow: 0 0.5em 1em 1em rgba(255, 255, 255, 0.5);
+  overflow: scroll;
+  overflow-x: hidden;
+  border: 2px solid white;
+  border-radius: 10px;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  max-height: 400px;
+}
+
+#piano::-webkit-scrollbar {
+  display: none;
+}
+
+#popup-info {
+  display: flex;
+  position: absolute;
+  flex-direction: column;
+  top: 25vh;
+  height: 50vh;
+  width: 75vw;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--main-color);
+  z-index: 11;
+  border-radius: 20px;
+  animation-name: drop-in-info;
+  animation-duration: 500ms;
+  animation-fill-mode: forwards;
+}
+
+.info-text {
+  display: block;
+  font-size: medium;
+  margin: 0 3em 3em 3em;
+}
+
+.keyboard {
+  display: flex;
+  flex-direction: column;
+}
+
+.keyboard .top-row {
+  display: inherit;
+  justify-content: center;
+}
+
+.keyboard .bottom-row {
+  display: inherit;
+}
+
+.info .keyboard .key {
+  display: inline-flex;
+  height: 5em;
+  width: 5em;
+  background: white;
+  border-radius: 10px;
+  font-size: 1.5em;
+  align-items: center;
+  justify-content: center;
+}
+
+.info .keyboard .key.hidden {
+  visibility: hidden;
+}
+
+.popup .exit-button {
+  justify-content: left;
+  float: left;
+}
+
+@media only screen and (max-width: 1000px) {
+  #piano {
+    max-height: 300px;
+    min-height: 500px;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  #piano {
+    /* max-height: 20vh; */
+    display: none;
+  }
+
+  .piano-text {
+    display: none;
+  }
+}
+
+/* @media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+} */
+
+/* .App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+} */
+
+/* .App-link {
+  color: #61dafb;
+} */
+
+/* @keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+} */

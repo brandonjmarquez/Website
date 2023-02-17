@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { useState, useReducer, useEffect, useRef, useMemo, ReactPortal} from 'react'
-import { Reducer, SoundState, SoundAction, MidiState, MidiAction, KeysPressed, ControlsState, ControlsAction, MidiRecorded, KeyPressed, MidiNoteInfo } from './Tools/Interfaces';
+import { Reducer, SoundState, SoundAction, MidiState, MidiAction, ControlsState, ControlsAction, KeyPressed, MidiNoteInfo } from './Tools/Interfaces';
 import SoundSettings from './SettingsComponents/SoundSettings'
 import MidiSettings from './SettingsComponents/MidiSettings'
 import TimerButtons from './SettingsComponents/TimerButtons'
@@ -210,7 +210,7 @@ function Piano(props: PianoProps) {
                   setTimeout(() => setInfoModal(null), 500);
                 }}
               >X</button>
-              <span className='info-text'>Click <FaCircle style={{verticalAlign: 'middle'}} /> to record what you play using the keys below. Click <FaPlay style={{verticalAlign: 'middle'}} /> to play it. Click <FaStop style={{verticalAlign: 'middle'}} /> to return the timer to 0.00s. Click <FaRegCircle style={{verticalAlign: 'middle'}} /><FaCircle style={{verticalAlign: 'middle'}} /> to turn on the metronome. Click any box in the grid to add a note.</span>
+              <span className='info-text'>Click <FaCircle style={{verticalAlign: 'middle'}} />(or press 'n') to record what you play using the keys below. Click <FaPlay style={{verticalAlign: 'middle'}} />(or press 'spacebar') to play it. Click <FaStop style={{verticalAlign: 'middle'}} />(or press 'b') to return the timer to 0.00s. Click <FaRegCircle style={{verticalAlign: 'middle'}} /><FaCircle style={{verticalAlign: 'middle'}} />(or press 'm') to turn on the metronome. Click any box in the grid to add a note.</span>
               <div className='keyboard'>
                 <div className='top-row'>
                   <span className='key'>Key:w<br></br><br></br>Note:C#</span>
