@@ -223,11 +223,6 @@ li.resume-text {
   margin: 0 2em
 }
 
-@keyframes drop-in-info{
-  0% {top: -100%; position: absolute;}
-  100% {top: 25vh; position: fixed;}
-}
-
 @media only screen and (max-width: 1000px) {
   /* .App-header {
     flex-direction: row;
