@@ -20,7 +20,7 @@
 }
 
 .section {
-  padding-top: 5em;
+  padding-top: 2.5em;
 }
 
 .App-header {
@@ -41,6 +41,8 @@
   color: white;
   margin: 0 auto;
   font-size: 2vw;
+  display: inherit;
+  margin: 0 10vw;
 }
 
 .App-link {
@@ -64,12 +66,12 @@
   width: 35vw;
 }
 
-h1.title {
+h1.title, p.title {
   font-size: 1.5em;
   margin: 0;
 }
 
-h3.subtitle {
+p.subtext, li.subtext {
   font-size: .75em;
   margin: 14px 0;
 }
@@ -125,6 +127,10 @@ h5.subtitle {
   100%{color: var(--light-color-dim-l);}
 }
 
+.no-piano-text {
+  display: none;
+}
+
 #nav-container {
   bottom: -2em;
   position: absolute;
@@ -160,14 +166,36 @@ h5.subtitle {
   align-items: center;
   justify-content: center;
   /* min-height: 40px; */
-  /* min-width: 125px; */
+  min-width: 90px;
 }
 
 #about-me {
+  padding: 50px 0 50px 0;
   background: radial-gradient(var(--main-color), #8ee4bd 175%);
   display: flex;
-  height: 50vh;
+  height: max-content;
   width: 100vw;
+}
+
+#about-me .container { 
+  font-size: 40px;
+}
+
+.left-about {
+  height: max-content;
+  /* padding: 0 5vw; */
+  text-align: left;
+}
+
+.right-about {
+  height: max-content;
+  padding: 5vw 5vw;
+  text-align: left;
+  /* font-size: 24px; */
+}
+
+li.resume-text {
+  margin: 10px 0 !important;
 }
 
 #resume {
@@ -211,7 +239,7 @@ h4.resume-title {
   text-align: start;
 }
 
-p.resume-text {
+p.resume-text, li.resume-text {
   color: white;
   font-size: .5em;
   line-height: 1em;
@@ -286,8 +314,13 @@ li.resume-text {
     width: 70vw;
   }
 
-  h3.subtitle {
+  h3.subtitle, p.subtitle {
     font-size: 1em;
+    margin: 2px 0;
+  }
+
+  h4.resume-title {
+    margin: 2px 0;
   }
 
   .recruitment-status {
@@ -314,6 +347,20 @@ li.resume-text {
   .recruitment-light {
     font-size: 5vmin;
     margin: 0 1vmin 1vmin 0;
+  }
+
+  #piano {
+    /* max-height: 20vh; */
+    display: none;
+  }
+
+  .piano-text {
+    display: none;
+  }
+
+  .no-piano-text {
+    display: inherit;
+    font-size: .75em !important;
   }
 
   #resume .container {
@@ -343,7 +390,7 @@ li.resume-text {
   }
 
   h1.title {
-    font-size: 3em;
+    font-size: 2em;
   }
 
   .subtitle {
@@ -367,6 +414,10 @@ li.resume-text {
     display: block;
     /* height: max-content;  */
     width: 70vw;
+  }
+
+  .nav-item {
+    min-width: 15vw;
   }
 
   #resume .container {

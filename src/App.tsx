@@ -1,35 +1,12 @@
-import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import './App.css';
-import { FaCircle, FaInfoCircle } from 'react-icons/fa'
+import { FaInfoCircle } from 'react-icons/fa'
 import Piano from './Piano/Piano';
 
 function App() {
   const [dimensions, setDimensions] = useState<{height: number, width: number}>({height: window.innerHeight, width: window.innerWidth});
-  const [navRect, setNavRect] = useState<DOMRect>();
-  const navCb = useCallback((node: HTMLElement) => {
-    if(node !== null) {
-      setNavRect(node.getBoundingClientRect());
-    }
-  }, [dimensions]);
-  const [headerRect, setHeaderRect] = useState<DOMRect>();
-  const headerCb = useCallback((node: HTMLElement) => {
-    if(node !== null) {
-      setHeaderRect(node.getBoundingClientRect())
-    }
-  }, [dimensions, navRect]);
   const pianoRef = useRef<HTMLDivElement>(null)
   const looking = true;
-  const navStyles = useMemo(() => {
-    return (navRect && headerRect) && <style>
-        {`
-          
-        `}
-      </style> 
-  }, [navRect, headerRect, dimensions])
-
-  useEffect(() => {
-    // console.log(document.activeElement)
-  })
 
   useEffect(() => {
     function handleResize() {
@@ -45,13 +22,14 @@ function App() {
   return (
     <>
       <div ref={pianoRef} className='App'>
-        <header ref={headerCb} className='App-header section'>
+        <header className='App-header section'>
           <div className='left-header'>
             {/* <div> */}
               <h1 className='title'>Welcome!<br></br>My name is Brandon</h1>
               {"\n"}
-              <h3 className='subtitle'>I am a full stack web developer, but I have a personal love for the front end.</h3>
-              <h3 className='subtitle piano-text'>If you want to know more about the piano you can click the "<FaInfoCircle />" in the top left corner.</h3>
+              <p className='subtext'>I am a full stack web developer, but I have a personal love for the front end.</p>
+              <p className='subtext piano-text'>If you want to know more about the thing to the right you can click the "<FaInfoCircle />" in its top left corner.</p>
+              <p className='subtext no-piano-text'>Visit this site on desktop to try out a demo of my piano app!</p>
             {/* </div> */}
           </div>
           <div className='right-header'>
@@ -66,16 +44,28 @@ function App() {
             </div>
           </div>
           <div id='nav-container'>
-            <nav ref={navCb} className='navbar'>
+            <nav className='navbar'>
               <a className='nav-item' href='#about-me'>About Me</a>
-              <a className='nav-item' href='#resume'>Resume</a>
               <a className='nav-item' href='#projects'>Projects</a>
+              <a className='nav-item' href='#resume'>Resume</a>
             </nav>
           </div>
         </header>
         <section id='about-me' className='section'>
           <div className='container'>
-            
+            <div className='left-about'>
+              <h3 className='subtitle'>About Me</h3>
+              <img src='/Website/suzie.jpeg' height="300" loading='lazy'></img>
+            </div>
+            <div className='right-about'>
+              <p className='title'>Some facts about me:</p>
+              <ul>
+                <li className='resume-text'>I am a recent graduate from ACC with an Associates Degree in Computer Science.</li>
+                <li className='resume-text'>I have a <strong>strong</strong> passion for coding and music production.</li>
+                <li className='resume-text'>I make music!(Here's my <a href='https://soundcloud.com/user-550415450'>soundcloud</a> if you want to check it out)</li>
+                
+              </ul>
+            </div>
           </div>
         </section>
         <section id='resume' className='section'>
