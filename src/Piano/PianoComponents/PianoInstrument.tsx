@@ -52,10 +52,6 @@ function PianoInstrument(props: PianoProps) {
   }, [props.mode])
 
   useEffect(() => {
-    console.log(fetchedSounds);
-  }, [fetchedSounds]);
-
-  useEffect(() => {
     if(props.playback[props.pulseNum]) {
       props.setKeysUnpressed((keysUnpressed: typeof props.keysUnpressed) => {
         let state = new Map(keysUnpressed)

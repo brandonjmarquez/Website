@@ -61,7 +61,7 @@ function App() {
               <p className='resume-text about-subtitle'>Some facts about me:</p>
               <ul>
                 <li className='resume-text'>I am a recent graduate from ACC with an Associates Degree in Computer Science.</li>
-                <li className='resume-text'>I have a <strong>strong</strong> passion for coding and music production.</li>
+                <li className='resume-text'>I have a <strong>strong</strong> passion for coding, music production, and my cat(her name is Suzie btw).</li>
                 <li className='resume-text'>I make music!(Here's my <a href='https://soundcloud.com/user-550415450'>soundcloud</a> if you want to check it out)</li>
                 
               </ul>

@@ -42,6 +42,8 @@
   margin: 0 auto;
   font-size: 2vw;
   display: inherit;
+  position: relative;
+  align-items: center;
   margin: 0 10vw;
 }
 
@@ -189,7 +191,7 @@ h5.subtitle {
 
 .right-about {
   height: max-content;
-  padding: 5vw 5vw;
+  padding: 5vw 0;
   text-align: left;
   /* font-size: 24px; */
 }
@@ -250,10 +252,10 @@ p.resume-text, li.resume-text {
   margin: 0 2em;
 }
 
-li.resume-text {
+/* li.resume-text {
   font-size: .5em;
   margin: 0 2em
-}
+} */
 
 @media only screen and (max-width: 1000px) {
   /* .App-header {
@@ -367,8 +369,9 @@ li.resume-text {
     font-size: .75em !important;
   }
 
-  #resume .container {
+  #resume .container, #about-me .container {
     font-size: 32px;
+    flex-direction: column;
   }
 }
 

@@ -70,7 +70,6 @@ function MidiRecorder(props: MidiRecorderProps) {
       var elem: HTMLElement;
       if(e.target){
         elem = e.target as HTMLElement;
-        console.log(props.midiState.mode)
         if(elem.tagName == "DIV") {
           setClickCoords([e.touches[0].clientX, e.touches[0].clientY]);
         } else if(elem.tagName == "SPAN" && props.midiState.mode === 'keyboard') {
