@@ -198,6 +198,10 @@ li.resume-text {
   margin: 10px 0 !important;
 }
 
+p.about-subtitle {
+  margin: 0 !important;
+}
+
 #resume {
   /* background:
     linear-gradient(60deg, #8ee4bd, transparent 60%),
@@ -420,7 +424,7 @@ li.resume-text {
     min-width: 15vw;
   }
 
-  #resume .container {
+  .container {
     font-size: 6vw;
   }
 

@@ -58,7 +58,7 @@ function App() {
               <img src='/Website/suzie.jpeg' height="300" loading='lazy'></img>
             </div>
             <div className='right-about'>
-              <p className='title'>Some facts about me:</p>
+              <p className='resume-text about-subtitle'>Some facts about me:</p>
               <ul>
                 <li className='resume-text'>I am a recent graduate from ACC with an Associates Degree in Computer Science.</li>
                 <li className='resume-text'>I have a <strong>strong</strong> passion for coding and music production.</li>
