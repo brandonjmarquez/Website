@@ -196,7 +196,7 @@ h5.subtitle {
   /* font-size: 24px; */
 }
 
-li.resume-text {
+li.main-text {
   margin: 10px 0 !important;
 }
 
@@ -240,19 +240,19 @@ h4.resume-title {
   align-items: flex-start;
 }
 
-.resume-text {
+.main-text {
   color: white;
   text-align: start;
 }
 
-p.resume-text, li.resume-text {
+p.main-text, li.main-text {
   color: white;
   font-size: .5em;
   line-height: 1em;
   margin: 0 2em;
 }
 
-/* li.resume-text {
+/* li.main-text {
   font-size: .5em;
   margin: 0 2em
 } */

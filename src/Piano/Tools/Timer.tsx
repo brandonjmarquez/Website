@@ -16,7 +16,7 @@ function Metronome(props: MetronomeProps) {
 
   useEffect(() => {
     const met = new Howl({
-      src: [`assets/metronome.webm`],
+      src: [`piano-assets/metronome.webm`],
         sprite: {
           firstBeat: [0, 10],
           beat: [10,10]
@@ -54,23 +54,18 @@ function Timer(props: TimerProps) {
   const [date, setDate] = useState<ReturnType<typeof setInterval>>();
 
   useEffect(() => {
-  }, [props.pulseNum])
-
-  useEffect(() => {
-    // let pulseRate = 60 / props.bpm / props.ppq * 1000; //interval
     if(props.mode === 'recording' || props.mode === 'playing') {
       let start = performance.now();
       let tempTime = props.time;
       let pulseNum = props.pulseNum; 
+
       setDate(setInterval(() => {
         let expected = tempTime + 1 / props.pulseRate;
+
         tempTime += performance.now() - start;
         tempTime += tempTime - expected;
-        tempTime = Math.round(tempTime)
-        if(tempTime % props.pulseRate < 5) pulseNum++
-        // pulseNum = Math.round(tempTime * props.pulseRate);
-        // pulseNum++;
-        // console.log(pulseNum)
+        tempTime = Math.round(tempTime);
+        if(tempTime % props.pulseRate < 5) pulseNum++;
         start = performance.now();
         props.handleSetTime(tempTime);
         props.handleSetPulseNum(pulseNum);
@@ -78,7 +73,6 @@ function Timer(props: TimerProps) {
     } else if (props.mode === 'keyboard' || props.mode === 'stop')  {
       clearInterval(date);
       if(props.pulseNum >= props.midiLength * props.pulseRate || props.mode === 'stop') {
-        console.log('reset timer')
         return;
       }
     }

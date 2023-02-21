@@ -143,7 +143,7 @@ function Piano(props: PianoProps) {
   useEffect(() => {
     if(time >= midiLength && (midiState.mode === 'playing' || midiState.mode === 'recording')) {
       let mode = midiState.mode;
-      console.log(mode);
+      
       midiDispatch({type: 'mode', mode: 'stop'}); 
       setTimeout(() => midiDispatch({type: 'mode', mode: mode}));
     }
