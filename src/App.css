@@ -197,7 +197,7 @@ h5.subtitle {
 }
 
 li.main-text {
-  margin: 10px 0 !important;
+  margin: 10px 0;
 }
 
 p.about-subtitle {
@@ -216,7 +216,7 @@ p.about-subtitle {
 }
 
 h4.resume-title {
-  font-size: .5em;
+  font-size: 1em;
   margin: 14px 0;
 }
 
@@ -370,7 +370,7 @@ p.main-text, li.main-text {
   }
 
   #resume .container, #about-me .container {
-    font-size: 32px;
+    font-size: 5vw;
     flex-direction: column;
   }
 }
@@ -400,8 +400,9 @@ p.main-text, li.main-text {
     font-size: 2em;
   }
 
-  .subtitle {
-    font-size: 1em;
+  
+  p.subtext, li.subtext, p.main-text, li.main-text {
+    font-size: .75em;
     margin: 0;
   }
   
@@ -425,6 +426,10 @@ p.main-text, li.main-text {
 
   .nav-item {
     min-width: 15vw;
+  }
+
+  #about-me {
+    padding: 10em 0;
   }
 
   .container {

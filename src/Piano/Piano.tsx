@@ -11,7 +11,6 @@ import MidiRecorder from './MidiComponents/MidiRecorder';
 import PianoInstrument from './PianoComponents/PianoInstrument';
 import PianoRoll from './PianoComponents/PianoRoll';
 import Grid from './MidiComponents/Grid';
-import axios from 'axios';
 import './Piano.css';
 import { FaCircle, FaInfoCircle, FaPlay, FaRegCircle, FaStop } from 'react-icons/fa';
 import { createPortal } from 'react-dom';
@@ -63,11 +62,11 @@ interface PianoProps {
 }
 
 function Piano(props: PianoProps) {
-  const [soundDetails, setSoundDetails] = useState({ GrandPiano: { '3': [ '2mf' ], '4': [ '2mf' ] } });
+  const soundDetails = {GrandPiano: { '3': [ '2mf' ], '4': [ '2mf' ]}};
   const [soundState, soundDispatch] = useReducer<Reducer<SoundState, SoundAction>>(soundReducer, {octave: 3, sound: 'GrandPiano', volume: '2mf'});
   const [midiState, midiDispatch] = useReducer<Reducer<MidiState, MidiAction>>(midiReducer, {bpm: 120, metronome: 'off', mode: 'keyboard', numMeasures: 4, ppq: 96,  subdiv: 4});
   const [controlsState, controlsDispatch] = useReducer<Reducer<ControlsState, ControlsAction>>(controlsReducer, {export: false, undo: false});
-  const [octaveMinMax, setOctaveMinMax] = useState([0, 0]);
+  const [octaveMinMax, setOctaveMinMax] = useState<number[]>([0, 0]);
   const [controlsPressed, setControlsPressed] = useState<(string | boolean)[]>(['', false]);
   const midiLength = useMemo<number>(() => {
     if(midiState.bpm === 0) {
@@ -75,7 +74,7 @@ function Piano(props: PianoProps) {
     } else {
       return midiState.numMeasures * 4 / (midiState.bpm / 60 / 1000)
     }
-  }, [midiState.bpm]); // number of beats / bpm in ms
+  }, [midiState.bpm, midiState.numMeasures]); // number of beats / bpm in ms
   const pulseRate = useMemo<number>(() => midiState.ppq * (midiState.bpm / 60 / 1000), [midiState.bpm, midiState.ppq]); // ppq * bpm in ms
   const [time, setTime] = useState(0); // 24 * 120 /60/1000 * 16 /(120/60/1000)
   const [pulseNum, setPulseNum] = useState(0);
@@ -83,7 +82,6 @@ function Piano(props: PianoProps) {
   const [keysUnpressed, setKeysUnpressed] = useState<Map<string, KeyPressed>>(new Map());
   const [playback, setPlayback] = useState<Map<string, KeyPressed>[]>([]);
   const [metPlay, setMetPlay] = useState(false);
-  const [gridSize, setGridSize] = useState<number[]>([]);
   const [midiNoteInfo, setMidiNoteInfo] = useState<MidiNoteInfo[]>([]);
   const [menuShown, setMenuShown] = useState('')
   const [infoModal, setInfoModal] = useState<ReactPortal | null>()
@@ -95,28 +93,8 @@ function Piano(props: PianoProps) {
   const labelsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // async function getSoundDetails() {
-    //   const url = `${process.env.REACT_APP_API}/sounds/Instruments`;
-    //   const options = {
-    //     method: 'GET',
-    //     mode: 'cors',
-    //     headers: {
-    //       'Content-Type': 'application/json',
-    //       'Access-Control-Allow-Origin': true,
-    //     },
-    //   }
-    //   var soundDetails: Object = {};
-    //   const soundDeets = await axios.get(url, options)
-    //   .then(res => {
-    //     soundDetails = res.data;
-    //     console.log(soundDetails)
-    //     return res.data;
-    //   }).catch(err => console.error(err));
-    //   setSoundDetails(soundDetails);
-    //   return soundDeets;
-    // }
-    // getSoundDetails();
-  }, []);
+    console.log(soundDetails, octaveMinMax)
+  }, [octaveMinMax]);
 
   useEffect(() => {
     if(Object.keys(soundDetails).length > 0) {
@@ -128,7 +106,7 @@ function Piano(props: PianoProps) {
       let result: number[] = [Math.min(...octaveNums) + 1, Math.max(...octaveNums) + 1]; 
       setOctaveMinMax(result);
     }
-  }, [soundDetails]);
+  }, []);
 
   useEffect(() => {
     // console.log(pulseNum , 1000 / (midiState.bpm / 60) * midiState.numMeasures * 4)
@@ -277,12 +255,12 @@ function Piano(props: PianoProps) {
             <PianoRoll labelsRef={labelsRef} midiLength={midiLength} noteTracksRef={noteTracksRef} numMeasures={midiState.numMeasures} octave={soundState.octave} pulseNum={pulseNum} pulseRate={pulseRate} sound={soundState.sound} soundDetails={soundDetails} subdiv={midiState.subdiv} time={pulseNum} handleNotePlayed={pianoRollKeysPressed} />
             <div id='midi-track' style={{backgroundSize: `${bgSizeTrack}%`}}>
               {(noteTracksRef.current && selectorsRef.current) ? <input ref={timeSliderRef} type='range' id='time-slider' min='0' max={`${midiLength * pulseRate}`} value={pulseNum} style={{position: 'sticky', height: 'max-content', top: `${selectorsRef.current.offsetHeight}px`}} onChange={(e) => {setTime(parseInt(e.target.value) / pulseRate); setPulseNum(parseInt(e.target.value))}}></input> : null}
-              <Grid gridSize={gridSize} midiLength={midiLength} noteTracksRef={noteTracksRef} numMeasures={midiState.numMeasures} pulseNum={pulseNum} pulseRate={pulseRate} selectorsRef={selectorsRef} subdiv={midiState.subdiv} time={time} octaveArray={getOctaveArray()} setPulseNum={setPulseNum} setTime={setTime} />
+              <Grid gridSize={[]} midiLength={midiLength} noteTracksRef={noteTracksRef} numMeasures={midiState.numMeasures} pulseNum={pulseNum} pulseRate={pulseRate} selectorsRef={selectorsRef} subdiv={midiState.subdiv} time={time} octaveArray={getOctaveArray()} setPulseNum={setPulseNum} setTime={setTime} />
             </div>
           </div>
         </div>
           <KeyNoteInput octave={soundState.octave} pianoRollKey={pianoRollKeyRef.current} pulseNum={pulseNum} onControlsPressed={setControlsPressed} onNotePlayed={setKeysPressed} setKeysPressed={setKeysPressed} setKeysUnpressed={setKeysUnpressed} />
-          <MidiRecorder controlsState={controlsState} dimensions={props.dimensions} gridSize={gridSize} keysPressed={keysPressed} keysUnpressed={keysUnpressed} midiLength={midiLength} midiNoteInfo={midiNoteInfo} midiState={midiState} noteTracksRef={noteTracksRef} pulseNum={pulseNum} pulseRate={pulseRate} controlsDispatch={controlsDispatch} setKeysUnpressed={setKeysUnpressed} setMidiNoteInfo={setMidiNoteInfo} setPlayback={setPlayback} />
+          <MidiRecorder controlsState={controlsState} dimensions={props.dimensions} gridSize={[]} keysPressed={keysPressed} keysUnpressed={keysUnpressed} midiLength={midiLength} midiNoteInfo={midiNoteInfo} midiState={midiState} noteTracksRef={noteTracksRef} pulseNum={pulseNum} pulseRate={pulseRate} controlsDispatch={controlsDispatch} setKeysUnpressed={setKeysUnpressed} setMidiNoteInfo={setMidiNoteInfo} setPlayback={setPlayback} />
           <Timer metronome={midiState.metronome} midiLength={midiLength} time={time} timerRef={timerRef} mode={midiState.mode} ppq={midiState.ppq} pulseNum={pulseNum} pulseRate={pulseRate} handleMetPlay={metPlayed} handleSetTime={setTime} handleSetPulseNum={setPulseNum} />
           <PianoInstrument pulseNum={pulseNum} soundDetails={soundDetails} sound={soundState.sound} octave={soundState.octave} octaveMinMax={octaveMinMax} volume={soundState.volume} mode={midiState.mode} keysPressed={keysPressed} keysUnpressed={keysUnpressed} playback={playback} labelsRef={labelsRef} setKeysUnpressed={setKeysUnpressed} />
       </>

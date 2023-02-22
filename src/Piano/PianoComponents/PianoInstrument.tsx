@@ -131,6 +131,12 @@ function PianoInstrument(props: PianoProps) {
     }
   }, [props.mode, props.pulseNum, props.keysPressed, props.keysUnpressed, props.playback])
 
+  useEffect(() => {
+    if(Object.keys(props.soundDetails).length > 0) {
+      setView(Object.keys(props.soundDetails[props.sound as keyof typeof props.soundDetails]))
+    }
+  }, [props.octaveMinMax]);
+
   function loadSound(octave: string) {
     let octaveSound: any;
       octaveSound = new Howl({
@@ -153,16 +159,11 @@ function PianoInstrument(props: PianoProps) {
       });
       return octaveSound;
   }
-  useEffect(() => {
-    if(Object.keys(props.soundDetails).length > 0) {
-      setView(Object.keys(props.soundDetails[props.sound as keyof typeof props.soundDetails]))
-    }
-  }, [props.soundDetails, props.octaveMinMax]);
 
   function setView(toFetch: string[]) {
     let notFetched: string[] = [];
 
-    if(props.octaveMinMax[0] !== props.octaveMinMax[1])
+    // if(props.octaveMinMax[0] !== props.octaveMinMax[1])
     for(let i = 0; i < toFetch.length; i++) {
       let octave = toFetch[i];
       if(!(toFetch[i] in fetchedSounds)) {
