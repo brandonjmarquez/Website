@@ -55,7 +55,7 @@ function App() {
           <div className='container'>
             <div className='left-about'>
               <h3 className='subtitle'>About Me</h3>
-              <img src='/Website/suzie.jpeg' width="50vw" loading='lazy'></img>
+              <img src='/Website/suzie.jpeg' width="50vw" className='me' loading='lazy'></img>
             </div>
             <div className='right-about'>
               <p className='main-text about-subtitle'>Some facts about me:</p>

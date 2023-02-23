@@ -83,6 +83,11 @@ h5.subtitle {
   margin: 0;
 }
 
+h3.subtitle {
+  white-space: nowrap;
+  overflow: hidden;
+}
+
 #recruitment {
   display: block;
 }
@@ -189,6 +194,14 @@ h5.subtitle {
   text-align: left;
 }
 
+.me {
+  max-width: 500px;
+  width: 100%;
+  /* height: 100px; */
+  object-fit: cover;
+  object-position: center center;
+}
+
 .right-about {
   height: max-content;
   padding: 5vw 0;
@@ -201,7 +214,7 @@ li.main-text {
 }
 
 p.about-subtitle {
-  margin: 0 !important;
+  margin: 50px 0 0 0 !important;
 }
 
 #resume {
@@ -321,7 +334,7 @@ p.main-text, li.main-text {
   }
 
   h3.subtitle, p.subtitle {
-    font-size: 1em;
+    font-size: 1.25em;
     margin: 2px 0;
   }
 
@@ -371,7 +384,6 @@ p.main-text, li.main-text {
 
   #resume .container, #about-me .container {
     font-size: 5vw;
-    flex-direction: column;
   }
 }
 
@@ -400,7 +412,6 @@ p.main-text, li.main-text {
     font-size: 2em;
   }
 
-  
   p.subtext, li.subtext, p.main-text, li.main-text {
     font-size: .75em;
     margin: 0;
@@ -434,6 +445,14 @@ p.main-text, li.main-text {
 
   .container {
     font-size: 6vw;
+  }
+
+  #resume .container, #about-me .container {
+    flex-direction: column;
+  }
+
+  p.about-subtitle {
+    margin: 0 !important;
   }
 
   /* .navbar {
