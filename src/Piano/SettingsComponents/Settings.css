@@ -12,7 +12,7 @@
 }
 
 .settings {
-  height: 3vh;
+  height: fit-content;
   background-color: bisque;
   /* padding: .5vmin; */
   border: none;
@@ -123,9 +123,10 @@
 }
 
 .bpm-input {
+  padding: 0;
   width: 5ex;
   text-align: center;
-  /* padding: 0 4px 0 4px; */
+  font-size: 16px;
 }
 
 .settings-buttons {
@@ -160,16 +161,19 @@
   background-color: bisque;
   color: black;
   height: 100%;
+  font-size: 16px;
   /* padding: 4px 4px 3.5px 4px; */
   vertical-align: middle;
-  height: 3.5vh;
+  height: 1.5em;
   border: none;
+  margin-top: 2px;
 }
 
 .settings.button {
   /* padding: 4px 4px 3.5px 4px; */
   cursor: pointer;
-  font-size: 1.5vmin;
+  font-size: 16px;
+  height:fit-content
 }
 
 .settings.input {
@@ -215,12 +219,12 @@ button.info {
     padding: 0 1em;
   }
 
-  .settings {
+  /* .settings {
     font-size: 1.5vmin;
     padding: 1vmin;
     height: 1vh;
     min-height: 23px;
-  }
+  } */
 }
 
 @media only screen and (max-width: 400px) {

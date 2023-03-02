@@ -16,7 +16,6 @@ function Key(props: KeyProps) {
   });
   
   const onPointerDown = () => {
-    // let input = document.getElementById('key-note-input');
     let input = document;
     let keydown = new KeyboardEvent('keydown', {
       key: props.qwertyKey,
@@ -24,19 +23,15 @@ function Key(props: KeyProps) {
     });
     console.log(props.octave)
     if(input) input.dispatchEvent(keydown);
-    // props.handleNotePlayed([props.qwertyKey, parseInt(props.octave), true]);
   }
 
   const onPointerUp = () => {
-    // let input = document.getElementById('key-note-input');
     let input = document;
     let keyup = new KeyboardEvent('keyup', {
       key: props.qwertyKey,
       code: props.octave.toString(),
     });
-    // console.log(props.octave)
     if(input) input.dispatchEvent(keyup);
-    // props.handleNotePlayed([props.qwertyKey, parseInt(props.octave), false]);
   }
 
   let noteName;
@@ -44,7 +39,7 @@ function Key(props: KeyProps) {
   (props.note.includes('#')) ? noteName = props.note.replace('#', 'sharp') : noteName = props.note.replace('b', 'flat');
 
   return (
-    <button type='button' ref={ref} id={noteName.toLowerCase() + props.octave + '-label'} className={(props.note.length > 1) ? 'note-label accidental' : 'note-label natural'} onMouseLeave={onPointerUp}> {/* onClick={() => handleClick()}> */}
+    <button type='button' ref={ref} id={noteName.toLowerCase() + props.octave + '-label'} className={(props.note.length > 1) ? 'note-label accidental' : 'note-label natural'} onMouseLeave={onPointerUp}>
       {props.note + props.octave}
     </button>
   );
@@ -77,14 +72,11 @@ function NoteLabels(props: NoteLabelsProps) {
       element.scrollIntoView({block: 'center'});
     }
   }, [memoNoteLabels]);
-  return <div ref={props.labelsRef} id='midi-note-labels'>{memoNoteLabels}</div>
+  return <div ref={props.labelsRef} id='midi-note-labels'>{memoNoteLabels}</div>;
 }
 
 function PianoRoll(props: PianoRollProps) {
-  const gridRef = useRef(null);
-  const [labels, setLabels] = useState([]);
   const [octaveArray, setOctaveArray] = useState<number[]>([]);
-  const bgSizeTrack = 100 / props.numMeasures;
 
   useLayoutEffect(() => {
     getOctaveArray();

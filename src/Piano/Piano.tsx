@@ -106,6 +106,26 @@ function Piano(props: PianoProps) {
       let result: number[] = [Math.min(...octaveNums) + 1, Math.max(...octaveNums) + 1]; 
       setOctaveMinMax(result);
     }
+    if(window.localStorage.getItem('midiNoteInfo')) {
+      // let playbackObj: any = JSON.parse(window.localStorage.getItem('midiNoteInfo')!);
+      // console.log(JSON.parse(window.localStorage.getItem('midiNoteInfo')!))
+      // if(Object.keys(playbackObj).length > 0) {
+      //   let pulseNums = Object.keys(playbackObj).map((pulseNum) => {return parseInt(pulseNum)})
+      //   let max = Math.max(...pulseNums)
+      //   let playback: Map<string, KeyPressed>[] = []
+      //   console.log(pulseNums)
+      //   for(var i = 0; i < max + 1; i++) {
+      //     if(pulseNums.find((pulseNum) => pulseNum === i)) {
+      //       console.log(i)
+      //       playback[i] = new Map(Object.entries(playbackObj[i.toString()]))
+      //     }
+      //   }
+      //   console.log(playback);
+      //   setPlayback(playback);
+      // }
+      console.log(JSON.parse(window.localStorage.getItem('midiNoteInfo')!))
+      setMidiNoteInfo(JSON.parse(window.localStorage.getItem('midiNoteInfo')!));
+    }
   }, []);
 
   useEffect(() => {
@@ -131,18 +151,24 @@ function Piano(props: PianoProps) {
     if(midiState.mode === 'stop') {
       setPulseNum(0);
       setTime(0);
+      window.localStorage.setItem('midiNoteInfo', JSON.stringify(midiNoteInfo));
     }
   }, [midiState.mode])
 
   useEffect(() => {
     if(midiState.mode === 'keyboard') {
-      // let tempKeysPressed = {...keysPressed};
-      // let tempPlayback = {...playback};
-
-      // Object.entries(keysPressed).forEach((keyPressed) => {
-      //   tempKeysPressed[keyPressed[0]] = {...keyPressed[1], end: -1}
+      // let playbackObj: any = {};
+      // console.log(playback)
+      // playback.forEach((noteMap, index) => {
+      //   if(noteMap !== null) {
+      //     playbackObj[index] = Object.fromEntries(noteMap)
+      //   } else {
+      //     playbackObj[index] = null;
+      //   }
       // })
+      console.log(midiNoteInfo)
       setKeysUnpressed(new Map());
+      // console.log(playback, window.localStorage.getItem("playback"))
     }
   }, [midiState.mode])
 
@@ -189,7 +215,7 @@ function Piano(props: PianoProps) {
                   setTimeout(() => setInfoModal(null), 500);
                 }}
               >X</button>
-              <span className='info-text'>Double click <FaCircle style={{verticalAlign: 'middle'}} />(or press 'n') to record what you play using the keys below. Click <FaPlay style={{verticalAlign: 'middle'}} />(or press 'spacebar') to play it. Click <FaStop style={{verticalAlign: 'middle'}} />(or press 'b') to return the timer to 0.00s. Click <FaRegCircle style={{verticalAlign: 'middle'}} /><FaCircle style={{verticalAlign: 'middle'}} />(or press 'm') to turn on the metronome. Click any box in the grid to add a note.</span>
+              <span className='info-text'>Double click <FaCircle style={{verticalAlign: 'middle'}} />(or press 'n') to record what you play using the keys below. Click <FaPlay style={{verticalAlign: 'middle'}} />(or press 'spacebar') to play it. Click <FaStop style={{verticalAlign: 'middle'}} />(or press 'b') to return the timer to 0.00s and to save your track to localStorage. Click <FaRegCircle style={{verticalAlign: 'middle'}} /><FaCircle style={{verticalAlign: 'middle'}} />(or press 'm') to turn on the metronome. Click any box in the grid to add a note.</span>
               <div className='keyboard'>
                 <div className='top-row'>
                   <span className='key'>Key:w<br></br><br></br>Note:C#</span>
