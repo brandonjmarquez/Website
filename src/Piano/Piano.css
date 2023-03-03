@@ -9,7 +9,9 @@
 }
 
 #piano {
-  min-height: 500px;
+  max-height: 400px;
+  min-height: 200px;
+  height: 100%;
   display: block;
   box-shadow: 0 0.5em 1em 1em rgba(255, 255, 255, 0.5);
   overflow: scroll;
@@ -17,8 +19,7 @@
   border: 2px solid white;
   border-radius: 10px;
   -ms-overflow-style: none;
-  scrollbar-width: none;
-  max-height: 400px;
+  /* scrollbar-width: none; */
 }
 
 #piano::-webkit-scrollbar {
@@ -90,7 +91,7 @@
 @media only screen and (max-width: 1000px) {
   #piano {
     max-height: 300px;
-    min-height: 500px;
+    min-height: 200px;
   }
 }
 

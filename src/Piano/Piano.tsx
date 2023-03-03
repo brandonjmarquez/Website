@@ -85,6 +85,7 @@ function Piano(props: PianoProps) {
   const [midiNoteInfo, setMidiNoteInfo] = useState<MidiNoteInfo[]>([]);
   const [menuShown, setMenuShown] = useState('')
   const [infoModal, setInfoModal] = useState<ReactPortal | null>()
+  const [dimensions, setDimensions] = useState<{height: number, width: number}>({height: window.innerHeight, width: window.innerWidth});
   const selectorsRef = useRef<HTMLDivElement>(null);
   const noteTracksRef = useRef<HTMLDivElement>(null);
   const timerRef = useRef<HTMLDivElement>(null);
@@ -105,6 +106,25 @@ function Piano(props: PianoProps) {
     if(window.localStorage.getItem('midiNoteInfo')) {
       setMidiNoteInfo(JSON.parse(window.localStorage.getItem('midiNoteInfo')!));
     }
+
+    function handleResize() {
+      setDimensions({
+        height: window.innerHeight,
+        width: window.innerWidth
+      })
+    }
+    window.addEventListener('resize', () => {
+      setDimensions({
+        height: window.innerHeight,
+        width: window.innerWidth
+      })}
+    );
+    return () => window.removeEventListener('resize', () => {
+      setDimensions({
+        height: window.innerHeight,
+        width: window.innerWidth
+      })}
+    );
   }, []);
 
   useEffect(() => {
@@ -250,7 +270,7 @@ function Piano(props: PianoProps) {
           </div>
         </div>
           <KeyNoteInput octave={soundState.octave} pianoRollKey={pianoRollKeyRef.current} pulseNum={pulseNum} onControlsPressed={setControlsPressed} onNotePlayed={setKeysPressed} setKeysPressed={setKeysPressed} setKeysUnpressed={setKeysUnpressed} />
-          <MidiRecorder controlsState={controlsState} dimensions={props.dimensions} gridSize={[]} keysPressed={keysPressed} keysUnpressed={keysUnpressed} midiLength={midiLength} midiNoteInfo={midiNoteInfo} midiState={midiState} noteTracksRef={noteTracksRef} pulseNum={pulseNum} pulseRate={pulseRate} controlsDispatch={controlsDispatch} setKeysUnpressed={setKeysUnpressed} setMidiNoteInfo={setMidiNoteInfo} setPlayback={setPlayback} />
+          <MidiRecorder controlsState={controlsState} dimensions={dimensions} gridSize={[]} keysPressed={keysPressed} keysUnpressed={keysUnpressed} midiLength={midiLength} midiNoteInfo={midiNoteInfo} midiState={midiState} noteTracksRef={noteTracksRef} pulseNum={pulseNum} pulseRate={pulseRate} controlsDispatch={controlsDispatch} setKeysUnpressed={setKeysUnpressed} setMidiNoteInfo={setMidiNoteInfo} setPlayback={setPlayback} />
           <Timer metronome={midiState.metronome} midiLength={midiLength} time={time} timerRef={timerRef} mode={midiState.mode} ppq={midiState.ppq} pulseNum={pulseNum} pulseRate={pulseRate} handleMetPlay={metPlayed} handleSetTime={setTime} handleSetPulseNum={setPulseNum} />
           <PianoInstrument pulseNum={pulseNum} soundDetails={soundDetails} sound={soundState.sound} octave={soundState.octave} octaveMinMax={octaveMinMax} volume={soundState.volume} mode={midiState.mode} keysPressed={keysPressed} keysUnpressed={keysUnpressed} playback={playback} labelsRef={labelsRef} setKeysUnpressed={setKeysUnpressed} />
       </>

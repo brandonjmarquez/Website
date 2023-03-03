@@ -8,21 +8,21 @@ function App() {
   const pianoRef = useRef<HTMLDivElement>(null)
   const looking = true;
 
-  useEffect(() => {
-    function handleResize() {
-      setDimensions({
-        height: window.innerHeight,
-        width: window.innerWidth
-      })
-    }
-    window.addEventListener('resize', handleResize)
-    return () => window.removeEventListener('resize', handleResize);
-  }, [])
+  // useEffect(() => {
+  //   function handleResize() {
+  //     setDimensions({
+  //       height: window.innerHeight,
+  //       width: window.innerWidth
+  //     })
+  //   }
+  //   window.addEventListener('resize', handleResize)
+  //   return () => window.removeEventListener('resize', handleResize);
+  // }, [])
 
   return (
     <>
       <div ref={pianoRef} className='App'>
-        <header className='App-header section'>
+        <header id='' className='App-header section'>
           <div className='left-header'>
             {/* <div> */}
               <h1 className='title'>Welcome!<br></br>My name is Brandon</h1>
