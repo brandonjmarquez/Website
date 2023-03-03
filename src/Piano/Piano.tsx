@@ -93,10 +93,6 @@ function Piano(props: PianoProps) {
   const labelsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    console.log(soundDetails, octaveMinMax)
-  }, [octaveMinMax]);
-
-  useEffect(() => {
     if(Object.keys(soundDetails).length > 0) {
       let octavesArray = Object.keys(soundDetails[soundState.sound as keyof typeof soundDetails]);
       let octaveNums: number[] = [];
@@ -107,32 +103,12 @@ function Piano(props: PianoProps) {
       setOctaveMinMax(result);
     }
     if(window.localStorage.getItem('midiNoteInfo')) {
-      // let playbackObj: any = JSON.parse(window.localStorage.getItem('midiNoteInfo')!);
-      // console.log(JSON.parse(window.localStorage.getItem('midiNoteInfo')!))
-      // if(Object.keys(playbackObj).length > 0) {
-      //   let pulseNums = Object.keys(playbackObj).map((pulseNum) => {return parseInt(pulseNum)})
-      //   let max = Math.max(...pulseNums)
-      //   let playback: Map<string, KeyPressed>[] = []
-      //   console.log(pulseNums)
-      //   for(var i = 0; i < max + 1; i++) {
-      //     if(pulseNums.find((pulseNum) => pulseNum === i)) {
-      //       console.log(i)
-      //       playback[i] = new Map(Object.entries(playbackObj[i.toString()]))
-      //     }
-      //   }
-      //   console.log(playback);
-      //   setPlayback(playback);
-      // }
-      console.log(JSON.parse(window.localStorage.getItem('midiNoteInfo')!))
       setMidiNoteInfo(JSON.parse(window.localStorage.getItem('midiNoteInfo')!));
     }
   }, []);
 
   useEffect(() => {
-    // console.log(pulseNum , 1000 / (midiState.bpm / 60) * midiState.numMeasures * 4)
-    // console.log(time);
-    if(pulseNum === midiLength * pulseRate) {
-      // midiDispatch({type: 'mode', mode: 'stop'}); 
+    if(pulseNum >= midiLength * pulseRate) {
       midiDispatch({type: 'mode', mode: 'keyboard'});
       
     }
@@ -157,18 +133,7 @@ function Piano(props: PianoProps) {
 
   useEffect(() => {
     if(midiState.mode === 'keyboard') {
-      // let playbackObj: any = {};
-      // console.log(playback)
-      // playback.forEach((noteMap, index) => {
-      //   if(noteMap !== null) {
-      //     playbackObj[index] = Object.fromEntries(noteMap)
-      //   } else {
-      //     playbackObj[index] = null;
-      //   }
-      // })
-      console.log(midiNoteInfo)
       setKeysUnpressed(new Map());
-      // console.log(playback, window.localStorage.getItem("playback"))
     }
   }, [midiState.mode])
 
@@ -215,7 +180,7 @@ function Piano(props: PianoProps) {
                   setTimeout(() => setInfoModal(null), 500);
                 }}
               >X</button>
-              <span className='info-text'>Double click <FaCircle style={{verticalAlign: 'middle'}} />(or press 'n') to record what you play using the keys below. Click <FaPlay style={{verticalAlign: 'middle'}} />(or press 'spacebar') to play it. Click <FaStop style={{verticalAlign: 'middle'}} />(or press 'b') to return the timer to 0.00s and to save your track to localStorage. Click <FaRegCircle style={{verticalAlign: 'middle'}} /><FaCircle style={{verticalAlign: 'middle'}} />(or press 'm') to turn on the metronome. Click any box in the grid to add a note.</span>
+              <span className='info-text'>Double click <FaCircle style={{verticalAlign: 'middle'}} />(or press 'n') to record what you play using the keys below. Click <FaPlay style={{verticalAlign: 'middle'}} />(or press 'spacebar') to play it. Click <FaStop style={{verticalAlign: 'middle'}} />(or press 'b') to return the timer to 0.00s and to save your track to localStorage. Click <FaRegCircle style={{verticalAlign: 'middle'}} /><FaCircle style={{verticalAlign: 'middle'}} />(or press 'm') to turn on the metronome. Click any box in the grid to add a note. Click and drag the black dot to scrub through the time.</span>
               <div className='keyboard'>
                 <div className='top-row'>
                   <span className='key'>Key:w<br></br><br></br>Note:C#</span>
@@ -246,7 +211,6 @@ function Piano(props: PianoProps) {
   }
   
   const bgSizeTrack = 100 / midiState.numMeasures;
-  // {console.log(selectorsRef.current)}
   return (
       <>
         <style>

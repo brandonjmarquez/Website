@@ -20,23 +20,15 @@ function MidiRecorder(props: MidiRecorderProps) {
   const [notesRemoved, setNotesRemoved] = useState<NotesRemoved[]>([]);
   const [notesAdded, setNotesAdded] = useState<NotesAdded[]>([]);
   
-  useEffect(() => {
-    // console.log('midiNoteInfo', midiNoteInfo)
-    // setMidiNoteInfo(props.midiNoteInfo)
-  }, [props.midiNoteInfo])
-  
-
   // Add or remove note upon clicking a note track or a note
   useEffect(() => {
     function addRemNote(e: MouseEvent) {
       var elem: HTMLElement;
       if(e.target){
         elem = e.target as HTMLElement;
-        console.log(props.midiState.mode)
         if(elem.tagName == "DIV") {
           setClickCoords([e.clientX, e.clientY]);
         } else if(elem.tagName == "SPAN" && props.midiState.mode === 'keyboard') {
-          console.log('double')
           let key = elem.id.substring(0, elem.id.indexOf('-'));
           let remIndex = 0;
           for(var i = 0; i < props.midiNoteInfo.length; i++) {
@@ -73,7 +65,6 @@ function MidiRecorder(props: MidiRecorderProps) {
         if(elem.tagName == "DIV") {
           setClickCoords([e.touches[0].clientX, e.touches[0].clientY]);
         } else if(elem.tagName == "SPAN" && props.midiState.mode === 'keyboard') {
-          console.log('double')
           let key = elem.id.substring(0, elem.id.indexOf('-'));
           let remIndex = 0;
           for(var i = 0; i < props.midiNoteInfo.length; i++) {
@@ -157,7 +148,6 @@ function MidiRecorder(props: MidiRecorderProps) {
         }
         
       });
-      // console.log(midiRecTemp);
       setMidiRecorded(midiRecTemp)
     } else {
       setMidiRecorded([])
@@ -344,10 +334,8 @@ function MidiRecorder(props: MidiRecorderProps) {
           // console.log((noteOct === noteOct2) ? noteOct + ' ' + noteOct2 + ' ' + start + ' < ' + start2 + ' ' + end +' > '+ start : '');
           // console.log(noteStart === noteStart2 && start2 > start && start2 < end);
           if(noteOct === noteOct2 && start < start2 && end > start2) {
-            console.log(props.midiNoteInfo[j], midiRecording[i])
             Object.entries(mniTemp).some((entry) => {
               if(entry[1][noteStart2]) {
-                console.log(entry[1][noteStart2], entry[0])
                 mniTemp.splice(parseInt(entry[0]), 1);
               }
             })

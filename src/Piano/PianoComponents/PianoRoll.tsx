@@ -21,7 +21,7 @@ function Key(props: KeyProps) {
       key: props.qwertyKey,
       code: props.octave.toString(),
     });
-    console.log(props.octave)
+    
     if(input) input.dispatchEvent(keydown);
   }
 

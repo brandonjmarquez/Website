@@ -7,14 +7,6 @@ function MidiNotes(props: MidiNotesProps) {
   const [widths, setWidths] = useState<Widths>({});
   const [midiNotes, setMidiNotes] = useState<ReactPortal[]>([]);
 
-  useEffect(() => {
-    // console.warn(widths)
-  }, [widths])
-
-  useEffect(() => {
-    // console.log(props.midiNoteInfo)
-  }, [props.midiNoteInfo])
-
   useLayoutEffect(() => {
     setWidths((widths) => {
       let state: Widths = {}
@@ -69,7 +61,6 @@ function MidiNotes(props: MidiNotesProps) {
     }
 
     if(Object.keys(widths).length > 0) {
-      // console.log(renderPortals())
       setMidiNotes(renderPortals())
     }
   }, [widths, props.pulseNum, props.gridSize])

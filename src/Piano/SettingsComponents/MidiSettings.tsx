@@ -22,7 +22,7 @@ function BpmInput(props: BpmInputProps) {
 
   return <>
     <DragLabel plane='y' range={[0, 161]} style={{cursor: 'ns-resize', userSelect: 'none'}} text={<><FaArrowsAltV style={{verticalAlign: 'middle'}} />BPM</>} value={props.bpm} setValue={(bpm: number) => { props.midiDispatch({type: 'bpm', bpm: bpm})}} />
-    <input ref={ref} className='bpm-input settings input' value={props.bpm.toString()} onChange={(e) => (e.target.value === '') ? props.midiDispatch({type: 'bpm', bpm: 0}) : props.midiDispatch({type: 'bpm', bpm: parseInt(e.target.value)})} />
+    <input ref={ref} className='bpm-input settings input' value={props.bpm.toString()} onChange={(e) => (e.target.value === '' || /[A-Za-z]/g.test(e.target.value)) ? props.midiDispatch({type: 'bpm', bpm: 0}) : props.midiDispatch({type: 'bpm', bpm: parseInt(e.target.value)})} />
   </>
 }
 
@@ -42,7 +42,6 @@ function MidiSettings(props: MidiSettingsProps) {
 
     pickNew();
     function pickNew() {
-      console.log(picked);
       if(picked === 'none' && props.selectorsRef.current) {
         setModal(createPortal(<div id='popup'>
           <div id='popup-bg'></div>
