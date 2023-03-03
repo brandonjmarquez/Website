@@ -82,14 +82,6 @@ function PianoRoll(props: PianoRollProps) {
     getOctaveArray();
   }, [props.soundDetails, props.sound])
 
-  useEffect(() => {
-
-  });
-
-  function sendNoteProps(keyPressed: any[]) {
-    props.handleNotePlayed(keyPressed);
-  }
-
   function getOctaveArray() {
     Object.keys(props.soundDetails).some((key) => {
       let octaveArray: number[] = []
@@ -104,23 +96,8 @@ function PianoRoll(props: PianoRollProps) {
       }
     })
   }
-  
-  function trackPosition() {
-    let position = {};
-    if(props.noteTracksRef.current) {
-      position = {left: `${(.08 + props.pulseNum / (props.midiLength * props.pulseRate)) * props.noteTracksRef.current.offsetWidth}px`};
-    } else {
-      position = {left: `${(8 + props.pulseNum / (props.midiLength * props.pulseRate) * 92)}%`};
-    }
-    return <div id='track-position' className='keyboard' style={position}></div>;
-  }
 
-  return (
-    <>
-        <NoteLabels octaveArray={octaveArray} octave={props.octave} labelsRef={props.labelsRef} />
-        {/* {trackPosition()} */}
-    </>
-  );
+  return <NoteLabels octaveArray={octaveArray} octave={props.octave} labelsRef={props.labelsRef} />;
 }
 
 export default PianoRoll;

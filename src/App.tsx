@@ -55,18 +55,39 @@ function App() {
           <div className='container'>
             <div className='left-about'>
               <h3 className='subtitle'>About Me</h3>
-              <img src='/Website/me.jpeg' width="10em" className='me' loading='lazy'></img>
+              <img src='/Website/me/me.png' width="10em" className='me' loading='lazy'
+                srcSet='/Website/me/me-150.png 150w,
+                        /Website/me/me-275.png 275w,
+                        /Website/me/me-400.png 400w,
+                        /Website/me/me.png 536w'
+              ></img>
             </div>
             <div className='right-about'>
               <p className='main-text about-subtitle'>Some facts about me:</p>
               <ul>
-                <li className='main-text'>I am a recent graduate from ACC with an Associates Degree in Computer Science.</li>
+                <li className='main-text'>I will be graduating in May 2023 from ACC with an Associates Degree in Computer Science.</li>
                 <li className='main-text'>I have a <strong>strong</strong> passion for coding, music production, and my cat(her name is Suzie).</li>
                 <li className='main-text'>I make music!(Here's my <a href='https://soundcloud.com/user-550415450'>soundcloud</a> if you want to check it out)</li>
+                <li className='main-text'>I've been coding for about 7 years now, and I'm not stopping any time soon.</li>
                 
               </ul>
             </div>
           </div>
+        </section>
+        <section id='projects'>
+          <div className='grid-container'>
+            <div className='project-container'>
+              <a href='https://github.com/brandonjmarquez/piano-roll' target='_blank'>
+                <img src='/Website/projects/landing-page.png' className='project-pic'></img>
+              </a>
+              <p className='subtext'>Recordable Piano Instrument</p>
+            </div>
+            <div className='project-container'>
+              <div className='project-pic filler'></div>
+              <p className='subtext'>TBD</p>
+            </div>
+          </div>
+          
         </section>
         <section id='resume' className='section'>
           <div className='container'>
