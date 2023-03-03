@@ -75,19 +75,23 @@ function App() {
           </div>
         </section>
         <section id='projects'>
-          <div className='grid-container'>
-            <div className='project-container'>
-              <a href='https://github.com/brandonjmarquez/piano-roll' target='_blank'>
-                <img src='/Website/projects/landing-page.png' className='project-pic'></img>
-              </a>
-              <p className='subtext'>Recordable Piano Instrument</p>
-            </div>
-            <div className='project-container'>
-              <div className='project-pic filler'></div>
-              <p className='subtext'>TBD</p>
+          <div className='container'>
+            <h3 className='subtitle'>Projects</h3>
+            <div className='container'>
+              <div className='grid-container'>
+                <div className='project-container'>
+                  <a href='https://github.com/brandonjmarquez/piano-roll' target='_blank'>
+                    <img src='/Website/projects/landing-page.png' className='project-pic'></img>
+                  </a>
+                  <p className='subtext'>Recordable Piano Instrument</p>
+                </div>
+                <div className='project-container'>
+                  <div className='project-pic filler'></div>
+                  <p className='subtext'>TBD</p>
+                </div>
+              </div>
             </div>
           </div>
-          
         </section>
         <section id='resume' className='section'>
           <div className='container'>

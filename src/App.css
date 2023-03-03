@@ -227,6 +227,17 @@ p.about-subtitle {
   /* font-size: 20px; */
 }
 
+#projects .container {
+  font-size: 40px;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+}
+
+#projects > .container > .container {
+  margin: 0;
+}
+
 .grid-container {
   padding: 50px 0;
   display: grid;
@@ -234,22 +245,24 @@ p.about-subtitle {
 }
 
 .project-container {
-  margin: 0 2.5em;
+  margin: 0 1em;
 }
 
 .project-pic {
-  height: 25em;
+  height: 5em;
+  width: 8em;
   object-fit: scale-down;
   border-radius: 10px;
 }
 
 .project-pic.filler {
-  width: 40em;
+  /* width: 10em; */
   background-color: black;
+  margin: 0 auto;
 }
 
 #projects p.subtext {
-  font-size: 2.5em;
+  font-size: .7em;
 }
 
 #resume {
