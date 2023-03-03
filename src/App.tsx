@@ -86,7 +86,7 @@ function App() {
                   <p className='subtext'>Recordable Piano Instrument</p>
                 </div>
                 <div className='project-container'>
-                  <div className='project-pic filler'></div>
+                  <img src='/Website/projects/black.png' className='project-pic filler'></img>
                   <p className='subtext'>TBD</p>
                 </div>
               </div>

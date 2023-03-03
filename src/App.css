@@ -224,6 +224,7 @@ p.about-subtitle {
   justify-content: center;
   align-items: center;
   width: 100vw;
+  height: max-content;
   /* font-size: 20px; */
 }
 
@@ -236,10 +237,11 @@ p.about-subtitle {
 
 #projects > .container > .container {
   margin: 0;
+  align-items: center;
 }
 
 .grid-container {
-  padding: 50px 0;
+  padding: .5em 0;
   display: grid;
   grid-template-columns: repeat(2, 50%);
 }
@@ -249,14 +251,13 @@ p.about-subtitle {
 }
 
 .project-pic {
-  height: 5em;
-  width: 8em;
-  object-fit: scale-down;
+  width: 100%;
+  height: 70%;
+  object-fit: cover;
   border-radius: 10px;
 }
 
 .project-pic.filler {
-  /* width: 10em; */
   background-color: black;
   margin: 0 auto;
 }
@@ -383,7 +384,7 @@ p.main-text, li.main-text {
 
   h3.subtitle, p.subtitle {
     font-size: 1.25em;
-    margin: 2px 0;
+    margin: .3em 0;
   }
 
   h4.resume-title {
@@ -430,7 +431,22 @@ p.main-text, li.main-text {
     font-size: .75em !important;
   }
 
-  #resume .container, #about-me .container {
+  .grid-container {
+    grid-template-columns: none;
+    grid-template-rows: repeat(2, 50%);
+  }
+
+  .project-container {
+    height: max-content;
+    padding: .5em 0;
+  }
+
+  .project-pic {
+    width: 80%;
+    height: 80%;
+  }
+
+  #resume .container, #about-me .container, #projects .container {
     font-size: 5vw;
   }
 }
@@ -495,7 +511,7 @@ p.main-text, li.main-text {
     font-size: 6vw;
   }
 
-  #resume .container, #about-me .container {
+  #resume .container, #about-me .container, #projects .container {
     flex-direction: column;
   }
 
