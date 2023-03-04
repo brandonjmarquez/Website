@@ -93,7 +93,7 @@ function App() {
             </div>
           </div>
         </section>
-        <section id='resume' className='section'>
+        <section id='resume'>
           <div className='container'>
             <h3 className='subtitle'>Resume</h3>
             <div className='resume-container'>

@@ -202,6 +202,7 @@ h3.subtitle {
   width: 100%;
   /* height: 100px; */
   object-fit: cover;
+  border-radius: 10px;
   /* object-position: -1270px 65%; */
 }
 
@@ -233,7 +234,7 @@ p.about-subtitle {
   flex-direction: column;
   align-items: flex-start;
   width: 100%;
-  margin-top: 2em;
+  /* margin-top: 2em; */
   font-size: 3.5em;
 }
 
