@@ -226,7 +226,7 @@ p.about-subtitle {
   align-items: center;
   width: 100vw;
   height: max-content;
-  font-size: 3.5em;
+  /* font-size: 3.5em; */
 }
 
 #projects > .container {
@@ -234,7 +234,7 @@ p.about-subtitle {
   align-items: flex-start;
   width: 100%;
   margin-top: 2em;
-  /* font-size: 3.5em; */
+  font-size: 3.5em;
 }
 
 #projects > .container > .container {
@@ -385,7 +385,7 @@ p.main-text, li.main-text {
   }
 
   h3.subtitle, p.subtitle {
-    font-size: 1.25em;
+    font-size: 2em;
     margin: .3em 0;
   }
 
@@ -448,8 +448,12 @@ p.main-text, li.main-text {
     height: 80%;
   }
 
+  #about-me .container {
+    flex-direction: column;
+  }
+
   #resume .container, #about-me .container, #projects .container {
-    font-size: 5vw;
+    /* font-size: 5vw; */
   }
 }
 
@@ -509,8 +513,12 @@ p.main-text, li.main-text {
     padding: 10em 0;
   }
 
+  #about-me > .container, #projects > .container, #resume > .container {
+    font-size: 5em;
+  }
+
   .container {
-    font-size: 6vw;
+    /* font-size: 6em; */
   }
 
   #resume .container, #about-me .container, #projects .container {
