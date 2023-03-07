@@ -65,13 +65,13 @@ function NoteLabels(props: NoteLabelsProps) {
     return [];
   }, [props.octaveArray]);
 
-  useEffect(() => {
-    var element = document.getElementById('g' + props.octave + '-label');
+  // useEffect(() => {
+  //   var element = document.getElementById('g' + props.octave + '-label');
 
-    if(element) {
-      element.scrollIntoView({block: 'center'});
-    }
-  }, [memoNoteLabels]);
+  //   if(element) {
+  //     element.scrollIntoView({block: 'center'});
+  //   }
+  // }, [memoNoteLabels]);
   return <div ref={props.labelsRef} id='midi-note-labels'>{memoNoteLabels}</div>;
 }
 

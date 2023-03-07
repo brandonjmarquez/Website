@@ -1,18 +1,5 @@
 import React, { useLayoutEffect } from 'react';
-// const kbControls = require('./keyboard-controls');
-
-interface KbFunctionsProps {
-  controlsPressed: (string | boolean)[]; 
-  metronome: string;
-  mode: string;
-  octave: number;
-  octaveMinMax: number[];
-  selectorsRef: React.RefObject<HTMLDivElement>;
-  clearControls: Function
-  controlsDispatch:Function;
-  midiDispatch:Function;
-  soundDispatch:Function;
-}
+import { KbFunctionsProps } from './Interfaces';
 
 function KbFunctions(props: KbFunctionsProps) {
 
@@ -89,29 +76,18 @@ function KbFunctions(props: KbFunctionsProps) {
     //   }
     // }
     let newOctave = props.octave + 1;
-    console.log(newOctave , props.octaveMinMax[1] - 1, newOctave);
     if(newOctave <= props.octaveMinMax[1] - 1) props.soundDispatch({type: 'octave', octave: newOctave})
     props.clearControls();
   }
 
   function octaveDown() {
-    // if(props.selectorsRef.current) {
-    //   for(let i = 0; i < props.selectorsRef.current.children.length; i++) {
-    //     if(props.selectorsRef.current.children[i].id === 'octave-selector') {
-    //       let newOctave = parseInt(props.selectorsRef.current.children[i].value) - 1;
-    //       if(newOctave >= props.octaveMinMax[0] - 1) props.soundDispatch({type: 'octave', octave: newOctave})
-    //     }
-    //   }
-    // }
     let newOctave = props.octave - 1;
-    console.log(props.octaveMinMax);
-    console.log(newOctave >= props.octaveMinMax[0], newOctave);
+
     if(newOctave >= props.octaveMinMax[0] - 1) props.soundDispatch({type: 'octave', octave: newOctave})
     props.clearControls();
   }
 
   function undo() {
-    console.log('UNDO')
     props.controlsDispatch({type: 'undo', undo :true});
   }
 

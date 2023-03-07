@@ -111,6 +111,8 @@ export interface MidiSettingsProps {
 
 //Key-Note-Input.tsx interfaces (1)
 export interface KeyNoteInputProps {
+  keysPressed: Map<string, KeyPressed>;
+  keysUnpressed: Map<string, KeyPressed>;
   octave: number;
   pianoRollKey: any[] | null;
   pulseNum: number;
@@ -152,7 +154,6 @@ export interface MidiRecorded {
 
 export interface MidiRecorderProps {
   controlsState: ControlsState;
-  dimensions: {height: number, width: number};
   gridSize: number[];
   keysPressed: Map<string, KeyPressed>;
   keysUnpressed: Map<string, KeyPressed>;
@@ -282,7 +283,6 @@ export interface MidiNoteInfo {
 
 export interface MidiNotesProps {
   controlsState: ControlsState;
-  dimensions: {height: number, width: number};
   gridSize: number[];
   midiLength: number;
   midiNoteInfo: MidiNoteInfo[];
@@ -317,4 +317,17 @@ export interface NoteTrackChilds {
 export interface NotesRemoved {
   [remIndex: number]: MidiNoteInfo;
   
+}
+
+export interface KbFunctionsProps {
+  controlsPressed: (string | boolean)[]; 
+  metronome: string;
+  mode: string;
+  octave: number;
+  octaveMinMax: number[];
+  selectorsRef: React.RefObject<HTMLDivElement>;
+  clearControls: Function
+  controlsDispatch:Function;
+  midiDispatch:Function;
+  soundDispatch:Function;
 }

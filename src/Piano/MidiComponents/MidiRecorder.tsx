@@ -19,7 +19,7 @@ function MidiRecorder(props: MidiRecorderProps) {
   const [midiRecording, setMidiRecording] = useState<MidiNoteInfo[]>([]);
   const [notesRemoved, setNotesRemoved] = useState<NotesRemoved[]>([]);
   const [notesAdded, setNotesAdded] = useState<NotesAdded[]>([]);
-  
+
   // Add or remove note upon clicking a note track or a note
   useEffect(() => {
     function addRemNote(e: MouseEvent) {
@@ -358,7 +358,7 @@ function MidiRecorder(props: MidiRecorderProps) {
   }, [props.midiState.mode, midiRecorded]);
   
   return (
-      <MidiNotes controlsState={props.controlsState} dimensions={props.dimensions} gridSize={props.gridSize} midiNoteInfo={props.midiNoteInfo} midiLength={props.midiLength} midiState={props.midiState} notesRemoved={notesRemoved} pulseNum={props.pulseNum} pulseRate={props.pulseRate} noteTracksRef={props.noteTracksRef} subdiv={props.midiState.subdiv} controlsDispatch={props.controlsDispatch}/>
+      <MidiNotes controlsState={props.controlsState} gridSize={props.gridSize} midiNoteInfo={props.midiNoteInfo} midiLength={props.midiLength} midiState={props.midiState} notesRemoved={notesRemoved} pulseNum={props.pulseNum} pulseRate={props.pulseRate} noteTracksRef={props.noteTracksRef} subdiv={props.midiState.subdiv} controlsDispatch={props.controlsDispatch}/>
   )
 }
 // 1000 / (120 / 60) * 4 * 4

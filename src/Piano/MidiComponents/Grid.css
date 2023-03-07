@@ -8,6 +8,7 @@
   white-space: nowrap;
   width: 100%;
   justify-content: center;
+  overflow-anchor: none;
 }
 
 #track-position {
@@ -35,6 +36,7 @@
     z-index: 3;
     max-width: 8%;
     min-width: min-content;
+    overflow-anchor: none;
   }
 
     .note-label {
@@ -47,7 +49,6 @@
       width: 100%;
       height: 8.33%;
       font-size: .5em;
-      overflow-anchor: none;
     }
       .note-label:hover {
         background-color: gray;

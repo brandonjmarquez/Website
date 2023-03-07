@@ -6,6 +6,22 @@ import './MidiNotes.css';
 function MidiNotes(props: MidiNotesProps) {
   const [widths, setWidths] = useState<Widths>({});
   const [midiNotes, setMidiNotes] = useState<ReactPortal[]>([]);
+  const [dimensions, setDimensions] = useState<{height: number, width: number}>({height: window.innerHeight, width: window.innerWidth});
+
+  useEffect(() => {
+    window.addEventListener('resize', () => {
+      setDimensions({
+        height: window.innerHeight,
+        width: window.innerWidth
+      })}
+    );
+    return () => window.removeEventListener('resize', () => {
+      setDimensions({
+        height: window.innerHeight,
+        width: window.innerWidth
+      })}
+    );
+  }, []);
 
   useLayoutEffect(() => {
     setWidths((widths) => {
@@ -22,7 +38,7 @@ function MidiNotes(props: MidiNotesProps) {
       })
       return state;
     })
-  }, [props.pulseNum, props.midiNoteInfo, props.dimensions])
+  }, [props.pulseNum, props.midiNoteInfo, dimensions])
 
   useLayoutEffect(() => {
     setMidiNotes([])
