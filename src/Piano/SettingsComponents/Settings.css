@@ -123,10 +123,10 @@
 }
 
 .bpm-input {
-  padding: 0;
+  padding: .2em 0;
   width: 5ex;
   text-align: center;
-  font-size: 16px;
+  font-size: .75em;
 }
 
 .settings-buttons {
@@ -142,7 +142,7 @@
   padding: .5% .5%;
   text-align: center;
   text-decoration: none;
-  font-size: 16px;
+  font-size: .75em;
   outline: 4px;
   cursor: pointer;
   border-radius: 50px;
@@ -160,19 +160,19 @@
   text-align: center;
   background-color: bisque;
   color: black;
-  height: 100%;
-  font-size: 16px;
+  /* height: 100%; */
+  font-size: .75em;
   /* padding: 4px 4px 3.5px 4px; */
   vertical-align: middle;
   height: 1.5em;
   border: none;
-  margin-top: 2px;
+  /* margin-top: 2px; */
 }
 
 .settings.button {
   /* padding: 4px 4px 3.5px 4px; */
   cursor: pointer;
-  font-size: 16px;
+  font-size: .75em;
   height:fit-content
 }
 
@@ -227,8 +227,3 @@ button.info {
   } */
 }
 
-@media only screen and (max-width: 400px) {
-  .settings {
-    /* height: 1vh; */
-  }
-}
