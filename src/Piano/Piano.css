@@ -23,7 +23,7 @@
 }
 
 #piano::-webkit-scrollbar {
-  display: none;
+  /* display: none; */
 }
 
 @keyframes drop-in-info{
