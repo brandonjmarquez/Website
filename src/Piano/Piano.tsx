@@ -179,7 +179,7 @@ function Piano(props: PianoProps) {
                   setTimeout(() => setInfoModal(null), 500);
                 }}
               >X</button>
-              <span className='info-text'>Double click <FaCircle style={{verticalAlign: 'middle'}} />(or press 'n') to record what you play using the keys below. Click <FaPlay style={{verticalAlign: 'middle'}} />(or press 'spacebar') to play it. Click <FaStop style={{verticalAlign: 'middle'}} />(or press 'b') to return the timer to 0.00s and to save your track to localStorage. Click <FaRegCircle style={{verticalAlign: 'middle'}} /><FaCircle style={{verticalAlign: 'middle'}} />(or press 'm') to turn on the metronome. Click any box in the grid to add a note. Click and drag the black dot to scrub through the time.</span>
+              <span className='info-text'>Double click <FaCircle style={{verticalAlign: 'middle'}} />(or press 'n') to record what you play using the keys below. {<br></br>}Click <FaPlay style={{verticalAlign: 'middle'}} />(or press 'spacebar') to play what you've recorded. {<br></br>}Click <FaStop style={{verticalAlign: 'middle'}} />(or press 'b') to return the timer to 0.00s and to save your track to localStorage. {<br></br>}Click <FaRegCircle style={{verticalAlign: 'middle'}} /><FaCircle style={{verticalAlign: 'middle'}} />(or press 'm') to turn on the metronome. {<br></br>}Click any box in the grid to add a note. {<br></br>}Click and drag the black dot to scrub through the time.</span>
               <div className='keyboard'>
                 <div className='top-row'>
                   <span className='key'>Key:w<br></br><br></br>Note:C#</span>

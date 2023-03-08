@@ -116,7 +116,7 @@ function App() {
               </div>
             </div>
             <div className='resume-container'>
-              <h4 className='resume-title main-text'>Experience</h4>
+              <h4 className='resume-title main-text'>Projects</h4>
               <div className='resume-item'>
                 <p className='main-text'><strong>Piano MERN Stack Application</strong> - Myself</p>
                 <p className='main-text'>June 2022 - Present</p>
@@ -132,6 +132,7 @@ function App() {
                   <li className='main-text'>Display shows recorded notes on a timeline as they are being played and recorded.</li>
                 </ul>
               </div>
+              <h4 className='resume-title main-text'>Experience</h4>
               <div className='resume-item'>
                 <p className='main-text'><strong>Marketing & Sales</strong> - Custom Motor Group Co.</p>
                 <p className='main-text'>November 2021 - September 2022</p>

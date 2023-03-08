@@ -49,9 +49,11 @@
 }
 
 .info-text {
+  color: black;
   display: block;
-  font-size: medium;
+  font-size: 1.75em;
   margin: 0 3em 3em 3em;
+  text-align: start;
 }
 
 .keyboard {
@@ -73,8 +75,9 @@
   height: 5em;
   width: 5em;
   background: white;
+  color: black;
   border-radius: 10px;
-  font-size: 1.5em;
+  font-size: 2em;
   align-items: center;
   justify-content: center;
 }

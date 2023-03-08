@@ -305,6 +305,10 @@ h4.resume-title {
   align-items: flex-start;
 }
 
+.resume-item > ul {
+  margin: 0;
+}
+
 .main-text {
   color: white;
   text-align: start;
@@ -453,9 +457,9 @@ p.main-text, li.main-text {
     flex-direction: column;
   }
 
-  #resume .container, #about-me .container, #projects .container {
-    /* font-size: 5vw; */
-  }
+  /* #resume .container, #about-me .container, #projects .container {
+    font-size: 5vw; 
+  } */
 }
 
 @media only screen and (max-width: 400px) {
@@ -518,9 +522,9 @@ p.main-text, li.main-text {
     font-size: 5em;
   }
 
-  .container {
-    /* font-size: 6em; */
-  }
+  /* .container {
+    font-size: 6em;
+  } */
 
   #resume .container, #about-me .container, #projects .container {
     flex-direction: column;
