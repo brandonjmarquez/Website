@@ -22,9 +22,9 @@
   /* scrollbar-width: none; */
 }
 
-#piano::-webkit-scrollbar {
-  /* display: none; */
-}
+/* #piano::-webkit-scrollbar {
+  display: none;
+} */
 
 @keyframes drop-in-info{
   0% {top: -100%; position: absolute;}

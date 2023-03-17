@@ -244,6 +244,7 @@ p.about-subtitle {
 }
 
 .grid-container {
+  width: 100%;
   padding: .5em 0;
   display: grid;
   grid-template-columns: repeat(2, 50%);

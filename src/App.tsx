@@ -4,7 +4,6 @@ import { FaInfoCircle } from 'react-icons/fa'
 import Piano from './Piano/Piano';
 
 function App() {
-  const [dimensions, setDimensions] = useState<{height: number, width: number}>({height: window.innerHeight, width: window.innerWidth});
   const pianoRef = useRef<HTMLDivElement>(null)
   const looking = true;
 
@@ -25,7 +24,7 @@ function App() {
         <header id='' className='App-header section'>
           <div className='left-header'>
             {/* <div> */}
-              <h1 className='title'>Welcome!<br></br>My name is Brandon</h1>
+              <h1 className='title'>Welcome!<br></br>My name is Brandon.</h1>
               {"\n"}
               <p className='subtext'>I am a full stack web developer, but I have a personal love for the front end.</p>
               <p className='subtext piano-text'>If you want to know more about the thing to the right you can click the "<FaInfoCircle />" in its top left corner.</p>
@@ -77,7 +76,7 @@ function App() {
         <section id='projects'>
           <div className='container'>
             <h3 className='subtitle'>Projects</h3>
-            <div className='container'>
+            {/* <div className='container'> */}
               <div className='grid-container'>
                 <div className='project-container'>
                   <a href='https://github.com/brandonjmarquez/piano-roll' target='_blank'>
@@ -86,11 +85,11 @@ function App() {
                   <p className='subtext'>Recordable Piano Instrument</p>
                 </div>
                 <div className='project-container'>
-                  <img src='/Website/projects/black.png' className='project-pic filler'></img>
+                  <img src='/Website/projects/black.png' className='project-pic'></img>
                   <p className='subtext'>TBD</p>
                 </div>
               </div>
-            </div>
+            {/* </div> */}
           </div>
         </section>
         <section id='resume'>
