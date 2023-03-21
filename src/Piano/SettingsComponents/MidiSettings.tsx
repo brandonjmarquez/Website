@@ -29,14 +29,6 @@ function BpmInput(props: BpmInputProps) {
 function MidiSettings(props: MidiSettingsProps) {
   const [modal, setModal] = useState<ReactPortal | null>();
 
-  function renderNumMeasures() {
-    var measureOpts = [];
-    for(var i = 1; i < 9; i++) {
-      measureOpts.push(<option key={i} value={i}>{i}</option>);
-    }
-    return measureOpts;
-  }
-
   function newTrack() {
     var picked = 'none';
 
@@ -87,6 +79,7 @@ function MidiSettings(props: MidiSettingsProps) {
         if(props.midiNoteInfoLength > 0) newTrack()
         else props.setMidiNoteInfo([]);
       }}>New</button>
+      <button id='undo-button' className='settings button' onClick={() => props.controlsDispatch({type: 'undo', undo: true})}>Undo</button>
     </>
     )
 }

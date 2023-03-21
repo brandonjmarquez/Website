@@ -1,7 +1,7 @@
 import {useState, useEffect} from 'react';
 import { KeyNoteInputProps, KeyPressed } from './Interfaces';
-const qwertyNote = require('../Tools/note-to-qwerty-key-obj');
-const kbControls = require('../Tools/keyboard-controls');
+const qwertyNote = require('../Tools/JSON/note-to-qwerty-key-obj');
+const kbControls = require('../Tools/JSON/keyboard-controls');
 
 function KeyNoteInput(props: KeyNoteInputProps) {
   // const [keysPressed, setKeysPressed] = useState<Map<string, KeyPressed>>(new Map());

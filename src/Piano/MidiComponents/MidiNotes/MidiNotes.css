@@ -9,4 +9,5 @@
   /* transform-style: preserve-3d; */
   outline: black solid 1px;
   /* outline: black solid 1px; */
+  cursor: ew-resize;
 }

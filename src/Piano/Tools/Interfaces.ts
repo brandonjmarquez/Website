@@ -172,11 +172,13 @@ export interface MidiRecorderProps {
 // Piano.tsx interfaces (5)
 
 export interface OctavesInViewProps {
-  octaveMax: number;
+  fetchedSounds: FetchedSounds;
   labelsRef: React.RefObject<HTMLDivElement>;
   octave: number;
+  octaveMinMax: number[];
+  sound: string;
   volume: string;
-  handleViewChange: Function;
+  setFetchedSounds: Function;
 }
 
 export interface PianoProps {
@@ -191,7 +193,6 @@ export interface PianoProps {
   sound: string;
   soundDetails: Object;
   volume: string;
-  setKeysUnpressed: Function;
 }
 
 export interface Keys {
@@ -311,7 +312,7 @@ export interface MidiNotePortals {
 }
 
 export interface NoteTrackChilds {
-  [noteTrackId: string]: DetailedReactHTMLElement<HTMLAttributes<HTMLElement>, HTMLElement>[]
+  [noteTrackId: string]: JSX.Element[]
 }
 
 export interface NotesRemoved {

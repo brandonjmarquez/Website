@@ -17,6 +17,7 @@
   /* padding: .5vmin; */
   border: none;
   margin: 1px;
+  font-size: .75em;
 }
 
 #timer-buttons {
@@ -123,7 +124,7 @@
 }
 
 .bpm-input {
-  padding: .2em 0;
+  /* padding: .2em 0; */
   width: 5ex;
   text-align: center;
   font-size: .75em;
@@ -164,7 +165,7 @@
   font-size: .75em;
   /* padding: 4px 4px 3.5px 4px; */
   vertical-align: middle;
-  height: 1.5em;
+  /* height: 1.5em; */
   border: none;
   /* margin-top: 2px; */
 }

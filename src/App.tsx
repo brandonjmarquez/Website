@@ -82,11 +82,12 @@ function App() {
                   <a href='https://github.com/brandonjmarquez/piano-roll' target='_blank'>
                     <img src='/Website/projects/landing-page.png' className='project-pic'></img>
                   </a>
-                  <p className='subtext'>Recordable Piano Instrument</p>
+                  <p className='subtext'><strong>Recordable Piano Instrument</strong></p>
+                  <p className='proj-desc'>This is an in browser piano instrument that can be played and recorded with a computer keyboard. Recordings can be exported and used in any modern DAW.</p>
                 </div>
                 <div className='project-container'>
                   <img src='/Website/projects/black.png' className='project-pic'></img>
-                  <p className='subtext'>TBD</p>
+                  <p className='subtext'><strong>TBD</strong></p>
                 </div>
               </div>
             {/* </div> */}

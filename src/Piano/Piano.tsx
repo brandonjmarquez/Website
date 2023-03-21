@@ -7,10 +7,10 @@ import TimerButtons from './SettingsComponents/TimerButtons'
 import KbFunctions from './Tools/KbFunctions'
 import KeyNoteInput from './Tools/KeyNoteInput';
 import Timer from './Tools/Timer';
-import MidiRecorder from './MidiComponents/MidiRecorder';
-import PianoInstrument from './PianoComponents/PianoInstrument';
-import PianoRoll from './PianoComponents/PianoRoll';
-import Grid from './MidiComponents/Grid';
+import MidiRecorder from './MidiComponents/MidiRecorder/MidiRecorder';
+import PianoInstrument from './PianoComponents/PianoInstrument/PianoInstrument';
+import PianoRoll from './PianoComponents/PianoRoll/PianoRoll';
+import Grid from './MidiComponents/Grid/Grid';
 import './Piano.css';
 import { FaCircle, FaInfoCircle, FaPlay, FaRegCircle, FaStop } from 'react-icons/fa';
 import { createPortal } from 'react-dom';
@@ -251,7 +251,7 @@ function Piano(props: PianoProps) {
           <KeyNoteInput keysPressed={keysPressed} keysUnpressed={keysUnpressed} octave={soundState.octave} pianoRollKey={pianoRollKeyRef.current} pulseNum={pulseNum} onControlsPressed={setControlsPressed} onNotePlayed={setKeysPressed} setKeysPressed={setKeysPressed} setKeysUnpressed={setKeysUnpressed} />
           <MidiRecorder controlsState={controlsState} gridSize={[]} keysPressed={keysPressed} keysUnpressed={keysUnpressed} midiLength={midiLength} midiNoteInfo={midiNoteInfo} midiState={midiState} noteTracksRef={noteTracksRef} pulseNum={pulseNum} pulseRate={pulseRate} controlsDispatch={controlsDispatch} setKeysUnpressed={setKeysUnpressed} setMidiNoteInfo={setMidiNoteInfo} setPlayback={setPlayback} />
           <Timer metronome={midiState.metronome} midiLength={midiLength} time={time} timerRef={timerRef} mode={midiState.mode} ppq={midiState.ppq} pulseNum={pulseNum} pulseRate={pulseRate} handleMetPlay={metPlayed} handleSetTime={setTime} handleSetPulseNum={setPulseNum} />
-          <PianoInstrument pulseNum={pulseNum} soundDetails={soundDetails} sound={soundState.sound} octave={soundState.octave} octaveMinMax={octaveMinMax} volume={soundState.volume} mode={midiState.mode} keysPressed={keysPressed} keysUnpressed={keysUnpressed} playback={playback} labelsRef={labelsRef} setKeysUnpressed={setKeysUnpressed} />
+          <PianoInstrument pulseNum={pulseNum} soundDetails={soundDetails} sound={soundState.sound} octave={soundState.octave} octaveMinMax={octaveMinMax} volume={soundState.volume} mode={midiState.mode} keysPressed={keysPressed} keysUnpressed={keysUnpressed} playback={playback} labelsRef={labelsRef} />
       </>
   );
 }

@@ -1,3 +1,37 @@
+@keyframes app-bg {
+  0%{background-position:center;}
+  12%{background-position: 90% 75%;}
+  25%{background-position: 50% 100%;}
+  37%{background-position: 10% 75%;}
+  50%{background-position: center;}
+  62%{background-position: 90% 25%;}
+  75%{background-position: 50% 0;}
+  87%{background-position: 10% 25%;}
+  100%{background-position: center;}
+}
+@-moz-keyframes app-bg {
+  0%{background-position:center;}
+  12%{background-position: 90% 75%;}
+  25%{background-position: 50% 100%;}
+  37%{background-position: 10% 75%;}
+  50%{background-position: center;}
+  62%{background-position: 90% 25%;}
+  75%{background-position: 50% 0;}
+  87%{background-position: 10% 25%;}
+  100%{background-position: center;}
+}
+@-webkit-keyframes app-bg {
+  0%{background-position:center;}
+  12%{background-position: 90% 75%;}
+  25%{background-position: 50% 100%;}
+  37%{background-position: 10% 75%;}
+  50%{background-position: center;}
+  62%{background-position: 90% 25%;}
+  75%{background-position: 50% 0;}
+  87%{background-position: 10% 25%;}
+  100%{background-position: center;}
+}
+
 .App {
   display: flex;
   position: sticky;
@@ -5,7 +39,13 @@
   text-align: center;
   justify-content: center;
   align-items: center;
-  background: radial-gradient(var(--main-color), white 200%);
+  background: radial-gradient(circle, #e48ec9, var(--main-color), #8ee4bd);
+  background-size: 200% 200%;
+  /* background-position: 90% 85%; */
+  /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+  animation: app-bg 60s forwards infinite;
+  -moz-animation: app-bg 60s forwards infinite;
+  -webkit-animation: app-bg 60s forwards infinite;
 }
 
 .App-logo {
@@ -180,7 +220,7 @@ h3.subtitle {
 
 #about-me {
   padding: 50px 0 50px 0;
-  background: radial-gradient(var(--main-color), #8ee4bd 175%);
+  /* background: radial-gradient(var(--main-color), #8ee4bd, #e48ec9); */
   display: flex;
   height: max-content;
   width: 100vw;
@@ -270,11 +310,15 @@ p.about-subtitle {
   font-size: .75em;
 }
 
+#projects p.proj-desc {
+  font-size: .5em;
+}
+
 #resume {
-  background:
+  /* background:
     linear-gradient(60deg, #8ee4bd, transparent 60%),
     linear-gradient(300deg, #5d9d80 0, transparent 60%),
-    radial-gradient(var(--main-color), transparent 175%);
+    radial-gradient(var(--main-color), transparent 175%); */
   display: flex;
   height: max-content;
   width: 100vw;
