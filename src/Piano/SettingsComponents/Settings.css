@@ -204,6 +204,10 @@ button.info {
   background: none;
 }
 
+button.info.close {
+  font-size: 1.5em;
+}
+
 @media only screen and (max-width: 1000px) {
   .playback-button {
     /* font-size: calc(5px + 1.5vmin); */

@@ -171,7 +171,7 @@ function Piano(props: PianoProps) {
           <div id='popup-bg'></div>
           <div id='popup-info' className='info'>
             {/* <div id='popup-info' className='' style={{zIndex: 11}}> */}
-              <button type='button' className='popup-button info'
+              <button type='button' className='popup-button info close'
                 onClick={() => {
                   picked = 'new';
                   document.getElementById('popup-bg')!.classList.toggle('lift-out');

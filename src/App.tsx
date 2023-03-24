@@ -76,21 +76,19 @@ function App() {
         <section id='projects'>
           <div className='container'>
             <h3 className='subtitle'>Projects</h3>
-            {/* <div className='container'> */}
-              <div className='grid-container'>
-                <div className='project-container'>
-                  <a href='https://github.com/brandonjmarquez/piano-roll' target='_blank'>
-                    <img src='/Website/projects/landing-page.png' className='project-pic'></img>
-                  </a>
-                  <p className='subtext'><strong>Recordable Piano Instrument</strong></p>
-                  <p className='proj-desc'>This is an in browser piano instrument that can be played and recorded with a computer keyboard. Recordings can be exported and used in any modern DAW.</p>
-                </div>
-                <div className='project-container'>
-                  <img src='/Website/projects/black.png' className='project-pic'></img>
-                  <p className='subtext'><strong>TBD</strong></p>
-                </div>
+            <div className='grid-container'>
+              <div className='project-container'>
+                <a href='https://github.com/brandonjmarquez/piano-roll' target='_blank'>
+                  <img src='/Website/projects/landing-page.png' className='project-pic'></img>
+                </a>
+                <p className='subtext'><strong>Recordable Piano Instrument</strong></p>
+                <p className='proj-desc'>This is an in browser piano instrument that can be played and recorded with a computer keyboard. Recordings can be exported and used in any modern DAW.</p>
               </div>
-            {/* </div> */}
+              <div className='project-container'>
+                <img src='/Website/projects/black.png' className='project-pic'></img>
+                <p className='subtext'><strong>TBD</strong></p>
+              </div>
+            </div>
           </div>
         </section>
         <section id='resume'>
@@ -99,14 +97,9 @@ function App() {
             <div className='resume-container'>
               <h4 className='resume-title main-text'>Education</h4>
               <div className='resume-item'>
-                <p className='main-text'><strong>Texas State University</strong> - August 2019 - July 2021</p>
+                <p className='main-text'><strong>Texas State University</strong> - August 2023 - May 2025</p>
                 <p className='main-text'><strong>Austin Community College</strong> - Associates of Science in Computer Science, August 2021 - May 2023</p>
-              </div>
-            </div>
-            <div className='resume-container'>
-              <h4 className='resume-title main-text'>Skills</h4>
-              <div className='resume-item'>
-                <p className='main-text'>Great Work Ethic, High Attention to Detail in all Tasks, Excellent Computer Literacy, Working with People, Quick Learner, Passionate About Problem Solving, Customer Service, Time Management, Multitasking</p>
+                <p className='main-text'><strong>Tech Talent South</strong> - Full Stack Web Development Course, February 2023 - May 2023</p>
               </div>
             </div>
             <div className='resume-container'>
@@ -118,23 +111,25 @@ function App() {
             <div className='resume-container'>
               <h4 className='resume-title main-text'>Projects</h4>
               <div className='resume-item'>
-                <p className='main-text'><strong>Piano MERN Stack Application</strong> - Myself</p>
+                <p className='main-text'><strong>Piano MERN Stack Application</strong></p>
                 <p className='main-text'>June 2022 - Present</p>
                 <ul>
-                  <li className='main-text'>MERN, in this case, stands for MongoDB, Express.js, React.js, and Node.js.</li>
                   <li className='main-text'>Currently Runs locally using docker and docker-compose.</li>
-                  <li className='main-text'>Created an Express.js server that is used to serve static sound files, and manage database connections.</li>
-                  <li className='main-text'>Styled with CSS and layout designed with HTML.</li>
-                  <li className='main-text'>Wrote a functional piano that works using a qwerty keyboard.</li>
-                  <li className='main-text'>Input from the piano can be recorded and exported as “.mid” files.</li>
-                  <li className='main-text'>Users can log in and register to save their work to the database.</li>
-                  <li className='main-text'>Designed a UI that shows what note is being played.</li>
+                  <li className='main-text'>Created an Express.js server that is used to serve static sound files, and manage MongoDB connections.</li>
+                  <li className='main-text'>Wrote a functional piano using React.js that works using a qwerty keyboard.</li>
                   <li className='main-text'>Display shows recorded notes on a timeline as they are being played and recorded.</li>
+                  <li className='main-text'>Input from the piano can be recorded and exported as “.mid” files.</li>
+                  <li className='main-text'>Users can log in and register to save their work to the MongoDB database.</li>
+                </ul>
+                <p className='main-text'><strong>This Website</strong></p>
+                <p className='main-text'>February 2023 - March 2023</p>
+                <ul>
+                  <li className='main-text'>Created using React.js. Includes a demo of my piano MERN stack application as a reusable component.</li>
                 </ul>
               </div>
               <h4 className='resume-title main-text'>Experience</h4>
               <div className='resume-item'>
-                <p className='main-text'><strong>Marketing & Sales</strong> - Custom Motor Group Co.</p>
+                <p className='main-text'><strong>Marketing & Sales</strong> - Custom Motor Group Co, Pflugerville, TX</p>
                 <p className='main-text'>November 2021 - September 2022</p>
                 <ul>
                   <li className='main-text'>Wrote website content to get the best SEO results.</li>
@@ -142,6 +137,13 @@ function App() {
                   <li className='main-text'>Patched malfunctioning CSS/Javascript that was present upon being hired.</li>
                   <li className='main-text'>Communicated with customers through online chat systems, or by returning calls, to help them learn more about the cars they were interested in.</li>
                   <li className='main-text'>Answered any questions a walk in customer might have related to financing a car, information about a car, and any other questions.</li>
+                </ul>
+                <p className='main-text'><strong>SI Leader</strong> - Texas State University SLAC, San Marcos, TX</p>
+                <p className='main-text'>November 2021 - September 2022</p>
+                <ul>
+                  <li className='main-text'>Hosted weekly study sessions, orally presenting material covered in class, and assisted students in studying that material.</li>
+                  <li className='main-text'>Developed worksheets and activities for student engagement in alignment with material covered in class.</li>
+                  <li className='main-text'>Moderated sessions via Zoom during COVID-19 pandemic.</li>
                 </ul>
               </div>
             </div>
