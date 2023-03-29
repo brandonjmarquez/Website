@@ -67,7 +67,7 @@
   /* min-height: 60%; */
   /* height: fit-content; */
   padding-bottom: 3em;
-  width: 100vw;
+  width: 100%;
   display: flex;
   position: relative;
   flex-direction: row;
@@ -187,6 +187,7 @@ h3.subtitle {
   right: 0;
   display: flex;
   flex-direction: row;
+  justify-content: center;
 }
 
 .navbar {
@@ -195,7 +196,7 @@ h3.subtitle {
   position: relative;
   align-items: center;
   padding: 1em;
-  width: 100vw;
+  width: 30em;
   background: white;
   border-radius: 10em;
   z-index: 4;
@@ -223,7 +224,7 @@ h3.subtitle {
   /* background: radial-gradient(var(--main-color), #8ee4bd, #e48ec9); */
   display: flex;
   height: max-content;
-  width: 100vw;
+  width: 100%;
 }
 
 #about-me .container { 
@@ -265,7 +266,7 @@ p.about-subtitle {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100vw;
+  width: 100%;
   height: max-content;
   /* font-size: 3.5em; */
 }
@@ -321,7 +322,7 @@ p.about-subtitle {
     radial-gradient(var(--main-color), transparent 175%); */
   display: flex;
   height: max-content;
-  width: 100vw;
+  width: 100%;
   padding-bottom: 5em;
 }
 
