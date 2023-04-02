@@ -79,13 +79,20 @@ function App() {
             <div className='grid-container'>
               <div className='project-container'>
                 <a href='https://github.com/brandonjmarquez/piano-roll' target='_blank'>
-                  <img src='/Website/projects/landing-page.png' className='project-pic'></img>
+                  <img src='/Website/projects/piano.png' className='project-pic' loading='lazy'></img>
                 </a>
                 <p className='subtext'><strong>Recordable Piano Instrument</strong></p>
                 <p className='proj-desc'>This is an in browser piano instrument that can be played and recorded with a computer keyboard. Recordings can be exported and used in any modern DAW.</p>
               </div>
               <div className='project-container'>
-                <img src='/Website/projects/black.png' className='project-pic'></img>
+                <a href='https://github.com/brandonjmarquez/car-dealership' target='_blank'>
+                  <img src='/Website/projects/car-dealership.png' className='project-pic' loading='lazy'></img>
+                </a>
+                <p className='subtext'><strong>Car Dealership Website</strong></p>
+                <p className='proj-desc'>This is a mock car dealership website.</p>
+              </div>
+              <div className='project-container'>
+                <img src='/Website/projects/black.png' className='project-pic' loading='lazy'></img>
                 <p className='subtext'><strong>TBD</strong></p>
               </div>
             </div>
