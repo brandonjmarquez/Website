@@ -161,19 +161,6 @@ h3.subtitle {
   animation: light-flash 1s ease 1s infinite;
   -webkit-animation: light-flash 1s ease 1s infinite;
   color: var(--light-color-dim-l);
-  /* animation: name duration timing-function delay iteration-count direction fill-mode; */
-}
-
-@keyframes light-flash {
-  0%{color: var(--light-color-l);}
-  50%{color: var(--light-color-l);}
-  100%{color: var(--light-color-dim-l);}
-}
-
-@-webkit-keyframes light-flash {
-  0%{color: var(--light-color-l);}
-  50%{color: var(--light-color-l);}
-  100%{color: var(--light-color-dim-l);}
 }
 
 .no-piano-text {
@@ -487,7 +474,7 @@ p.main-text, li.main-text {
 
   .grid-container {
     grid-template-columns: none;
-    grid-template-rows: repeat(2, 50%);
+    /* grid-template-rows: repeat(2, 50%); */
   }
 
   .project-container {
@@ -502,6 +489,10 @@ p.main-text, li.main-text {
 
   #about-me .container {
     flex-direction: column;
+  }
+
+  .right-about {
+    padding: 0
   }
 
   /* #resume .container, #about-me .container, #projects .container {

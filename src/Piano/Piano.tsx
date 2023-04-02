@@ -56,11 +56,7 @@ function controlsReducer(state: ControlsState, action: any) {
   }
 }
 
-interface PianoProps {
-  pianoRef: React.RefObject<HTMLDivElement>;
-}
-
-function Piano(props: PianoProps) {
+function Piano() {
   const soundDetails = {GrandPiano: { '3': [ '2mf' ], '4': [ '2mf' ]}};
   const [soundState, soundDispatch] = useReducer<Reducer<SoundState, SoundAction>>(soundReducer, {octave: 3, sound: 'GrandPiano', volume: '2mf'});
   const [midiState, midiDispatch] = useReducer<Reducer<MidiState, MidiAction>>(midiReducer, {bpm: 120, metronome: 'off', mode: 'keyboard', numMeasures: 4, ppq: 96,  subdiv: 4});
@@ -165,7 +161,7 @@ function Piano(props: PianoProps) {
 
     closeInfo()
     function closeInfo() {
-      if(picked === 'none' && props.pianoRef.current) {
+      if(picked === 'none') {
         setInfoModal(createPortal(
           <>
           <div id='popup-bg'>
@@ -224,7 +220,7 @@ function Piano(props: PianoProps) {
                 </div>
               {/* </div> */}
             </div>
-          </div></>, props.pianoRef.current))
+          </div></>, document.body))
       }
     }
   }
