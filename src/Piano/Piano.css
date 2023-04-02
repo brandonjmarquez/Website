@@ -35,25 +35,33 @@
   display: flex;
   position: absolute;
   flex-direction: column;
-  top: 25vh;
-  height: 50vh;
+  top: 12.5vh;
+  left: 12.5vw;
+  height: fit-content;
+  padding: 3em 0;
   width: 75vw;
   justify-content: center;
   align-items: center;
   background-color: var(--main-color);
   z-index: 11;
   border-radius: 20px;
-  animation-name: drop-in-info;
+  /* animation-name: drop-in-info;
   animation-duration: 500ms;
-  animation-fill-mode: forwards;
+  animation-fill-mode: forwards; */
+}
+
+.info-text-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 .info-text {
   color: black;
   display: block;
   font-size: 1.75em;
-  margin: 0 3em 3em 3em;
-  text-align: start;
+  margin: 0;
+  text-align: left;
 }
 
 .keyboard {

@@ -168,42 +168,62 @@ function Piano(props: PianoProps) {
       if(picked === 'none' && props.pianoRef.current) {
         setInfoModal(createPortal(
           <>
-          <div id='popup-bg'></div>
-          <div id='popup-info' className='info'>
-            {/* <div id='popup-info' className='' style={{zIndex: 11}}> */}
-              <button type='button' className='popup-button info close'
-                onClick={() => {
-                  picked = 'new';
-                  document.getElementById('popup-bg')!.classList.toggle('lift-out');
-                  document.getElementById('popup-info')!.classList.toggle('lift-out');
-                  setTimeout(() => setInfoModal(null), 500);
-                }}
-              >X</button>
-              <span className='info-text'>Double click <FaCircle style={{verticalAlign: 'middle'}} />(or press 'n') to record what you play using the keys below. {<br></br>}Click <FaPlay style={{verticalAlign: 'middle'}} />(or press 'spacebar') to play what you've recorded. {<br></br>}Click <FaStop style={{verticalAlign: 'middle'}} />(or press 'b') to return the timer to 0.00s and to save your track to localStorage. {<br></br>}Click <FaRegCircle style={{verticalAlign: 'middle'}} /><FaCircle style={{verticalAlign: 'middle'}} />(or press 'm') to turn on the metronome. {<br></br>}Click any box in the grid to add a note. {<br></br>}Click and drag the black dot to scrub through the time.</span>
-              <div className='keyboard'>
-                <div className='top-row'>
-                  <span className='key'>Key:w<br></br><br></br>Note:C#</span>
-                  <span className='key'>Key:e<br></br><br></br>Note:Eb</span>
-                  <span className='key hidden'></span>
-                  <span className='key'>Key:t<br></br><br></br>Note:F#</span>
-                  <span className='key'>Key:y<br></br><br></br>Note:G#</span>
-                  <span className='key'>Key:u<br></br><br></br>Note:Bb</span>
-                  <span className='key hidden'></span>
-                  <span className='key'>Key:o<br></br><br></br>Note:C#</span>
+          <div id='popup-bg'>
+            <div id='popup-info' className='info'>
+              {/* <div id='popup-info' className='' style={{zIndex: 11}}> */}
+                <button type='button' className='popup-button info close'
+                  onClick={() => {
+                    picked = 'new';
+                    document.getElementById('popup-bg')!.classList.toggle('lift-out');
+                    document.getElementById('popup-info')!.classList.toggle('lift-out');
+                    setTimeout(() => setInfoModal(null), 500);
+                  }}
+                >X</button>
+                <div className='info-text-container'>
+                  <span className='info-text'>Double click <FaCircle style={{verticalAlign: 'middle'}} />(or press 'n') to record what you play using the keys below.</span>
+                  <br />
+                  <span className='info-text'>Click <FaPlay style={{verticalAlign: 'middle'}} />(or press 'spacebar') to play what you've recorded.</span>
+                  <br />
+                  <span className='info-text'>Click <FaStop style={{verticalAlign: 'middle'}} />(or press 'b') to return the timer to 0.00s and to save your track to localStorage.</span>
+                  <br />
+                  <span className='info-text'>Click <FaRegCircle style={{verticalAlign: 'middle'}} /><FaCircle style={{verticalAlign: 'middle'}} />(or press 'm') to turn on the metronome.</span>
+                  <br />
+                  <span className='info-text'>Click any box in the grid to add a note.</span>
+                  <br />
+                  <span className='info-text'>Click and drag the black dot to scrub through the time.</span>
+                  <br />
+                  <span className='info-text'>Hold ctrl/cmd and click and drag on a note to move its ending.</span>
+                  <br />
+                  <span className='info-text'>Hold shift and click and drag on a note to move its ending.</span>
+                  <br />
+                  <span className='info-text'>Hold both ctrl/cmd + shift and click and drag on a note to move the note.</span>
+                  <br />
                 </div>
-                <div className='bottom-row'>
-                  <span className='key'>Key:a<br></br><br></br>Note:C</span>
-                  <span className='key'>Key:s<br></br><br></br>Note:D</span>
-                  <span className='key'>Key:d<br></br><br></br>Note:E</span>
-                  <span className='key'>Key:f<br></br><br></br>Note:F</span>
-                  <span className='key'>Key:g<br></br><br></br>Note:G</span>
-                  <span className='key'>Key:h<br></br><br></br>Note:A</span>
-                  <span className='key'>Key:j<br></br><br></br>Note:B</span>
-                  <span className='key'>Key:k<br></br><br></br>Note:C</span>
-                  <span className='key'>Key:l<br></br><br></br>Note:D</span>
+                <div className='keyboard'>
+                  <div className='top-row'>
+                    <span className='key'>Key:w<br></br><br></br>Note:C#</span>
+                    <span className='key'>Key:e<br></br><br></br>Note:Eb</span>
+                    <span className='key hidden'></span>
+                    <span className='key'>Key:t<br></br><br></br>Note:F#</span>
+                    <span className='key'>Key:y<br></br><br></br>Note:G#</span>
+                    <span className='key'>Key:u<br></br><br></br>Note:Bb</span>
+                    <span className='key hidden'></span>
+                    <span className='key'>Key:o<br></br><br></br>Note:C#</span>
+                  </div>
+                  <div className='bottom-row'>
+                    <span className='key'>Key:a<br></br><br></br>Note:C</span>
+                    <span className='key'>Key:s<br></br><br></br>Note:D</span>
+                    <span className='key'>Key:d<br></br><br></br>Note:E</span>
+                    <span className='key'>Key:f<br></br><br></br>Note:F</span>
+                    <span className='key'>Key:g<br></br><br></br>Note:G</span>
+                    <span className='key'>Key:h<br></br><br></br>Note:A</span>
+                    <span className='key'>Key:j<br></br><br></br>Note:B</span>
+                    <span className='key'>Key:k<br></br><br></br>Note:C</span>
+                    <span className='key'>Key:l<br></br><br></br>Note:D</span>
+                  </div>
                 </div>
-              </div>
-            {/* </div> */}
+              {/* </div> */}
+            </div>
           </div></>, props.pianoRef.current))
       }
     }
