@@ -84,7 +84,7 @@ function MidiRecorder(props: MidiRecorderProps) {
     const onUpdate = (e: MouseEvent) => {
       e.preventDefault();
       if(e.target instanceof Element) {
-        if(e.target.className === 'midi-note' && props.noteTracksRef.current && (e.shiftKey || e.ctrlKey || e.metaKey)) {
+        if(e.target.className === 'midi-note' && props.noteTracksRef.current && (e.shiftKey || e.altKey)) {
           let noteOct = e.target.id.substring(0, e.target.id.indexOf('-'));
           setIsDragging(true)
           props.setMidiNoteInfo((midiNoteInfo: MidiNoteInfo[]) => {
@@ -95,12 +95,12 @@ function MidiRecorder(props: MidiRecorderProps) {
               if(midiNote && Object.keys(midiNoteInfo[midiNoteInfo.indexOf(midiNote)])[0] === noteOct && startVal > 0 && state[state.indexOf(midiNote)][Object.keys(midiNote)[0]]) {
                 let length = state[state.indexOf(midiNote)][Object.keys(midiNote)[0]].keyPressed.end - state[state.indexOf(midiNote)][Object.keys(midiNote)[0]].keyPressed.start
 
-                if(e.shiftKey && (e.ctrlKey || e.metaKey) && modifier > 0 && modifier + length < props.midiLength * props.pulseRate) {
+                if(e.shiftKey && e.altKey && modifier > 0 && modifier + length < props.midiLength * props.pulseRate) {
                   state = changeEnd(state, midiNote, modifier + length);
                   state = changeStart(state, midiNote, modifier, noteOct);
                   moveNote.current = {}; // THIS IS WHAT IS CAUSING ORDEROFEVENTS TO UPDATE WHEN SETTINGS BUTTONS ARE CLICKED!!!
                   return true;
-                } else if(!e.shiftKey && (e.ctrlKey || e.metaKey) && modifier > midiNote[Object.keys(midiNote)[0]].keyPressed.start && modifier < props.midiLength * props.pulseRate) {
+                } else if(!e.shiftKey && e.altKey && modifier > midiNote[Object.keys(midiNote)[0]].keyPressed.start && modifier < props.midiLength * props.pulseRate) {
                   state = changeEnd(state, midiNote, modifier);
                   moveNote.current = {};
                   return true;

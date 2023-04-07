@@ -58,7 +58,7 @@ function controlsReducer(state: ControlsState, action: any) {
 
 function Piano() {
   const soundDetails = {GrandPiano: { '3': [ '2mf' ], '4': [ '2mf' ]}};
-  const [soundState, soundDispatch] = useReducer<Reducer<SoundState, SoundAction>>(soundReducer, {octave: 3, sound: 'GrandPiano', volume: '2mf'});
+  const [soundState, soundDispatch] = useReducer<Reducer<SoundState, SoundAction>>(soundReducer, {octave: 4, sound: 'GrandPiano', volume: '2mf'});
   const [midiState, midiDispatch] = useReducer<Reducer<MidiState, MidiAction>>(midiReducer, {bpm: 120, metronome: 'off', mode: 'keyboard', numMeasures: 4, ppq: 96,  subdiv: 4});
   const [controlsState, controlsDispatch] = useReducer<Reducer<ControlsState, ControlsAction>>(controlsReducer, {export: false, undo: false});
   const [octaveMinMax, setOctaveMinMax] = useState<number[]>([0, 0]);
@@ -175,26 +175,6 @@ function Piano() {
                     setTimeout(() => setInfoModal(null), 500);
                   }}
                 >X</button>
-                <div className='info-text-container'>
-                  <span className='info-text'>Double click <FaCircle style={{verticalAlign: 'middle'}} />(or press 'n') to record what you play using the keys below.</span>
-                  <br />
-                  <span className='info-text'>Click <FaPlay style={{verticalAlign: 'middle'}} />(or press 'spacebar') to play what you've recorded.</span>
-                  <br />
-                  <span className='info-text'>Click <FaStop style={{verticalAlign: 'middle'}} />(or press 'b') to return the timer to 0.00s and to save your track to localStorage.</span>
-                  <br />
-                  <span className='info-text'>Click <FaRegCircle style={{verticalAlign: 'middle'}} /><FaCircle style={{verticalAlign: 'middle'}} />(or press 'm') to turn on the metronome.</span>
-                  <br />
-                  <span className='info-text'>Click any box in the grid to add a note.</span>
-                  <br />
-                  <span className='info-text'>Click and drag the black dot to scrub through the time.</span>
-                  <br />
-                  <span className='info-text'>Hold ctrl/cmd and click and drag on a note to move its ending.</span>
-                  <br />
-                  <span className='info-text'>Hold shift and click and drag on a note to move its ending.</span>
-                  <br />
-                  <span className='info-text'>Hold both ctrl/cmd + shift and click and drag on a note to move the note.</span>
-                  <br />
-                </div>
                 <div className='keyboard'>
                   <div className='top-row'>
                     <span className='key'>Key:w<br></br><br></br>Note:C#</span>
@@ -217,6 +197,27 @@ function Piano() {
                     <span className='key'>Key:k<br></br><br></br>Note:C</span>
                     <span className='key'>Key:l<br></br><br></br>Note:D</span>
                   </div>
+                </div>
+                <br />
+                <div className='info-text-container'>
+                  <span className='info-text'>Double click <FaCircle style={{verticalAlign: 'middle'}} />(or press 'n') to record what you play using the keys below.</span>
+                  <br />
+                  <span className='info-text'>Click <FaPlay style={{verticalAlign: 'middle'}} />(or press 'spacebar') to play what you've recorded.</span>
+                  <br />
+                  <span className='info-text'>Click <FaStop style={{verticalAlign: 'middle'}} />(or press 'b') to return the timer to 0.00s and to save your track to localStorage.</span>
+                  <br />
+                  <span className='info-text'>Click <FaRegCircle style={{verticalAlign: 'middle'}} /><FaCircle style={{verticalAlign: 'middle'}} />(or press 'm') to turn on the metronome.</span>
+                  <br />
+                  <span className='info-text'>Click any box in the grid to add a note.</span>
+                  <br />
+                  <span className='info-text'>Click the horizontal black line at the top of the grid to scrub through the time.</span>
+                  <br />
+                  <span className='info-text'>Hold ctrl/cmd and click and drag on a note to move its ending.</span>
+                  <br />
+                  <span className='info-text'>Hold shift and click and drag on a note to move its ending.</span>
+                  <br />
+                  <span className='info-text'>Hold both ctrl/cmd + shift and click and drag on a note to move the note.</span>
+                  <br />
                 </div>
               {/* </div> */}
             </div>

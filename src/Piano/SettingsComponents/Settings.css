@@ -8,7 +8,7 @@
   /* width: 100vw; */
   transform-style: preserve-3d;
   z-index: 4;
-  border-radius: 5px 10px 0 0;
+  border-radius: 5px 0 0 0;
 }
 
 .settings {
@@ -84,6 +84,8 @@
 
 #popup-bg {
   display: flex;
+  justify-content: center;
+  align-items: center;
   top: 0;
   position:fixed;
   z-index: 5;
@@ -205,6 +207,8 @@ button.info {
 }
 
 button.info.close {
+  position: relative;
+  align-self: start;
   font-size: 1.5em;
 }
 

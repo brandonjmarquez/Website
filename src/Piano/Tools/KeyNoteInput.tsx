@@ -14,14 +14,12 @@ function KeyNoteInput(props: KeyNoteInputProps) {
 
   useEffect(() => {
     const onKeyDown = (e: KeyboardEvent) => {
-      e.preventDefault();
       if(e.repeat) {
         // setController((controller) => ({...controller, [note + octave]: {...controller[note + octave], ...{end: props.pulseNum}}}));
         return;
       };
       const control = e.metaKey || e.ctrlKey;
       if(Object.keys(kbControls).includes(e.key)) {
-        e.preventDefault();
         props.onControlsPressed([e.key, control]);
       }
       if(!Object.keys(qwertyNote).includes(e.key.toLowerCase())) {
