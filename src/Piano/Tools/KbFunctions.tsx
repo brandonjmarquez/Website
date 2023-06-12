@@ -67,14 +67,6 @@ function KbFunctions(props: KbFunctionsProps) {
   }
 
   function octaveUp() {
-    // if(props.selectorsRef.current) {
-    //   for(let i = 0; i < props.selectorsRef.current.children.length; i++) {
-    //     if(props.selectorsRef.current.children[i].id === 'octave-selector') {
-    //       let newOctave = parseInt(props.selectorsRef.current.children[i].value) + 1;
-    //       if(newOctave < props.octaveMinMax[1]) props.soundDispatch({type: 'octave', octave: newOctave})
-    //     }
-    //   }
-    // }
     let newOctave = props.octave + 1;
     if(newOctave <= props.octaveMinMax[1] - 1) props.soundDispatch({type: 'octave', octave: newOctave})
     props.clearControls();

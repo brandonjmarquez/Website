@@ -120,18 +120,18 @@ input[type='range']::-webkit-slider-thumb {
 }
 
 @media only screen and (max-width: 1000px) {
-  #midi {
+  /* #midi {
     width: 150%;
-  }
+  } */
 
-  #midi-note-labels {
+  /* #midi-note-labels {
     height: 150%;
   }
 
   #midi-track {  
     width: 150%;
     height: 150%;
-  }
+  } */
 }
 
 @media only screen and (max-width: 384px) {

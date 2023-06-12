@@ -200,23 +200,17 @@ function Piano() {
                 </div>
                 <br />
                 <div className='info-text-container'>
-                  <span className='info-text'>Double click <FaCircle style={{verticalAlign: 'middle'}} />(or press 'n') to record what you play using the keys below.</span>
+                  <span className='info-text'>Click <FaCircle style={{verticalAlign: 'middle'}} /> to record what you play using the keys above.</span>
                   <br />
-                  <span className='info-text'>Click <FaPlay style={{verticalAlign: 'middle'}} />(or press 'spacebar') to play what you've recorded.</span>
+                  <span className='info-text'>Click <FaPlay style={{verticalAlign: 'middle'}} /> to play what you've recorded.</span>
                   <br />
-                  <span className='info-text'>Click <FaStop style={{verticalAlign: 'middle'}} />(or press 'b') to return the timer to 0.00s and to save your track to localStorage.</span>
+                  <span className='info-text'>Click <FaStop style={{verticalAlign: 'middle'}} /> to return the timer to 0.00s and to save your track to localStorage.</span>
                   <br />
-                  <span className='info-text'>Click <FaRegCircle style={{verticalAlign: 'middle'}} /><FaCircle style={{verticalAlign: 'middle'}} />(or press 'm') to turn on the metronome.</span>
+                  <span className='info-text'>Click <FaRegCircle style={{verticalAlign: 'middle'}} /><FaCircle style={{verticalAlign: 'middle'}} /> to turn on the metronome.</span>
                   <br />
                   <span className='info-text'>Click any box in the grid to add a note.</span>
                   <br />
                   <span className='info-text'>Click the horizontal black line at the top of the grid to scrub through the time.</span>
-                  <br />
-                  <span className='info-text'>Hold ctrl/cmd and click and drag on a note to move its ending.</span>
-                  <br />
-                  <span className='info-text'>Hold shift and click and drag on a note to move its ending.</span>
-                  <br />
-                  <span className='info-text'>Hold both ctrl/cmd + shift and click and drag on a note to move the note.</span>
                   <br />
                 </div>
               {/* </div> */}
@@ -253,7 +247,7 @@ function Piano() {
             <div ref={timerRef} id='timer-buttons'>
               <TimerButtons metPlay={metPlay} metronome={midiState.metronome} mode={midiState.mode} pulseNum={pulseNum} midiDispatch={midiDispatch} />
               <input readOnly={true} id='time' className='settings input' value={(pulseRate !== 0) ? (pulseNum / pulseRate/1000).toFixed(2) : (0).toFixed(2)}></input>
-              <KbFunctions controlsPressed={controlsPressed} metronome={midiState.metronome} mode={midiState.mode} octave={soundState.octave} octaveMinMax={octaveMinMax} selectorsRef={selectorsRef} clearControls={clearControls} controlsDispatch={controlsDispatch} midiDispatch={midiDispatch} soundDispatch={soundDispatch} />
+              {/* <KbFunctions controlsPressed={controlsPressed} metronome={midiState.metronome} mode={midiState.mode} octave={soundState.octave} octaveMinMax={octaveMinMax} selectorsRef={selectorsRef} clearControls={clearControls} controlsDispatch={controlsDispatch} midiDispatch={midiDispatch} soundDispatch={soundDispatch} /> */}
             </div>
         </div>
         <div className='midi-piano'>

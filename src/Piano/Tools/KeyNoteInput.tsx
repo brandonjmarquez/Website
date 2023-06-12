@@ -19,9 +19,9 @@ function KeyNoteInput(props: KeyNoteInputProps) {
         return;
       };
       const control = e.metaKey || e.ctrlKey;
-      if(Object.keys(kbControls).includes(e.key)) {
-        props.onControlsPressed([e.key, control]);
-      }
+      // if(Object.keys(kbControls).includes(e.key)) {
+      //   props.onControlsPressed([e.key, control]);
+      // }
       if(!Object.keys(qwertyNote).includes(e.key.toLowerCase())) {
         return;
       }
