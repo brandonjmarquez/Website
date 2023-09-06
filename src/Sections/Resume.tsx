@@ -1,14 +1,28 @@
-import React from "react";
+import React, { useRef, useState } from "react";
+import { usePdf } from 'react-pdf-js';
 
 const Resume = () => {
+  const canvasRef = useRef(null);
+
+  const [ pdfDocument, pdfPage ] = usePdf({
+    file: '/Website/Resume.pdf',
+    page: 1,
+    canvasEl: canvasRef,
+  });
+
   return (
     <section id='resume'>
       <div className='container'>
         <h3 className='subtitle'>Resume</h3>
-        <div className='resume-container'>
+        <div id="resume-pdf">
+          <canvas ref={canvasRef} />
+          {Boolean(pdfDocument && pdfDocument.numPages)}
+        </div>
+        
+        {/* <div className='resume-container'>
           <h4 className='resume-title main-text'>Education</h4>
           <div className='resume-item'>
-            <p className='main-text'><strong>Texas State University</strong> - August 2023 - May 2025</p>
+            <p className='main-text'><strong>Texas State University</strong> - Bachelors of Science in Computer Science, August 2023 - May 2025</p>
             <p className='main-text'><strong>Austin Community College</strong> - Associates of Science in Computer Science, August 2021 - May 2023</p>
             <p className='main-text'><strong>Tech Talent South</strong> - Full Stack Web Development Course, February 2023 - May 2023</p>
           </div>
@@ -16,7 +30,7 @@ const Resume = () => {
         <div className='resume-container'>
           <h4 className='resume-title main-text'>Technical Skills</h4>
           <div className='resume-item'>
-            <p className='main-text'>C++, C, C#, Java, Python, HTML5, CSS, JavaScript, React.js, Node.js, MySQL, T-SQL, MongoDB, VS Code, MS Excel, MS Word, Google Analytics, Google Search Console, Wordpress, Docker</p>
+            <p className='main-text'>C++, Java, HTML5, CSS, JavaScript, React.js, Node.js, Express.js, Strapi, MySQL, T-SQL, MongoDB, VS Code, MS Excel, MS Word, Wordpress, Docker</p>
           </div>
         </div>
         <div className='resume-container'>
@@ -25,7 +39,7 @@ const Resume = () => {
             <p className='main-text'><strong>Piano MERN Stack Application</strong></p>
             <p className='main-text'>June 2022 - Present</p>
             <ul>
-              <li className='main-text'>Currently Runs locally using docker and docker-compose.</li>
+              <li className='main-text'>Hosted at <a href="https://piano-roll.vercel.app/">https://piano-roll.vercel.app/</a></li>
               <li className='main-text'>Created an Express.js server that is used to serve static sound files, and manage MongoDB connections.</li>
               <li className='main-text'>Wrote a functional piano using React.js that works using a qwerty keyboard.</li>
               <li className='main-text'>Display shows recorded notes on a timeline as they are being played and recorded.</li>
@@ -57,7 +71,7 @@ const Resume = () => {
               <li className='main-text'>Moderated sessions via Zoom during COVID-19 pandemic.</li>
             </ul>
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
   )

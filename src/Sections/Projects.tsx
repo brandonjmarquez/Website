@@ -5,6 +5,7 @@ const Projects = () => {
     <section id="projects">
       <div className="container">
         <h3 className="subtitle">Projects</h3>
+        <span className="instructions"> Click the images to navigate to where they're hosted.</span>
         <div className="grid-container">
           <div className="project-container">
             <a href="https://piano-roll.vercel.app" target="_blank">

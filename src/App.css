@@ -276,6 +276,15 @@ p.about-subtitle {
   /* font-size: 3.5em; */
 }
 
+#projects > .container > h3 {
+  margin-bottom: 0;
+}
+
+.instructions {
+  font-size: .4em;
+  margin-bottom: 2em;
+}
+
 #projects > .container {
   flex-direction: column;
   align-items: flex-start;
@@ -327,9 +336,16 @@ p.about-subtitle {
     linear-gradient(300deg, #5d9d80 0, transparent 60%),
     radial-gradient(var(--main-color), transparent 175%); */
   display: flex;
+  align-items: center;
+  justify-content: center;
   height: max-content;
   width: 100%;
   padding-bottom: 5em;
+  width: 100%;
+}
+
+#resume-pdf {
+  margin: auto;
 }
 
 h4.resume-title {
@@ -341,6 +357,7 @@ h4.resume-title {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  width: 100%;
   margin: 0 10vw;
   font-size: 3.5em;
 }
