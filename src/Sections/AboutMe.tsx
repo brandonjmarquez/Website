@@ -16,8 +16,8 @@ const AboutMe = () => {
         <div className='right-about'>
           <p className='main-text about-subtitle'>Some facts about me:</p>
           <ul>
-            <li className='main-text'>I will be graduating in May 2023 from ACC with an Associates Degree in Computer Science.</li>
-            <li className='main-text'>I have a <strong>strong</strong> passion for coding, music production, and my cat(her name is Suzie).</li>
+            <li className='main-text'>I will be graduating in December 2025 from Texas State University with an Bachelors Degree in Computer Science.</li>
+            <li className='main-text'>I have a <strong>strong</strong> passion for coding, music production, and my <a href="#" className="suzie">cat<span><img id="cutest-cat-ever" src="/Website/suzie.jpg" alt="image" height="100" /></span></a>.</li>
             <li className='main-text'>I make music!(Here's my <a href='https://soundcloud.com/user-550415450'>soundcloud</a> if you want to check it out)</li>
             <li className='main-text'>I've been coding for about 7 years now, and I'm not stopping any time soon.</li>
             

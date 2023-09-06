@@ -218,6 +218,24 @@ h3.subtitle {
   font-size: 3.5em;
 }
 
+#about-me a.suzie {
+  position: relative;
+}
+
+#about-me a.suzie span {
+  position: absolute;
+  display: none;
+  z-index: 99;
+}
+
+#about-me a:hover.suzie span {
+  display: block;
+}
+
+#cutest-cat-ever {
+  border-radius: 10px;
+}
+
 .left-about {
   height: max-content;
   /* padding: 0 5vw; */
