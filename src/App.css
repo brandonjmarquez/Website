@@ -348,6 +348,11 @@ p.about-subtitle {
   margin: auto;
 }
 
+#responsive-canvas {
+  width: 100%!important;
+  height: 75%!important;
+}
+
 h4.resume-title {
   font-size: .75em;
   margin: 14px 0;

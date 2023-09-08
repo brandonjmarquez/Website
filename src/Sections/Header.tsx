@@ -1,6 +1,6 @@
 import React from "react";
 import Piano from "../Piano/Piano";
-import { FaInfoCircle } from 'react-icons/fa'
+import { FaInfoCircle, FaLinkedin } from 'react-icons/fa'
 
 const Header = () => {
   const looking = true;
@@ -30,6 +30,7 @@ const Header = () => {
             <p className='subtext'>I am a full stack web developer, but I have a personal love for the front end.</p>
             <p className='subtext piano-text'>If you want to know more about the thing to the right you can click the "<FaInfoCircle />" in its top left corner.</p>
             <p className='subtext no-piano-text'>Visit this site on desktop to try out a demo of my piano app!</p>
+            <a href="https://www.linkedin.com/in/brandmarque/" target="_blank"><FaLinkedin /></a>
           {/* </div> */}
         </div>
         <div className='right-header'>
