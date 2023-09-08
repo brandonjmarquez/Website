@@ -73,7 +73,6 @@ function MidiSettings(props: MidiSettingsProps) {
   return (
     <>
       {modal}
-      <BpmInput bpm={props.bpm} midiDispatch={props.midiDispatch} />
       <button type='button' className='settings button' 
       onClick={() => {
         if(props.midiNoteInfoLength > 0) newTrack()

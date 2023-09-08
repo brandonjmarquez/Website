@@ -344,6 +344,10 @@ p.about-subtitle {
   width: 100%;
 }
 
+#resume > .container > h3 {
+  margin-bottom: 0;
+}
+
 #resume-pdf {
   margin: auto;
 }

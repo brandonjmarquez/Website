@@ -27,7 +27,7 @@ const Header = () => {
           {/* <div> */}
             <h1 className='title'>Welcome!<br></br>My name is Brandon.</h1>
             {"\n"}
-            <p className='subtext'>I am a full stack web developer, but I have a personal love for the front end.</p>
+            <p className='subtext'>I am a student at Texas State University pursuing a degree in computer science with a minor in applied mathematics.</p>
             <p className='subtext piano-text'>If you want to know more about the thing to the right you can click the "<FaInfoCircle />" in its top left corner.</p>
             <p className='subtext no-piano-text'>Visit this site on desktop to try out a demo of my piano app!</p>
             <a href="https://www.linkedin.com/in/brandmarque/" target="_blank"><FaLinkedin /></a>
