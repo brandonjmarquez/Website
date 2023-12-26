@@ -1,5 +1,3 @@
-import React from "react";
-
 const Projects = () => {
   return (
     <section id="projects">
@@ -8,7 +6,7 @@ const Projects = () => {
         <span className="instructions"> Click the images to navigate to where they're hosted.</span>
         <div className="grid-container">
           <div className="project-container">
-            <a href="https://piano-roll.vercel.app" target="_blank">
+            <a href="https://piano-roll.vercel.app" target="_blank" className="proj-link">
               <img src="/Website/projects/piano.png" className="project-pic" loading="lazy"></img>
             </a>
             <p className="subtext"><strong><a href="https://piano-roll.vercel.app" target="_blank">Recordable Piano Instrument</a></strong></p>
@@ -26,7 +24,7 @@ const Projects = () => {
           </div>
 
           <div className="project-container">
-            <a href="https://car-dealership-woad.vercel.app" target="_blank">
+            <a href="https://car-dealership-woad.vercel.app" target="_blank" className="proj-link">
               <img src="/Website/projects/car-dealership.png" className="project-pic" loading="lazy"></img>
             </a>
             <p className="subtext"><strong><a href="https://car-dealership-woad.vercel.app" target="_blank">Car Dealership Website</a></strong></p>
@@ -35,7 +33,7 @@ const Projects = () => {
           </div>
 
           <div className="project-container">
-            <a href="https://blab-times.vercel.app/" target="_blank">
+            <a href="https://blab-times.vercel.app/" target="_blank" className="proj-link">
               <img src="/Website/projects/blab-times.png" className="project-pic" loading="lazy"></img>
             </a>
             <p className="subtext"><strong><a href="https://blab-times.vercel.app/" target="_blank">Blab Times Blog</a></strong></p>

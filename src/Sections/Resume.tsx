@@ -1,14 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
-import { usePdf } from 'react-pdf-js';
 
 const Resume = () => {
-  const canvasRef = useRef(null);
-
-  const [ pdfDocument, pdfPage ] = usePdf({
-    file: '/Website/Resume.pdf',
-    page: 1,
-    canvasEl: canvasRef,
-  });
+  const resumeUrl = "https://docs.google.com/document/d/1op-vHQPsjwo0lSocbo-WvGVJJ6acpt-A-xvTxt-7ZZA/edit?usp=sharing";
 
   return (
     <section id='resume'>
@@ -16,10 +9,8 @@ const Resume = () => {
         <h3 className='subtitle'>Resume</h3>
         <span className="instructions"> Click to enlarge.</span>
         <div id="resume-pdf">
-          <a href="/Website/Resume.pdf" target="_blank">
-            <canvas ref={canvasRef} id="responsive-canvas" />
-            {Boolean(pdfDocument && pdfDocument.numPages)}
-          </a>
+          <iframe src={resumeUrl} className="resume-iframe" />
+          <a href={resumeUrl} className="resume-link">Link to my resume.</a>
         </div>
       </div>
     </section>
